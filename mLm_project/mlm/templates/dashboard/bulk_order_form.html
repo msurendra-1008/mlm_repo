@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="" class="">Name of Firm</label>
+                                {{form.tender_firm}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Name of Product</label>
+                                {{form.product_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Product Quantity</label>
+                                {{form.product_count}}
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            
+                            <button type="submit" class="btn btn-primary btn-customlg">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock content %}

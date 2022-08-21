@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      background-color: #38ACEC;
+      color: black;
+    }
+    {% comment %} #04AA6D {% endcomment %}
+    #customers td {
+        text-align: center;
+    }
+    #view {
+      color:black;
+    }
+    #view:hover {
+      background-color:#38ACEC;
+    }
+    #edit:hover {
+      background-color:#38ACEC;
+    }
+    </style>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Firm List</h5>
+            <a href="{% url 'firm-registration'%}" class="btn btn-success">Create Firm</a>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>GST NO</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Address</th>
+                      <th>Firm Mode</th>
+                      <th>Register Status</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for firm in firms %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{firm.gst_no}}</td>
+                        <td>{{firm.firm_name}}</td>
+                        <td>{{firm.email}}</td>
+                        <td>{{firm.mobile}}</td>
+                        <td>{{firm.address_one}} {{firm.address_two}} {{firm.address_three}} {{firm.address_four}}</td>
+                        <td>{{firm.firm_mode}}</td>
+                        <td>
+                            {% if firm.status == "Registered" %}
+                            <i class="fa fa-check-square-o" aria-hidden="true" style="color: rgb(6, 153, 6);"> {{firm.status}}</i>
+                            {% else %}
+                            <i class="fa fa-times" aria-hidden="true" style="color: red;"> {{firm.status}}</i>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'firm-detail' firm.pk %}" class="btn btn-primary">View</a>
+                            <a href="{% url 'firm-update' firm.pk %}" class="btn btn-success mt-2">Edit</a>
+                            {% if not firm.status == "Registered"%}
+                            <form method="GET" action="{% url 'firm-status' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{firm.pk}}">
+                            <button type="submit" class="btn btn-warning mt-2" >
+                                 Register
+                            </button>
+                            </form>
+                           
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

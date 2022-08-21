@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            {% comment %} {% include 'upa/header_panel.html' %} {% endcomment %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        <h5 class="alert alert-success text-center">Income Setting</h5>
+                        <div class="form-group" style="margin-left: 30%;">
+                            
+                            <div class="col-md-6">
+                                <label for="" class="">Child 1</label>
+                                {{form.child_one}}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="">Child 2</label>
+                                {{form.child_two}}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="">Child 3</label>
+                                {{form.child_three}}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="">Income</label>
+                                {{form.income}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-primary btn-customlg">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

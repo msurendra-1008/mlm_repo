@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            {% include 'upa/header_panel.html' %}
+            <form action="" method="POST">
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        {% csrf_token %}
+                        <h5 class="text-center">Beneficiary Details</h5>
+                        <h3>Sponsor Introduction Details</h3>
+                        <div class="">
+                            I {{form.name}} having D.I.D {{form.did_no}} Confirm that I am an holder of
+                            account number {{form.account_no}} Of Bussiness bazaar for the past {{form.time_in_bussiness}}
+                            months/year(s) and persinally know the applicant(s) for more than {{form.time_with_applicant}}
+                            months/year(s) and confirm his/her/their identity and address as stated above.
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">Date/Time {{form.date}}</div>
+                            <div class="col-md-7"><input type="text" /> <br />Sinature of the Introducer</div>
+                        </div>
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mb-4">
+                    <a href="{% url 'beneficiary-details-form' profile.id %}" class="btn btn-warning">Previous</a>&nbsp;
+                    <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

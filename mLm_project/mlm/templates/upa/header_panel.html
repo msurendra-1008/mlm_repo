@@ -1,0 +1,59 @@
+<div class="wizard-inner">
+                <ul class="nav nav-tabs mt-3 " role="tablist">
+                    <li role="presentation" class="active">
+
+                        <a href="{% url 'basic-detail-form' profile.id%}" class="btn btn-outline-info"><span
+                                class="round-tab"></span> Basic Details</a>
+                    </li> &nbsp;
+                    <li role="presentation" class="disabled">
+                        <!-- <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" aria-expanded="false"><span class="round-tab">2</span> Step 2</a> -->
+                        <a href="{% url 'personal-form' profile.id %}" class="btn btn-outline-info"><span
+                                class="round-tab"></span> Personal Information</a>
+                    </li>&nbsp;
+
+                    <li role="presentation" class="disabled">
+                        <!-- <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> Step 4</a> -->
+                        <a href="{% url 'address-form' profile.id %}" class="btn btn-outline-info"><span class="round-tab">
+                            </span>Address Details</a>
+                    </li>&nbsp;
+
+                    <li role="presentation" class="disabled">
+                        <!-- <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> Step 4</a> -->
+                        <a href="{% url 'additional-form' profile.id %}" class="btn btn-outline-info"><span
+                                class="round-tab"></span>Additional Details</a>
+                    </li>&nbsp;
+                    <li role="presentation" class="disabled">
+                        <!-- <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> Step 4</a> -->
+                        <a href="{% url 'upa-identity-form' profile.id %}" class="btn btn-outline-info"><span
+                                class="round-tab"></span>UPA ID Proof Details</a>
+                    </li>&nbsp;
+                    <li role="presentation" class="disabled">
+                        <!-- <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> Step 4</a> -->
+                        <a href="{% url 'beneficiary-details-form' profile.id %}" class="btn btn-outline-info"><span
+                                class="round-tab"></span>Beneficiary Details</a>
+                    </li>&nbsp;
+                    
+                    <li role="presentation" class="disabled">
+                        <!-- <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> Step 4</a> -->
+                        <a href="{% url 'sponsor-details-form' profile.id %}" class="btn btn-outline-info"><span
+                                class="round-tab"></span>Sponsor Details</a>
+                    </li>&nbsp;
+                    <li role="presentation" class="disabled mt-2">
+                        <!-- <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> Step 4</a> -->
+                        <a href="{% url 'service-required-form' profile.id %}" class="btn btn-outline-info"><span
+                                class="round-tab"></span>Service Required</a>
+                    </li>&nbsp;
+                    <li role="presentation" class="{% if request.resolver_match.url_name == 'operation-mode-form'%}active{%endif%}">
+                        <!-- <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> Step 4</a> -->
+                        <a href="{% url 'operation-mode-form' profile.id %}" class="btn btn-outline-info"><span
+                                class="round-tab"></span>Operation Mode</a>
+                    </li>&nbsp;
+                    <li role="presentation" class="{% if request.resolver_match.url_name == 'operation-mode-form'%}active{%endif%}">
+                        <!-- <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span class="round-tab">4</span> Step 4</a> -->
+                        <a href="{% url 'verification-form' profile.id %}" class="btn btn-outline-info"><span
+                                class="round-tab"></span>Verification</a>
+                    </li>&nbsp;
+                </ul>
+            </div>
+
+            {% comment %} <li class="{% if request.resolver_match.url_name == 'about-us' %}active{%endif%}"><a href="{% url 'about-us'%}"> Vision and Mission</a></li> {% endcomment %}

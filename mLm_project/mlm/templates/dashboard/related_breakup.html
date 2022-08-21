@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Pre-Purchase Order Breakup</h5>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Company Name</th>
+                      <th>Product Name</th>
+                      <th>Balance Pre-Requisite Quantity</th>
+                      {% comment %} <th>Balance Pre-Requisite Quantity</th> {% endcomment %}
+                      <th>Pre-Requisite Quantity</th>
+                      <th>Order Month</th>
+                      <th>Order Status</th>
+                      <!-- <th>Tender Status</th> -->
+                      <th>Action</th>
+                    </tr>
+                    {% for breakup in order_breakups %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{breakup.company_name}}</td>
+                        <td>{{breakup.tender_product}}</td>
+                        <td>{{breakup.total_product_count}}</td>
+                        {% comment %} <td>{{breakup.tender_product.total_product_quantity}}</td> {% endcomment %}
+                        <td>{{breakup.product_count}}</td>
+                        <td>{{breakup.order_month}}</td>
+                        <td>{{breakup.order_status}}</td>
+                        <td>
+                        <!-- </form>
+                        <form method="GET" action="{% url 'send-order-to-vendor' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="pk" value="{{breakup.pk}}">
+                        <button type="submit" class="btn btn-danger mt-2" title="Send to Vendor" >
+                            Send
+                        </button>
+                        </form> -->
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

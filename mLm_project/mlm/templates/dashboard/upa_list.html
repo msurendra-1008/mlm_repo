@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      background-color: #38ACEC;
+      color: black;
+    }
+    {% comment %} #04AA6D {% endcomment %}
+    #customers td {
+        text-align: center;
+    }
+    #view {
+      color:black;
+    }
+    #view:hover {
+      background-color:#38ACEC;
+    }
+    #edit:hover {
+      background-color:#38ACEC;
+    }
+    </style>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">UPA LIST</h5>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>UPA ID</th>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Name</th>
+                      <th>Phone</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for upa in upas%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{upa.uid_no}}</td>
+                        <td>{{upa.user.username}}</td>
+                        <td>{{upa.user.email}}</td>
+                        <td>{{upa.user.first_name}}{{upa.user.last_name}}</td>
+                        <td>{{upa.phone}}</td>
+                        <td>
+                            <a href="{% url 'upa-detail' upa.pk %}" class="btn btn-outline" id="view" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            {% comment %} <a href="{% url 'basic-detail-form' upa.id %}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> {% endcomment %}
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </table>
+                  <a href="{% url 'gallery'%}">Gallery</a>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

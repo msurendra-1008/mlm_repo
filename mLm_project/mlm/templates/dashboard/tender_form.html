@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                    <h4 class="alert alert-success text-center mt-3" >Invitation/Applicaton For Filling E-Tender</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="" class="">Name of Product</label>
+                                {{form.tender_product}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Name of Company</label>
+                                {{form.company_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Company Address</label>
+                                {{form.company_address}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Contact Person</label>
+                                {{form.contact_person}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Product Quantity By Vendor</label>
+                                {{form.amount_range}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Fixed Price</label>
+                                {{form.fixed_amount}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Contact Person Mobile No.</label>
+                                {{form.contact_mobile}}
+                            </div>
+                            
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            
+                            <button type="submit" class="btn btn-primary btn-customlg">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock content %}

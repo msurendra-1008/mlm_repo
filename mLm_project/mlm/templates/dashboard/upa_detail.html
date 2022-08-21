@@ -1,0 +1,587 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+
+<div class="contaner-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+
+        <div class="row-inside" style="width: 83%;">
+            <div class="col mt-4">
+                <div class="card mb-4" style="width: 100%;background-color: rgba(250, 200, 134, 0.404);">
+                   
+                   <div class="row">
+                       <div class="col">
+                        <h6 style="margin-left: 50%;">UPA Personal Details</h6> 
+                        <table class="table">
+                         <tbody>
+                             <tr>
+                                <th>UPA ID:</th>
+                                <td>{{upa_details.uid_no}}</td>
+                             </tr>
+                             <tr>
+                                <th>Username:</th>
+                                <td>{{upa_details.user.username}}</td>
+                             </tr>
+                             <tr>
+                                <th>Email:</th>
+                                <td>{{upa_details.user.email}}</td>
+                             </tr>
+                             <tr>
+                                <th>Name:</th>
+                                <td>{{upa_details.user.first_name}}{{upa_details.user.last_name}}</td>
+                             </tr>
+                             <tr>
+                                <th>Phone:</th>
+                                <td>{{upa_details.phone}}</td>
+                             </tr>
+                         </tbody>
+                        </table>
+                       </div>
+                       <div class="col">
+                        <h6 style="margin-left: 50%;">UPA Branch</h6> 
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Left</th>
+                                    <td>{{upa_details.left_upa | title | default_if_none:""}} ({{left_uid_no.uid_no }}) </td>
+                                </tr>
+                                <tr>
+                                    <th>Middle</th>
+                                    <td>{{upa_details.middle_upa | title | default_if_none:""}} ({{middle_uid_no.uid_no }}) </td>
+                                </tr>
+                                <tr>
+                                    <th>Right</th>
+                                    <td>{{upa_details.right_upa | title | default_if_none:""}} ({{right_uid_no.uid_no }}) </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                       </div>
+                   </div> 
+                </div>
+               
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary">Basic Details</span>
+                    <table>
+                        <tr>
+                          <th>Sponsor UID</th>
+                          <th>Sponsor Name</th>
+                          <th>UPA Type</th>
+                          <th>Relation With UPA</th>
+                          <th>Post Applied</th>
+                          <th>Applicant UPA Type</th>
+                          <th>Applicant Apply Sequence Number</th>
+                          <th>Applicant Collection Reference Number</th>
+                          <th>Applicant Registration Sequence Number</th>
+                          <th>Applicant Full Name</th>
+                          <th>Date Of Submission</th>
+                        </tr>
+                        <tr>
+                          <td>{{basic.sponsor_uid}}</td>
+                          <td>{{basic.sponsor_name}}</td>
+                          <td>{{basic.upa_type}}</td>
+                          <td>{{basic.relation_upa}}</td>
+                          <td>{{basic.post_applied}}</td>
+                          <td>{{basic.applicant_upa_type}}</td>
+                          <td>{{basic.applicant_appl_seq_num}}</td>
+                          <td>{{basic.applicant_coll_ref_num}}</td>
+                          <td>{{basic.applicant_reg_seq_num}}</td>
+                          <td>{{basic.user.user.first_name}} {{basic.user.user.last_name}}</td>
+                          <td>{{basic.submission_date}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary">Personal Details</span>
+                    <table>
+                        <tr>
+                          <th>Name</th>
+                          <th>First Name</th>
+                          <th>Middle Name</th>
+                          <th>Last Name</th>
+                          <th>Other</th>
+                          <th>Father's Name</th>
+                          <th>Guardian Name</th>
+                          <th>Date Of Birth</th>
+                          <th>Updated Age DOB</th>
+                          <th>Gender</th>
+                          <th>Marital Status</th>
+                          <th>Nationality</th>
+                        </tr>
+                        <tr>
+                          <td>{{personal.name}}</td>
+                          <td>{{personal.first_name}}</td>
+                          <td>{{personal.middle_name}}</td>
+                          <td>{{personal.last_name}}</td>
+                          <td>{{personal.other}}</td>
+                          <td>{{personal.father_name}}</td>
+                          <td>{{personal.gaurdian_name_hg}}</td>
+                          <td>{{personal.dob}}</td>
+                          <td>{{personal.update_age_dob}}</td>
+                          <td>{{personal.gender}}</td>
+                          <td>{{personal.marital_status}}</td>
+                          <td>{{personal.nationality}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary">Present Address</span>
+                    <table>
+                        <tr>
+                          <th>Addres 1</th>
+                          <th>Address 2</th>
+                          <th>Address 3</th>
+                          <th>Address 4</th>
+                          <th>Landmark</th>
+                          <th>Town / City</th>
+                          <th>District</th>
+                          <th>Sub District</th>
+                          <th>Postal Code</th>
+                          <th>Country</th>
+                          <th>State</th>
+                          <th>Telephone</th>
+                          <th>Mobile</th>
+                          <th>Active Email</th>
+                          <th>STD Code</th>
+                          <th>ISD Code</th>
+                        </tr>
+                        <tr>
+                          <td>{{additional.address_line_one}}</td>
+                          <td>{{additional.address_line_two}}</td>
+                          <td>{{upa_add.address_line_three}}</td>
+                          <td>{{upa_add.address_line_four}}</td>
+                          <td>{{upa_add.landmark}}</td>
+                          <td>{{upa_add.town_city}}</td>
+                          <td>{{upa_add.district}}</td>
+                          <td>{{upa_add.sub_district}}</td>
+                          <td>{{upa_add.postal_zip_code}}</td>
+                          <td>{{upa_add.country}}</td>
+                          <td>{{upa_add.state}}</td>
+                          <td>{{upa_add.telephone}}</td>
+                          <td>{{upa_add.mobile}}</td>
+                          <td>{{upa_add.active_email}}</td>
+                          <td>{{upa_add.std_code}}</td>
+                          <td>{{upa_add.isd_code}}</td>
+                          
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary">Permanent Address</span>
+                    <table>
+                        <tr>
+                          <th>Addres 1</th>
+                          <th>Address 2</th>
+                          <th>Address 3</th>
+                          <th>Address 4</th>
+                          <th>Landmark</th>
+                          <th>Town / City</th>
+                          <th>District</th>
+                          <th>Sub District</th>
+                          <th>Postal Code</th>
+                          <th>Country</th>
+                          <th>State</th>
+                          <th>Telephone</th>
+                          <th>Mobile</th>
+                          <th>Active Email</th>
+                          <th>STD Code</th>
+                          <th>ISD Code</th>
+                        </tr>
+                        <tr>
+                          <td>{{upa_add.p_address_line_one}}</td>
+                          <td>{{upa_add.p_address_line_two}}</td>
+                          <td>{{upa_add.p_address_line_three}}</td>
+                          <td>{{upa_add.p_address_line_four}}</td>
+                          <td>{{upa_add.p_landmark}}</td>
+                          <td>{{upa_add.p_town_city}}</td>
+                          <td>{{upa_add.p_district}}</td>
+                          <td>{{upa_add.p_sub_district}}</td>
+                          <td>{{upa_add.p_postal_zip_code}}</td>
+                          <td>{{upa_add.p_country}}</td>
+                          <td>{{upa_add.p_state}}</td>
+                          <td>{{upa_add.p_telephone}}</td>
+                          <td>{{upa_add.p_mobile}}</td>
+                          <td>{{upa_add.p_active_email}}</td>
+                          <td>{{upa_add.p_std_code}}</td>
+                          <td>{{upa_add.p_isd_code}}</td>
+                          
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary ">Additional Details</span>
+                    <table>
+                        <tr>
+                          <th>Nick Name</th>
+                          <th>Personal Title</th>
+                          <th>Religion</th>
+                          <!-- <th>Religion Other</th> -->
+                          <th>Category</th>
+                          <th>Education /  Qualification</th>
+                          <th>Occupation</th>
+                          <th>Employer Name</th>
+                          <th>Designation</th>
+                          <th>Self Employeed</th>
+                          <th>Monthly Income</th>
+                          <th>Assets</th>
+                          <th>Source</th>
+                          <th>PAN No.</th>
+                          <th>Bussiness Nature</th>
+                          
+                        </tr>
+                        <tr>
+                          <td>{{additional.nickname}}</td>
+                          <td>{{additional.personal_title}}</td>
+                          <td>{{additional.religion}}</td>
+                          <!-- <td>{{additional.rel_other}}</td> -->
+                          <td>{{additional.category}}</td>
+                          <td>{{additional.education_qualification}}</td>
+                          <td>{{additional.occupation}}</td>
+                          <td>{{additional.employer_name}}</td>
+                          <td>{{additional.designation}}</td>
+                          <td>{{additional.self_employeed}}</td>
+                          <td>{{additional.monthly_income}}</td>
+                          <td>{{additional.assets}}</td>
+                          <td>{{additional.source}}</td>
+                          <td>{{additional.it_pan_no}}</td>
+                          <td>{{additional.bussiness_nature}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary ">UPA Identification</span>
+                    <table>
+                        <tr>
+                          <th>UPA Type</th>
+                          <th>BPL Ration Card No.</th>
+                          <th>Personal Income Type</th>
+                          <!-- <th>Religion Other</th> -->
+                          <th>Personal Income</th>
+                          <th>CMO Certification No.</th>
+                          <th>Identity Proof</th>
+                          <th>ID Proof No.</th>
+                          <th>ID Issued At</th>
+                          <th>ID Issued By</th>
+                          <th>Address Proof No</th>
+                          <th>Address Proof Issued At</th>
+                          <th>Address Proof Issued By</th>
+                          
+                          
+                        </tr>
+                        <tr>
+                          <td>{{upa_identity.upa_type}}</td>
+                          <td>{{upa_identity.bpl_ration_card_no}}</td>
+                          <td>{{upa_identity.personal_income}}</td>
+                          <!-- <td>{{upa_identity.rel_other}}</td> -->
+                          <td>{{upa_identity.cmo_certificate_no}}</td>
+                          <td>{{upa_identity.identity_proof}}</td>
+                          <td>{{upa_identity.address_proof}}</td>
+                          <td>{{upa_identity.id_proof_no}}</td>
+                          <td>{{upa_identity.id_issued_at}}</td>
+                          <td>{{upa_identity.id_issued_by}}</td>
+                          <td>{{upa_identity.add_proof_no}}</td>
+                          <td>{{upa_identity.add_issued_at}}</td>
+                          <td>{{upa_identity.add_issued_by}}</td>
+                          
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary ">Benificiary</span>
+                    <table>
+                        <tr>
+                          <th>Benificiary Name</th>
+                          <th>Benificicary ID No.</th>
+                          <th>Relation With UPA</th>
+                          <th>Other</th>
+                          <th>Name</th>
+                          <th>Father's Name</th>
+                          <th>Mother's Name</th>
+                          <th>DOB</th>
+                          <th>Update Age DOB</th>
+                          <th>Gender</th>
+                          <th>Marital Status</th>
+                          <th>Nationality</th>
+                          <th>Address 1</th>
+                          <th>Address 2</th>
+                          
+                          
+                        </tr>
+                        <tr>
+                          <td>{{beneficiary.beneficiary_name}}</td>
+                          <td>{{beneficiary.beneficiary_id_no}}</td>
+                          <td>{{beneficiary.relation_upa}}</td>
+                          <td>{{beneficiary.other}}</td>
+                          <td>{{beneficiary.ben_first_name}} {{beneficiary.ben_middle_name}} {{beneficiary.ben_last_name}}</td>
+                          <td>{{beneficiary.f_g_first_name}} {{beneficiary.f_g_middle_name}} {{beneficiary.f_g_last_name}}</td>
+                          <td>{{beneficiary.m_m_first_name}} {{beneficiary.m_m_middle_name}} {{beneficiary.m_m_last_name}}</td>
+                          <td>{{beneficiary.birth_date}}</td>
+                          <td>{{beneficiary.update_age_dob}}</td>
+                          <td>{{beneficiary.gender}}</td>
+                          <td>{{beneficiary.marital_status}}</td>
+                          <td>{{beneficiary.nationality}}</td>
+                          <td>{{beneficiary.address_line_one}}</td>
+                          <td>{{beneficiary.address_line_two}}</td>
+                          
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary ">Benificiary Other Details</span>
+                    <table>
+                        <tr>
+                          <th>Address</th>
+                          <th>Landmark</th>
+                          <th>Town</th>
+                          <th>District</th>
+                          <th>State</th>
+                          <th>Postal Code</th>
+                          <th>Country</th>
+                          <th>Telephone</th>
+                          <th>Mobile No.</th>
+                          <th>Email ID</th>
+                          <th>Identity Proof</th>
+                          <th>Address Proof</th>
+                          <th>Identity Proof Details</th>
+                          <th>Address Proof Details</th>
+                          
+                          
+                        </tr>
+                        <tr>
+                          <td>{{beneficiary.address_line_three}} {{beneficiary.address_line_four}}</td>
+                          <td>{{beneficiary.landmark}}</td>
+                          <td>{{beneficiary.town}}</td>
+                          <td>{{beneficiary.district}}</td>
+                          <td>{{beneficiary.state}}</td>
+                          <td>{{beneficiary.postal_code}}</td>
+                          <td>{{beneficiary.country}}</td>
+                          <td>{{beneficiary.telephone}}</td>
+                          <td>{{beneficiary.mobile}}</td>
+                          <td>{{beneficiary.email_id}}</td>
+                          <td>{{beneficiary.identity_proof}}</td>
+                          <td>{{beneficiary.address_proof}}</td>
+                          <td>{{beneficiary.id_proof_no}},{{beneficiary.id_issued_at}}, {{beneficiary.id_issued_by}}</td>
+                          <td>{{beneficiary.add_proof_no}},{{beneficiary.add_issued_at}}, {{beneficiary.add_issued_by}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary ">Sponsor Details</span>
+                    <table>
+                        <tr>
+                          <th>Name</th>
+                          <th>DID No./ UID No.</th>
+                          <th>Account No.</th>
+                          <th>Time in Bussiness</th>
+                          <th>Time With Applicant</th>
+                          <th>Date</th>
+                           
+                        </tr>
+                        <tr>
+                          <td>{{beneficiary.name}}</td>
+                          <td>{{beneficiary.did_no}}</td>
+                          <td>{{beneficiary.account_no}}</td>
+                          <td>{{beneficiary.time_in_bussiness}}</td>
+                          <td>{{beneficiary.time_with_applicant}}</td>
+                          <td>{{beneficiary.date}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary ">Service Required</span>
+                    <table>
+                        <tr>
+                          <th>Royal Green Card</th>
+                          <th>Royal Yellow Card</th>
+                          <th>Royal Red Card</th>
+                          <th>SMS Alert</th>
+                          <th>Home Delivery</th>
+                          <th>Product Display</th>
+                          <th>Book New Update</th>
+                          <th>General Card</th>
+                          <th>PVC Card</th>
+                          <th>Account Passbook</th>
+                          <th>E Account Statement</th>
+                          <th>Royal Green ATM</th>
+                          <th>Royal Yellow ATM</th>
+                          <th>Royal Red ATM</th>
+                          <th>Royal Blue ATM</th>
+                          
+                          
+                        </tr>
+                        <tr>
+                          <td>{{service.royal_green_card}}</td>
+                          <td>{{service.royal_yellow_card}}</td>
+                          <td>{{service.royal_red_card}}</td>
+                          <td>{{service.sms_alert}}</td>
+                          <td>{{service.home_delevery}}</td>
+                          <td>{{service.product_display}}</td>
+                          <td>{{service.book_new_update}}</td>
+                          <td>{{service.general_color_card}}</td>
+                          <td>{{service.pvc_color_card}}</td>
+                          <td>{{service.account_passbook}}</td>
+                          <td>{{service.e_account_statement}}</td>
+                          <td>{{service.royal_green_atm}}</td>
+                          <td>{{service.royal_yellow_atm}}</td>
+                          <td>{{service.royal_red_atm}}</td>
+                          <td>{{service.royal_blue_atm}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary ">Operation Mode</span>
+                    <table>
+                        <tr>
+                          <th>Total Amount</th>
+                          <th>Amount in Figure</th>
+                          <th>Transaction Mode</th>
+                          <th>UPA Account Operation Mode</th>
+                          <th>Joint Account</th>
+                          
+                        </tr>
+                        <tr>
+                          <td>{{operations.total_amount}}</td>
+                          <td>{{operations.amount_in_figure}}</td>
+                          <td>{{operations.transaction_mode}}</td>
+                          <td>{{operations.upa_account_operation_mode}}</td>     
+                          <td>{{operations.joint_account}}</td>     
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card mb-4">
+                    <span class="btn btn-primary ">First Joint Account Person Details</span>
+                    <table>
+                        <tr>
+                          <th>UID No.</th>
+                          <th>Name</th>
+                          <th>Relation With UPA</th>
+                          <th>Aadhar Card</th>
+                          <th>Account No.</th>
+                          <th>Mobile No.</th>
+                          <th>Email</th>
+                          <th>Address</th>
+                          <th>DOB</th>
+                          <th>Gender</th>
+                          <th>Marital Status</th>
+                          <th>Extra Details</th>  
+                          
+                        </tr>
+                        <tr>
+                          <td>{{operations.uid_no_f}}</td>
+                          <td>{{operations.name_f}}</td>
+                          <td>{{operations.relation_upa_f}}</td>
+                          <td>{{operations.aadhar_card_f}}</td>
+                          <td>{{operations.account_no_f}}</td>
+                          <td>{{operations.mobile_no_f}}</td>
+                          <td>{{operations.email_f}}</td>
+                          <td>{{operations.address_one_f}}{{operations.address_two_f}}</td>
+                          <td>{{operations.dob_f}}</td>
+                          <td>{{operations.gender_f}}</td>
+                          <td>{{operations.marital_status_f}}</td>
+                          <td>{{operations.extra_detail_f}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+<!-- <div class="col-md-3 col-sm-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Basic Details</h5>
+                    <table style="width:100%">
+                        <tr>
+                            <th>Sponsor UID:</th>
+                            <td>{{basic.sponsor_uid}}</td>
+                        </tr>
+                        <tr>
+                            <th>Sponsor Name:</th>
+                            <td>{{basic.sponsor_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>UPA Type:</th>
+                            <td>{{basic.upa_type}}</td>
+                        </tr>
+                        <tr>
+                            <th>Relation With UPA:</th>
+                            <td>{{basic.relation_upa}}</td>
+                        </tr>
+                        <tr>
+                            <th>Post Applied:</th>
+                            <td>{{basic.post_applied}}</td>
+                        </tr>
+                        <tr>
+                            <th>Applicant UPA Type:</th>
+                            <td>{{basic.applicant_upa_type}}</td>
+                        </tr>
+                        <tr>
+                            <th>Applicant Apply Sequence Number:</th>
+                            <td>{{basic.applicant_appl_seq_num}}</td>
+                        </tr>
+                        <tr>
+                            <th>Applicant Collection Reference Number:</th>
+                            <td>{{basic.applicant_coll_ref_num}}</td>
+                        </tr>
+                        <tr>
+                            <th>Applicant Registration Sequence Number:</th>
+                            <td>{{basic.applicant_reg_seq_num}}</td>
+                        </tr>
+                        <tr>
+                            <th>Applicant Full Name:</th>
+                            <td>{{basic.user.user.first_name}}{{basic.user.user.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Date Of Submission:</th>
+                            <td>{{basic.submission_date}}</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div> -->
+{% endblock content %}

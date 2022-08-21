@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                    <h4 class="alert alert-success text-center mt-3" >{{page_name}}</h4>
+                    <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="" class="">Store Location</label>
+                                {{form.location}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Store Name</label>
+                                {{form.store_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address 1</label>
+                                {{form.store_address_one}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address 2</label>
+                                {{form.store_address_two}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address 3</label>
+                                {{form.store_address_three}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Store Size (L x B)</label>
+                                {{form.store_size}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">No Of Racks</label>
+                                {{form.no_of_racks}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Section In Rack</label>
+                                {{form.avg_section_rack}}
+                            </div>
+                            
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            
+                            <button type="submit" class="btn btn-primary btn-customlg">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock content %}

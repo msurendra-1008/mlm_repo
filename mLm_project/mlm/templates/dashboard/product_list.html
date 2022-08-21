@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Product List</h5>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Product Image</th>
+                      <th>Product Name</th>
+                      <th>Category</th>
+                      <th>Firm</th>
+                      <th>Quantity</th>
+                      <th>Cost Price</th>
+                      <th>Selling Price</th>
+                      <th>Product Active</th>
+                      <th>Digital</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><img class="thumbnail" src="{{product.imageURL}}" alt="No Image"></td>
+                        <td>{{product.product_name}}</td>
+                        <td>{{product.category}}</td>
+                        <td>{{product.firm}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.cost_price}}</td>
+                        <td>{{product.selling_price}}</td>
+                        <td>{{product.product_active}}</td>
+                        <td>{{product.digital}}</td>
+                        <td>
+                        {% comment %} {% if firm.tender_status == "Pending"%}
+                            <form method="GET" action=""%}">
+                                {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{firm.pk}}">
+                            <button type="submit" class="btn btn-warning mt-2" >
+                                 Accept
+                            </button>
+                            </form>
+                            <form method="GET" action="">
+                                {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{firm.pk}}">
+                            <button type="submit" class="btn btn-danger mt-2" >
+                                 Reject
+                            </button>
+                            </form>
+                           
+                            {% endif %} {% endcomment %}
+                            <a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a href="{% url 'gallery-product-detail' product.pk %}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

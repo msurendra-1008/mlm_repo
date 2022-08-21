@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                    <h4 class="alert alert-success text-center mt-3" >{{page_name}}</h4>
+                    <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="" class="">Company Name</label>
+                                {{form.company_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Product Name</label>
+                                {{form.tender_product}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Product Total count</label>
+                                {{form.total_product_count}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Product count</label>
+                                {{form.product_count}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Expected Order Month</label>
+                                {{form.order_month}}
+                            </div>
+                            
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            
+                            <button type="submit" class="btn btn-primary btn-customlg">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock content %}

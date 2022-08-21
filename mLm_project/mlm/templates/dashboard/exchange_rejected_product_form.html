@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                    <h4 class="alert alert-success text-center mt-3" >Exchange Rejected Form</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="" class="">Tender Product</label>
+                                {{form.tender_product}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Name of Company</label>
+                                {{form.company_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Quantity By Firm</label>
+                                {{form.quantity_by_firm}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Product Price</label>
+                                {{form.product_price}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Product Exhange Quantity</label>
+                                {{form.exchange_quantity}}
+                            </div>
+                            
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            
+                            <button type="submit" class="btn btn-primary btn-customlg">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock content %}

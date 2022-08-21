@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="row-inside" style="width: 83%;">
+            <div class="col mt-4">
+                <div class="card mb-4">
+                    <span class="btn btn-primary">Basic Details</span>
+                    <table>
+                        <tr>
+                          <th></th>
+                          <th>Sponsor UID</th>
+                          <th>Sponsor Name</th>
+                          <th>UPA Type</th>
+                          <th>Relation With UPA</th>
+                          <th>Post Applied</th>
+                          <th>Applicant UPA Type</th>
+                          <th>Applicant Apply Sequence Number</th>
+                          <th>Applicant Collection Reference Number</th>
+                          <th>Applicant Registration Sequence Number</th>
+                          <th>Applicant Full Name</th>
+                          <th>Date Of Submission</th>
+                        </tr>
+                        <tr>
+                            <td colspan="12" class="text-center">{{basic_details_count}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

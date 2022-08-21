@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Updated All Firms Total Pre-Purchase Order List</h5>
+            <!-- Example single danger button -->
+            <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'total-supply-order' %}">Total Purchase Order</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+            </div>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Tender Product</th>
+                      <th>Company Name</th>
+                      <th>Pre-Requisite Quantity</th>
+                      {% comment %} <th>Tender Status</th> {% endcomment %}
+                      <th>Action</th>
+                    </tr>
+                    {% for bulk in bulks %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{bulk.tender_product}}</td>
+                        <td>{{bulk.company_name}}</td>
+                        <td>{{bulk.product_count}}</td>
+                        
+                        {% comment %} <td>
+                            {% if bulk.order_status == "Order Pending" %}
+                            <i class="fa fa-exclamation" aria-hidden="true" style="color: red"> {{bulk.order_status}}</i>
+                            {% elif bulk.order_status == "Order On The Way" %}
+                            <i class="fa fa-check-square-o" aria-hidden="true" style="color: green;"> {{bulk.order_status}}</i>
+                            {% else %}
+                            <i class="fa fa-times" aria-hidden="true" style="color: red;"> {{bulk.order_status}}</i>
+                            {% endif %}
+                        </td> {% endcomment %}
+                        <td>
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                        {% comment %} <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pre-Purchase Breakup
+                        </button> {% endcomment %}
+                        <ul class="dropdown-menu">
+                            {% comment %} <li><a class="dropdown-item" href="{% url 'pre-prequisite-breakup'%}?id={{bulk.id}}">Create Order</a></li> {% endcomment %}
+                            <li><hr class="dropdown-divider"></li>
+                            {% comment %} <li><a class="dropdown-item" href="{% url 'order-breakup'%}?id={{bulk.pk}}">Pre-Purchase Requisite For Selected Product</a></li> {% endcomment %}
+                        </ul>
+                        </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

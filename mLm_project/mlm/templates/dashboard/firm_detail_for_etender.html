@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Product Recieved List</h5>
+            <!-- <div class="row"> -->
+            <a href="{% url 'product-recieved'%}?id={{pk}}" class="btn btn-outline-success">Create New Product Recieved</a><br><br>
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <!-- <th>Product Image</th> -->
+                      <th>Tender Product</th>
+                      <th>Company Name</th>
+                      <th>Quantity By Firm</th>
+                      <th>Price</th>
+                      <th>Recieved Date</th>
+                      <th>Status</th>
+                      <!-- <th>Product Active</th> -->
+                      <!-- <th>Digital</th> -->
+                      <th>Action</th>
+                    </tr>
+                    {% for product in tender_firms %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <!-- <td><img class="thumbnail" src="{{product.imageURL}}" alt="No Image"></td> -->
+                        <td>{{product.tender_product}}</td>
+                        <td>{{product.company_name}}-{{product.pk}}</td>
+                        <td>{{product.quantity_by_firm}}</td>
+                        <td>{{product.product_price}}</td>
+                        <td>{{product.recieved_date}}</td>
+                        <td>{{product.tender_status}}</td>
+                        {% comment %} <td>{{product.selling_price}}</td> {% endcomment %}
+                        {% comment %} <td>{{product.product_active}}</td> {% endcomment %}
+                        <td>
+                            {% if product.tender_status == "Accepted"%}
+                       <a href="{% url 'product-recieved-details' product.pk %}" class="btn btn-outline-success">Details</a>
+                       {% elif product.tender_status == "Rejected"%}
+                       <a href="{% url 'product-recieved-details' product.pk %}" class="btn btn-outline-success">Details</a>
+                       {% elif product.tender_status == "Pending" %}  
+                       <a href="{% url 'product-recieved-accept' product.pk%}?id={{pk}}" class="btn btn-outline-success">Accept</a>  
+                       <a href="{% url 'product-recieved-reject' product.pk%}?id={{pk}}" class="btn btn-outline-success">Reject</a>  
+                       {% endif %}
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

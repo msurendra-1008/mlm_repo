@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            {% include 'upa/header_panel.html' %}
+            <form action="" method="POST">
+				<div class="card my-4">
+				<div class="card-body main-row">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="" class="">Sponsor UID</label>
+                            <!-- <input type="text" class="form-control"> -->
+                            {{form.sponsor_uid}}
+                            {{ form.errors }}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Sponsor Name</label>
+                            {{form.sponsor_name}}
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="" class="">Branch</label>
+                            {{form.branch}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">UPA Type</label>
+                            {{form.upa_type}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Relation with UPA</label>
+                            {{form.relation_upa}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Post Applied For</label>
+                            {{form.post_applied}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Applicant UPA Type</label>
+                            {{form.applicant_upa_type}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Applicant Collect Sequence Number</label>
+                            {{form.applicant_appl_seq_num}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Applicant Collect Refrence Number</label>
+                            {{form.applicant_coll_ref_num}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Applicant Collect Registration Number</label>
+                            {{form.applicant_reg_seq_num}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Applicant Distributor ID (DID) Number</label>
+                            {{form.applicant_dis_id_number}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Applicant Full Name</label>
+                            {{form.full_name}}
+                        </div>
+
+                         </div>
+                         <div class="d-flex justify-content-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+<script>
+    function makeReadOnly(){
+        var uid = document.getElementById('id_sponsor_uid').value;
+        console.log(uid)
+        if (uid != ""){
+            var uid = document.getElementById('id_sponsor_uid').readOnly = true;
+        }
+    }
+    makeReadOnly();
+</script>
+{% endblock content %}

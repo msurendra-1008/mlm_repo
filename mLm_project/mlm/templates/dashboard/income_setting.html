@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      background-color: #38ACEC;
+      color: black;
+    }
+    {% comment %} #04AA6D {% endcomment %}
+    #customers td {
+        text-align: center;
+    }
+    #view {
+      color:black;
+    }
+    #view:hover {
+      background-color:#38ACEC;
+    }
+    #edit:hover {
+      background-color:#38ACEC;
+    }
+    
+    </style>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Income Setting</h5>
+            <a href="{% url 'create-income-setting'%}" class="btn btn-primary">Create Income Setting</a>
+            <a href="{% url 'income-setting-for-women-old'%}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            <!-- <div class="row"> -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th scope="col">Child 1</th>
+                            <th scope="col">Child 2</th>
+                            <th scope="col">Child 3</th>
+                            <th scope="col">Income</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in incomes %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.child_one}}</td>
+                            <td>{{i.child_two}}</td>
+                            <td>{{i.child_three}}</td>
+                            <td>{{i.income}}</td>
+                            <td>
+                                <a href="{% url 'update-income-setting' i.pk %}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
+
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <hr>
+                <table class="table">
+                  <thead>
+                      <tr>
+                          <th>S.No.</th>
+                          <th scope="col">Child 1</th>
+                          <th scope="col">Child 2</th>
+                          <th scope="col">Child 3</th>
+                          <th scope="col">Income</th>
+                          <th scope="col">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for i in income_for_others %}
+                      <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{i.child_one}}</td>
+                          <td>{{i.child_two}}</td>
+                          <td>{{i.child_three}}</td>
+                          <td>{{i.income}}</td>
+                          <td>
+                              <a href="{% url 'update-income-setting-for-women-old' i.pk%}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
+
+                          </td>
+                      </tr>
+                      {% endfor %}
+                      
+                  </tbody>
+              </table>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

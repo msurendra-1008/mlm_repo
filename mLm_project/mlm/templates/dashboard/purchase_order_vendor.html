@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Total Purchase Order For Vendor</h5>
+            <!-- Example single danger button -->
+            
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Company Name</th>
+                      <th>Product Name</th>
+                      <th>Order Completion Date</th>
+                      {% comment %} <th>Total Product Count</th> {% endcomment %}
+                      <th>Product Count</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for order in total_supplies %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{order.company_name}}</td>
+                        <td>{{order.tender_product}}</td>
+                        <td>{{order.order_month}}</td>
+                        {% comment %} <td>{{order.total_product_count}}</td> {% endcomment %}
+                        <td>{{order.product_count}}</td>
+                        
+                        <td>
+                        <a href="" class="btn btn-success">Print</a>
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

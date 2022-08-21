@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Requested For Approval From Admin</h5>
+            <a href="{% url 'create-tender' %}" class="btn btn-outline-primary mt-2">Create Tender</a>
+            <hr>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Product Image</th>
+                      <th>Tender Product No.</th>
+                      <th>Product Name</th>
+                      <th>Tender Date</th>
+                      <th>Active</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for tender in tenders %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><img class="thumbnail" src="{{tender.tenderImageURL}}" alt="No Image"></td>
+                        <td>{{tender.tender_product_no}}</td>
+                        <td>{{tender.product_name}}</td>
+                        <td>{{tender.tender_date}}</td>
+                        <td>{{tender.active}}</td>
+                        <td>
+                            <a href="{% url 'update-created-tender' tender.pk %}" class="btn btn-outline-danger" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a href="{% url 'approve-of-created-tender-by-admin' %}?id={{tender.pk}}" class="btn btn-outline-success" title="Ready To Open">Approve</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+

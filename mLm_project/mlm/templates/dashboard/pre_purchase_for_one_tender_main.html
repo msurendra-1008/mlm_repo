@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Purchase Requisition Of E-Tender-{{pk}}
+                <p>Updated</p>
+            </h5>
+            
+            <!-- <div class="row"> -->
+            <!-- Example single danger button -->
+            <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'purchase-requisition-etender' pk %}">Purchase Requisition</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="{% url 'accepted-tender-firm' %}" class="dropdown-item">Total Purchase Requisition</a></li>
+            </ul>
+            </div>   
+                <table id="customers">
+                    <tr>
+                      
+                      <th>Tender No.</th>
+                      <th>Product Image</th>
+                      <th>Product Name</th>
+                      <th>Tender Date</th>
+                      <th>Raised Quantity</th>
+                      <th>Total Quantity Provided By Vendor</th>
+                      <th>Action</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>{{tender.tender_product_no}}-{{pk}}</td>
+                        <td><img class="thumbnail" src="{{tender.tenderImageURL}}" alt="No Image"></td>
+                        <td>{{tender.product_name}}</td>
+                        <td>{{tender.tender_date}}</td>
+                        <td>{{tender.tender_product_quantity}}</td>
+                        <td>{{tender.total_product_quantity_by_vendor}}</td>
+                        <td>
+                           <a class="btn btn-outline-primary" href="{% url 'purchase-requisition-etender' pk %}"> Go For Purchase Requisition</a> 
+                        </td>
+                    </tr>
+                  
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+<!-- <form method="GET" action="{% url 'tender_accept'%}">
+    {% csrf_token %}
+    <input type="hidden" name="pk" value="{{firm.pk}}" id="{{pk}}">
+<button type="submit" class="btn btn-warning mt-2" >
+     Accept
+</button>
+</form> -->
+
+<!-- <form method="GET" action="{% url 'ntender_reject'%}">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{firm.pk}}">
+<button type="submit" class="btn btn-danger mt-2" >
+     Reject
+</button>
+</form> -->
+<!-- <form method="GET" action="{% url 'tender_reject'%}">
+    {% csrf_token %}
+    <input type="hidden" name="pk" value="{{firm.pk}}">
+<button type="submit" class="btn btn-danger mt-2" >
+     Reject
+</button>
+</form> -->
+<!-- <form method="GET" action="{% url 'tender_accept'%}">
+    {% csrf_token %}
+    <input type="hidden" name="pk" value="{{firm.pk}}">
+<button type="submit" class="btn btn-warning mt-2" >
+     Accept
+</button>
+</form> -->

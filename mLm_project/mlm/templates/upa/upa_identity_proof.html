@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- <style>
+    #showMe{
+        display: None;
+    }
+</style> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            {% include 'upa/header_panel.html' %}
+            <form action="" method="POST">
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        {% csrf_token %}
+                        <h5 class="text-center">UPA Type & Proof of Identity Details</h5>
+                        <div class="row">
+                            <div class="col-md-4" onchange="getSelectValue();">
+                                <label for="" class="">UPA Type</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.upa_type}}
+                            </div>
+                        </div>
+                        <!-- <div class="row bpl_Form" id="showMe"> -->
+                            <div class="row" id="bplShow">
+                                <div class="col-md-4">
+                                    <label for="" class="">BPL Ration Card No.</label>
+                                    {{form.bpl_ration_card_no}}
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="" class="">Personal Income Type Monthly/Yearly</label>
+                                    {{form.personal_income_type}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Personal Income</label>
+                                    {{form.personal_income}}
+                                </div>
+                            </div>
+                            <div class="row" id="ShowYou">
+                                <div class="col-md-4">
+                                    <label for="" class="">CMO Certificate No.</label>
+                                    {{form.cmo_certificate_no}}
+                                </div>
+                                {% comment %} <div class="col-md-4">
+                                    <label for="" class="">Education Qualification</label>
+                                    {{form.educational_qualification}}
+                                </div> {% endcomment %}
+                            </div>
+                        <!-- </div> -->
+                        
+                        <div class="row mt-5">
+                            <div class="col-6" onchange="getIdentityProof();">
+                                <h5>Proof Of Identity</h5>
+                                <div class="col md-4">
+                                    <label for="" class="">Select for Identity</label>
+                                    {{form.identity_proof}}
+                                </div>
+                                
+                            </div>
+                            <div class="col-6" onchange="getAddressProof();">
+                                <h5 class="text-center">Proof Of Address</h5>
+                                <div class="col md-4">
+                                    <label for="" class="">Select for Address</label>
+                                    <!-- <input type="text" class="form-control"> -->
+                                    {{form.address_proof}}
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-6" id="identityProofSection">
+                                <h5>Proof Of Identity Details</h5>
+                                <div class="col-md-8">
+                                    <label for="" class="">Identity Proof No.</label>
+                                    {{form.id_proof_no}}
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="" class="">Issued At</label>
+                                    {{form.id_issued_at}}
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="" class="">Issued By</label>
+                                    {{form.id_issued_by}}
+                                </div>
+                            </div>
+                            <div class="col-6" id="addressProofSection">
+                                <h5>Proof Of Address Details</h5>
+                                <div class="col-md-8">
+                                    <label for="" class="">Identity Proof No.</label>
+                                    {{form.add_proof_no}}
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="" class="">Issued At</label>
+                                    {{form.add_issued_at}}
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="" class="">Issued By</label>
+                                    {{form.add_issued_by}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <a href="{% url 'additional-form' profile.id %}" class="btn btn-warning">Previous</a>&nbsp;
+                            <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                        </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+//     var upaType = document.getElementById('id_upa_type');
+//     function show(){
+//     var as = document.forms[0].id_upa_type.value;
+//     // var strUser = upaType.options[upaType.selectedIndex].value;
+//     console.log(as);
+//     if (as == "Normal"){
+//         $( "#showMe" ).toggle();    
+//     }
+
+// }
+// upaType.onchange=show;
+// show();
+</script>
+<script>
+    // var element = document.querySelector("div.bpl_Form");
+    var element = document.getElementById("showMe");
+    var element_one = document.getElementById('ShowYou');
+    var element_two = document.getElementById('bplShow');
+    function getSelectValue() {
+        var selectedValue = document.getElementById("id_upa_type").value;
+        // alert(selectedValue);
+        if (selectedValue == "Normal") {
+            element_one.style.display = 'none';
+            element_two.style.display = 'none';
+        }else{
+            if (selectedValue == "Handicap"){
+                console.log(selectedValue)
+                element_one.style.display = 'block';
+                element_two.style.display = 'none';
+            }else if (selectedValue == "BPL"){
+                element_two.style.display = 'block';
+                element_one.style.display = 'none';
+            }
+        }
+        
+    }
+    getSelectValue();
+
+</script>
+<script>
+    var identityProof = document.getElementById('identityProofSection');
+    identityProof.style.display = 'none';
+    function getIdentityProof(){
+        var identityValue = document.getElementById('id_identity_proof').value;
+        console.log(identityValue);
+        if (identityValue == ""){
+            identityProof.style.display = 'none';
+        }else{
+            identityProof.style.display = 'block';
+        }
+    }
+
+    var addressProof = document.getElementById('addressProofSection');
+    addressProof.style.display = 'none';
+    function getAddressProof(){
+        var addressValue = document.getElementById('id_address_proof').value;
+        console.log(addressValue)
+        if (addressValue == ''){
+            addressProof.style.display = 'none';
+        }else{
+            addressProof.style.display = 'block';
+        }
+    }
+</script>
+{% endblock content %}

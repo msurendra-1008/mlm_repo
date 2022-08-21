@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Updated E-Tender List</h5>
+            <a href="{% url 'create-tender' %}" class="btn btn-outline-primary mt-2">Create Tender</a>
+            <a href="{% url 'tender_compare_negotiate_list' %}" class="btn btn-outline-danger mt-2">Compare & Negotiate List</a>
+            <a href="{% url 'tender_fill_list' %}" class="btn btn-outline-danger mt-2">Go To Tender</a>
+            <hr>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Product Image</th>
+                      <th>Tender No.</th>
+                      <th>Product Name</th>
+                      <th>Tender Date</th>
+                      <th>Active</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for tender in tenders %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><img class="thumbnail" src="{{tender.tenderImageURL}}" alt="No Image"></td>
+                        <td>{{tender.tender_product_no}}</td>
+                        <td>{{tender.product_name}}</td>
+                        <td>{{tender.tender_date}}</td>
+                        <td>{{tender.active}}</td>
+                        <td>
+                        
+                            <a href="{% url 'tender_fillup'%}?id={{tender.pk}}" class="btn btn-outline-success" title="Fill Tender Form"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a href="{% url 'update-created-tender' tender.pk %}" class="btn btn-outline-danger" title="Update"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a href="{% url 'compare-list-particular-tender' tender.pk %}" class="btn btn-outline-success" title="Compare">Compare</a>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+    {% comment %} <img class="thumbnail" src="{{product.tenderImageURL}}" alt="No Image">
+    <div class="box-element product">
+      <h6><strong>{{product.product_detail}}</strong></h6>
+      <h6>{{product.tender_date}}</h6>
+      <hr>
+      <a href="{% url 'tender_fillup'%}?id={{product.pk}}" class="btn btn-outline-secondary iconbtn">Fill Tender</a>
+      
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+</div>
+</div>
+  </div> {% endcomment %}

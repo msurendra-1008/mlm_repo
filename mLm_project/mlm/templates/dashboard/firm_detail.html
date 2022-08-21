@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      background-color: #38ACEC;
+      color: black;
+    }
+    {% comment %} #04AA6D {% endcomment %}
+    #customers td {
+        text-align: center;
+    }
+    #view {
+      color:black;
+    }
+    #view:hover {
+      background-color:#38ACEC;
+    }
+    #edit:hover {
+      background-color:#38ACEC;
+    }
+    </style>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <table id="customers">
+                <tr>
+                  <th>Firm Name</th>
+                  <td>{{firm_details.firm_name}}</td>
+                  </tr>
+                  <tr>
+                      <th>Firm Image</th>
+                      <td>
+                            <img src="{{firm_details.firm_image.url}}" alt="No Image">
+                      </td>
+                  </tr>
+                  
+                <tr>
+                    <th>GSTIN No.</th>
+                    <td>{{firm_details.gst_no}}</td>
+                </tr>
+                <tr>
+                    <th>Active Status</th>
+                    <td>{{firm_details.active_firm}}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{firm_details.status}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{firm_details.address_one}},{{firm_details.address_two}},{{firm_details.address_three}},{{firm_details.address_four}}</td>
+                </tr>
+                <tr>
+                    <th>Landmark</th>
+                    <td>{{firm_details.landmark}}</td>
+                </tr>
+                <tr>
+                    <th>City / Town</th>
+                    <td>{{firm_details.town_city}}</td>
+                </tr>
+                <tr>
+                    <th>Sub-District</th>
+                    <td>{{firm_details.sub_district}}</td>
+                </tr>
+                <tr>
+                    <th>District</th>
+                    <td>{{firm_details.district}}</td>
+                </tr>
+                <tr>
+                    <th>Postal Code</th>
+                    <td>{{firm_details.postal_code}}</td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>{{firm_details.state}}</td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>{{firm_details.country}}</td>
+                </tr>
+                <tr>
+                    <th>Telephone</th>
+                    <td>{{firm_details.telephone}}</td>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <td>{{firm_details.mobile}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{firm_details.email}}</td>
+                </tr><tr>
+                    <th>Website</th>
+                    <td>{{firm_details.website}}</td>
+                </tr>
+                <tr>
+                    <th>Firm Mode</th>
+                    <td>{{firm_details.firm_mode}}</td>
+                </tr>
+                <tr>
+                    <th>Product Description</th>
+                    <td>{{firm_details.product_description}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

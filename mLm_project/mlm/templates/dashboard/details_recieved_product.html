@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Product Recieved Details</h5>
+            <!-- <div class="row"> -->
+           <a href="" class="btn btn-outline-success">Print</a> <br><br>
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <!-- <th>Product Image</th> -->
+                      <th>Tender Product</th>
+                      <th>Company Name</th>
+                      <th>Quantity By Firm</th>
+                      <th>Price</th>
+                      <th>Recieved Date</th>
+                      <!-- <th>Selling Price</th> -->
+                      <!-- <th>Product Active</th> -->
+                      <!-- <th>Digital</th> -->
+                      <th>Action</th>
+                    </tr>
+                    {% for product in tender_firms %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <!-- <td><img class="thumbnail" src="{{product.imageURL}}" alt="No Image"></td> -->
+                        <td>{{product.tender_product}}</td>
+                        <td>{{product.company_name}}-{{product.pk}}</td>
+                        <td>{{product.quantity_by_firm}}</td>
+                        <td>{{product.product_price}}</td>
+                        <td>{{product.recieved_date}}</td>
+                        {% comment %} <td>{{product.cost_price}}</td> {% endcomment %}
+                        {% comment %} <td>{{product.selling_price}}</td> {% endcomment %}
+                        {% comment %} <td>{{product.product_active}}</td> {% endcomment %}
+                        <td>
+                       <a href="" class="btn btn-outline-success">Print</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

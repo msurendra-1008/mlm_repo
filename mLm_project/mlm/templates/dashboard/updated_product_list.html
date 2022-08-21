@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Updated Products List</h5>
+           
+            <hr>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Store Location</th>
+                      <th>Product Name</th>
+                      <th>Box Name</th>
+                      <th>Product Quantity</th>
+                      <th>Row No.</th>
+                      <th>Rack Section</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{product.store.location}}</td>
+                        <td>{{product.product_name}}</td>
+                        <td>{{product.box_name}}</td>
+                        <td>{{product.product_quantity_in_box}}</td>
+                        <td>{{product.rack_row}}</td>
+                        <td>{{product.section_number_on_rack}}</td>
+                        <td>{{product.product_status}}</td>
+                        <td>
+                        
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+    

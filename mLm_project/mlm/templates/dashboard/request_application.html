@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <form action="" method="POST">
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        {% csrf_token %}
+                        <h5 class="alert alert-success text-center">Change Detail Application Form</h5>
+                        <div class="col" style="margin-left:30%">
+                            <div class="col-md-4" style="width: 50%;">
+                                <label for="" class="">UPA ID</label>
+                                {{form.upa_id}}
+                                <!-- {{form.errors}} -->
+                            </div>
+                            <div class="col-md-4" style="width: 50%;">
+                                <label for="" class="">Subject</label>
+                                {{form.subject}}
+                            </div>
+                            <div class="col-md-4" style="width: 50%;">
+                                <label for="" class="">Message</label>
+                                {{form.message}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mb-2">
+                        <button type="submit" class="btn btn-primary btn-customlg">Send</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function upaHoldValue(){
+        var upa = document.getElementById('id_upa_id').value;
+        if (upa != ""){
+            var upa = document.getElementById('id_upa_id').readOnly = true;
+        }
+
+    }
+    upaHoldValue();
+</script>
+
+{% endblock content %}

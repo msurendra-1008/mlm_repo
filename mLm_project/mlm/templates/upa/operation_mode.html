@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            {% include 'upa/header_panel.html' %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        <!-- <h5 class="text-center">Service Required</h5> -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="" class="">Total Amount</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.total_amount}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Total Amount (in words)</label>
+                                {{form.amount_in_figure}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Mode of Transaction</label>
+                                {{form.transaction_mode}}
+                            </div>
+                            <div class="col-md-4" onchange="getSelectValueJoint();">
+                                <label for="" class="">Mode of Operation UPA Account</label>
+                                {{form.upa_account_operation_mode}}
+                            </div>
+                            <div class="col-md-4" id="jointAccount" onchange="getSelectValueJointAccount();">
+                                <label for="" class="">No. of People in Joint Account</label>
+                                {{form.joint_account}}
+                            </div>
+                        </div>
+                        <!-- <div class="row" id=joinAccountForm> -->
+                            <h5 class="text-center mt-5">Joint Account User Details</h5>
+                            <div class="row" id="firstUser">
+                                <h5 class="mt-5">For First User</h5>
+                                <div class="col-md-4">
+                                    <label for="" class="">UID No.</label>
+                                    {{form.uid_no_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Name</label>
+                                    {{form.name_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Relation With UPA</label>
+                                    {{form.relation_upa_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">AAdhar Card No.</label>
+                                    {{form.aadhar_card_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Account No.</label>
+                                    {{form.account_no_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Mobile No.</label>
+                                    {{form.mobile_no_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Email</label>
+                                    {{form.email_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Address Line 1</label>
+                                    {{form.address_one_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Address Line 2</label>
+                                    {{form.address_two_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Date Of Birth</label>
+                                    {{form.dob_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Gender</label>
+                                    {{form.gender_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Marital Status</label>
+                                    {{form.marital_status_f}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Extra Details</label>
+                                    {{form.extra_detail_f}}
+                                </div>
+                            </div>
+                            <div class="row" id="secondUser">
+                                <h5 class="mt-5">For Second User</h5>
+                                <div class="col-md-4">
+                                    <label for="" class="">UID No.</label>
+                                    {{form.uid_no_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Name</label>
+                                    {{form.name_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Relation With UPA</label>
+                                    {{form.relation_upa_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">AAdhar Card No.</label>
+                                    {{form.aadhar_card_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Account No.</label>
+                                    {{form.account_no_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Mobile No.</label>
+                                    {{form.mobile_no_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Email</label>
+                                    {{form.email_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Address Line 1</label>
+                                    {{form.address_one_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Address Line 2</label>
+                                    {{form.address_two_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Date Of Birth</label>
+                                    {{form.dob_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Gender</label>
+                                    {{form.gender_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Marital Status</label>
+                                    {{form.marital_status_s}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Extra Details</label>
+                                    {{form.extra_detail_s}}
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                        
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <a href="{% url 'service-required-form' profile.id %}" class="btn btn-warning">Previous</a>&nbsp;
+                    <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    var element = document.getElementById("jointAccount");
+    function getSelectValueJoint() {
+        var selectedValue = document.getElementById("id_upa_account_operation_mode").value;
+        // alert(selectedValue)
+        console.log(selectedValue)
+        if (selectedValue == "SELF") {
+            element.style.display = 'none';
+        } else if (selectedValue == "JOINTLY") {
+            element.style.display = 'block';
+        }else{
+            element.style.display = 'none';
+        }
+
+    }
+    getSelectValueJoint();
+</script>
+<script>
+    // var jointAccountSection = document.getElementById('joinAccountForm')
+    var jointFirst = document.getElementById('firstUser')
+    var jointSecond = document.getElementById('secondUser')
+    function getSelectValueJointAccount() {
+        var selectedValueJoint = document.getElementById("id_joint_account").value;
+        
+        // if (selectedValueJoint == 1){
+        //     console.log(selectedValueJoint)
+        //     jointFirst.style.display = 'block';
+        // }else if (selectedValueJoint == 2){
+        //     console.log(selectedValueJoint)
+        //     jointFirst.style.display = 'block';
+        //     jointSecond.style.display = 'block';
+        // }else{
+        //     console.log(selectedValueJoint)
+        //     jointFirst.style.display = 'none';
+        //     jointSecond.style.display = 'none';
+        // }
+
+        if (selectedValueJoint == "") {
+            // jointAccountSection.style.display = 'none';
+            jointFirst.style.display = 'none';
+            jointSecond.style.display = 'none';
+        }else{
+            if (selectedValueJoint == 1){
+                jointFirst.style.display = 'block';
+                jointSecond.style.display = 'none';
+            }else if(selectedValueJoint == 2){
+                jointFirst.style.display = 'block';
+                jointSecond.style.display = 'block';
+            }
+        } 
+        // else {
+        //         if (selectedValueJoint == 1) {
+        //             console.log(selectedValueJoint);
+        //             jointFirst.style.display = 'block';
+        //         }
+        //         else if (selectedValueJoint == 2) {
+        //             console.log(selectedValueJoint);
+        //             // jointAccountSection.style.display = 'block';
+        //             jointFirst.style.display = 'block';
+        //             jointSecond.style.display = 'block';
+        //         }
+        //     // jointAccountSection.style.display = 'block';
+        // }
+        
+    }
+    getSelectValueJointAccount();
+</script>
+{% endblock %}

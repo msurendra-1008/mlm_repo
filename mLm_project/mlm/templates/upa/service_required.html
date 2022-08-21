@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            {% include 'upa/header_panel.html' %}
+            <form action="" method="POST">
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        {% csrf_token %}
+                        <h5 class="text-center">Service Required</h5>
+                        <div class="row mt-5">
+                            <h5>ID Card (Bussiness Card)</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Card Type</th>
+                                        <th scope="col">Charges Applicable for Bussiness Card</th>
+                                        <th scope="col">Required</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% if upa_type.upa_type == "Normal" %}
+                                    <tr>
+                                        <td>Royal Green Bussiness ID Card</td>
+                                        <td>{{form.green_card_charge}}</td>
+                                        <td>{{form.royal_green_card}}</td>
+                                    </tr>
+                                {% elif upa_type.upa_type == "Handicap" %}
+                                    <tr>
+                                        <td>Royal Yellow Bussiness ID Card</td>
+                                        <td>{{form.yellow_card_charge}}</td>
+                                        <td>{{form.royal_yellow_card}}</td>
+                                    </tr>
+                                {% elif upa_type.upa_type == "BPL" %}
+                                    <tr>
+                                        <td>Royal Red Bussiness ID Card</td>
+                                        <td>{{form.red_card_charge}}</td>
+                                        <td>{{form.royal_red_card}}</td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ################################ -->
+                        <div class="row mt-5">
+                            <h5>Pay Card</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Card Type</th>
+                                        <th scope="col">Charges Applicable for Pay Card</th>
+                                        <th scope="col">Required</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% if upa_type.upa_type == "Normal" %}
+                                    <tr>
+                                        <td>Royal Green PayCard</td>
+                                        <td>{{form.green_atm_card_charge}}</td>
+                                        <td>{{form.royal_green_atm}}</td>
+                                    </tr>
+                                {% elif upa_type.upa_type == "Handicap" %}
+                                    <tr>
+                                        <td>Royal Yellow Pay Card</td>
+                                        <td>{{form.yellow_atm_card_charge}}</td>
+                                        <td>{{form.royal_yellow_atm}}</td>
+                                    </tr>
+                                {% elif upa_type.upa_type == "BPL" %}
+                                    <tr>
+                                        <td>Royal Red Pay Card</td>
+                                        <td>{{form.red_atm_card_charge}}</td>
+                                        <td>{{form.royal_red_atm}}</td>
+                                    </tr>
+                                {% endif %}
+                                    <tr>
+                                        <td>Royal Rainbow Pay Card</td>
+                                        <td>{{form.blue_atm_card_charge}}</td>
+                                        <td>{{form.royal_blue_atm}}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- ####################################### -->
+                        <div class="row mt-5">
+                            <h5>Account Passbook / E-Account Statement</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Presentation For Account Detail</th>
+                                        <th scope="col">Charges Applicable</th>
+                                        <th scope="col">Required</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Account Passbook</td>
+                                        <td>{{form.account_passbook_charge}}</td>
+                                        <td>{{form.accouont_passbook}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-Account Statement</td>
+                                        <td>{{form.e_account_statement_charge}}</td>
+                                        <td>{{form.e_account_statement}}</td>
+                                    </tr>
+                                    
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row mt-5">
+                            <h5>UPA Visiting Card</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Card Type</th>
+                                        <th scope="col">Charges Applicable for Visiting Card</th>
+                                        <th scope="col">Required</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>General Color Visiting Card</td>
+                                        <td>{{form.general_color_charge}}</td>
+                                        <td>{{form.general_color_card}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PVC Color Visiting Card</td>
+                                        <td>{{form.pvc_color_charge}}</td>
+                                        <td>{{form.pvc_color_card}}</td>
+                                    </tr>
+                                    
+
+                                </tbody>
+                            </table>
+                        </div>
+                            <div class="row mt-5">
+                                
+                                <div class="col-md-4">
+                                    <label for="" class="">SMS Alert</label>
+                                    {{form.sms_alert}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Home Delivery Prodcuts</label>
+                                    {{form.home_delevery}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Product Cart Display For Order Booking</label>
+                                    {{form.product_display}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Books & News Update</label>
+                                    {{form.book_new_update}}
+                                </div>
+                            </div>
+
+                        
+                        <div class="d-flex justify-content-center mt-4">
+                            <a href="{% url 'sponsor-details-form' profile.id %}" class="btn btn-warning">Previous</a>&nbsp;
+                            <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                        </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

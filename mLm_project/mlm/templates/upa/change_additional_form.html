@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <form action="" method="POST">
+				<div class="card my-4">
+				<div class="card-body main-row">
+                    {% csrf_token %}
+                    <div class="row">
+                    <h3 class="text-center">Additional Details</h3>
+                        
+                        <div class="col-md-4">
+                            <label for="" class="">Education Qualification</label>
+                            {{form.educational_qualification}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Occupation Type</label>
+                            {{form.occupation_type}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Employer Name</label>
+                            {{form.employer_name}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Designation</label>
+                            {{form.designation}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">Self Employed</label>
+                            {{form.self_employeed}}
+                        </div>
+                        
+
+                         </div>
+
+                         <div class="row">
+                            <h3 class="text-center">Personal Income Details</h3>
+                                <div class="col-md-4">
+                                    <label for="" class="">Monthly Income</label>
+                                    <!-- <input type="text" class="form-control"> -->
+                                    {{form.monthly_income}}
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="" class="">Assest (Approximate Value)</label>
+                                    {{form.assets}}
+                                </div>
+        
+                                <div class="col-md-4">
+                                    <label for="" class="">Source</label>
+                                    {{form.source}}
+                                </div>
+                                {% comment %} <div class="col-md-4">
+                                    <label for="" class="">IT PAN No.</label>
+                                    {{form.it_pan_no}}
+                                </div> {% endcomment %}
+                                <div class="col-md-4">
+                                    <label for="" class="">Bussiness Nature</label>
+                                    {{form.bussiness_nature}}
+                                </div>
+                                
+        
+                                 </div>
+                         <div class="d-flex justify-content-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

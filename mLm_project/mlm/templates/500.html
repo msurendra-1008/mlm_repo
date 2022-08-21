@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <style type="text/css">
+
+body {
+  
+    background-color: white;    
+}
+.errorimg {
+    max-width: 350px;
+    display: block;
+    width: 100%;
+}
+</style>
+
+
+<div class="ErrorPage">
+		<div class="errorimg">
+			<img src="{% static 'image/500.png' %}" />
+		</div>
+		<div class="w-100">
+		<h1>500 Error</h1>
+			<p>Internal server error..</p>
+		                <a class="btn btn-primary loginbtn" href="/">
+                        <i class="fa fa-arrow-left"></i>
+                        Go back to Homepage
+                    </a>
+		</div>
+	</div>
+
+
+{% endblock %}

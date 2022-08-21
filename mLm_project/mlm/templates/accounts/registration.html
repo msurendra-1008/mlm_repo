@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<!-- Register -->
+
+<div class="container py-5">
+    <div style="width: 70%; margin-left: 15%;">
+        {% include 'message.html'%}
+    <h3 class="alert alert-success text-center">Registration</h3>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{register_form|crispy}}
+        <button class="btn btn-success" style="margin-left: 50%;" type="submit">Register</button>
+    </form>
+
+    <p class="text-center">If you already have an account, <a href="{% url 'login'%}">Login</a> instead.</p>
+    </div>
+</div>
+
+{% endblock content %}

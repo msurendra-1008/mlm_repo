@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #38ACEC;
+        color: black;
+    }
+
+        {
+        % comment %
+    }
+
+    #04AA6D {
+        % endcomment %
+    }
+
+    #customers td {
+        text-align: center;
+    }
+
+    #view {
+        color: black;
+    }
+
+    #view:hover {
+        background-color: #38ACEC;
+    }
+
+    #edit:hover {
+        background-color: #38ACEC;
+    }
+
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 0px 10px;
+  font-size: 15px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-right: 5px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+</style>
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Detail Change Request Status</h5>
+            <table id="customers">
+                <tr>
+                    <th>S.No</th>
+                    <th>UPA ID</th>
+                    <th>Request No</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Request Date</th>
+                    <th>Status</th>
+                    {% if group == "Admin" %}
+                    <th>Action</th>
+                    {% endif %}
+                </tr>
+                {% for status in req_status %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{status.user.uid_no}}</td>
+                    <td>{{status.request_no}}</td>
+                    <td>{{status.subject}}</td>
+                    <td>{{status.message}}
+                        {% if status.reply_message%}
+                        <br> <hr>
+                        <span class="badge bg-danger">Bussiness Bazar</span>
+                        {{status.reply_message}}
+                        {% endif %}
+                    </td>
+                    <td>{{status.request_date}}</td>
+                    <td>
+                        {% if status.status == "Pending"%}
+                        <span class="badge bg-danger">{{status.status}}</span>
+                        {% else %}
+                        <span class="badge bg-success">{{status.status}}</span>
+                        {% endif %}
+                    </td>
+                    {% if group == "Admin" %}
+                    
+                    <td width="150">
+                        {% if status.status == "Pending"%}
+                        <a href="{% url 'reply_to_request' status.id %}" class="btn btn-sm btn-success">Reply</a>
+                        <div class="dropdown">
+                            <button class="dropbtn">Select Form</button>
+                            <div class="dropdown-content">
+                              <a href="{% url 'change-address-form' status.user.id %}">Address Form</a>
+                              <a href="{% url 'change-additional-form' status.user.id %}">Additional Detail Form</a>
+                              <a href="{% url 'change-beneficiary-form' status.user.id %}">Beneficiary Detail Form</a>
+                              <a href="{% url 'change-service-required-form' status.user.id %}">Service Required Form</a>
+                              <a href="{% url 'change-operation-mode-form' status.user.id %}">Operation Mode Form</a>
+                            </div>
+                          </div>
+                        {% else %}
+                        <span class="badge bg-success">Done</span>
+                        {% endif%}
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- modal -->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reply</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% include 'dashboard/reply_message.html'%}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- endmodal  -->
+{% endblock content %}

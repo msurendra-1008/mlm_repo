@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Rejected Product From Recieved List</h5>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <!-- <th>Product Image</th> -->
+                      <th>Tender Product</th>
+                      <th>Company Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Exchange Quantity</th>
+                      <th>Status</th>
+                      <!-- <th>Selling Price</th> -->
+                      <!-- <th>Product Active</th> -->
+                      <!-- <th>Digital</th> -->
+                      <th>Action</th>
+                    </tr>
+                    {% for product in tender_firms %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <!-- <td><img class="thumbnail" src="{{product.imageURL}}" alt="No Image"></td> -->
+                        <td>{{product.tender_product}}</td>
+                        <td>{{product.company_name}}-{{product.pk}}</td>
+                        <td>{{product.product_price}}</td>
+                        <td>{{product.quantity_by_firm}}</td>
+                        <td>{{product.tender_status}}</td>
+                        <!--<td>{{product.selling_price}}</td>
+                        <td>{{product.product_active}}</td>
+                        <td>{{product.digital}}</td> -->
+                        <td>
+                       <a href="{% url 'firm-detail-for-etender' product.pk %}" class="btn btn-outline-success">View</a>
+                       {% if product.tender_status == "Rejected"%} 
+                       <a href="{% url 'product-recieved-exchange' product.pk%}" class="btn btn-outline-primary">Exchange</a>
+                       {% endif %} 
+                       {% if product.tender_status == "On Exchange"%}
+                        <a href="{% url 'product-recieved-rejected-exchange-form' %}?id={{product.pk}}">Go For Exhange</a>
+                        {% endif %}    
+                    </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

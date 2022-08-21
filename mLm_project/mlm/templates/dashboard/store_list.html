@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">All Store List</h5>
+           <a href="{% url 'store-creation' %}" class="btn btn-outline-primary">Create Store</a>
+           <a href="{% url 'product-updated-list'%}" class="btn btn-outline-primary">Updated Product List</a> 
+           <a href="{% url 'product-all-list'%}" class="btn btn-outline-primary">All Product List</a> 
+           <hr>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Store Location</th>
+                      <th>Store Name</th>
+                      <th>Store Capacity</th>
+                      <th>Racks No. In Store</th>
+                      <th>Section In Racks</th>
+                      <th>Active</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for store in stores %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{store.location}}</td>
+                        <td>{{store.store_name}}</td>
+                        <td>{{store.store_size}}</td>
+                        <td>{{store.no_of_racks}}</td>
+                        <td>{{store.avg_section_rack}}</td>
+                        <td>{{store.store_Status}}</td>
+                        <td>
+                        
+                            <a href="{% url 'update-store-creation' store.pk%}" class="btn btn-outline-success" title="Update Store Detail"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a href="" class="btn btn-outline-danger" title="store Details"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a href="{% url 'product-addition-in-store' store.pk%}" class="btn btn-outline-success">Add Product</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+    

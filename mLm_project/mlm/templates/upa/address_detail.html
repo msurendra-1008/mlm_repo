@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            {% include 'upa/header_panel.html' %}
+            <form action="" method="POST">
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        {% csrf_token %}
+                        <div class="row">
+                            <h3 class="text-center">Personal Address</h3>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 1</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.address_line_one}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 2</label>
+                                {{form.address_line_two}}
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 3</label>
+                                {{form.address_line_three}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 4</label>
+                                {{form.address_line_four}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">landmark Street</label>
+                                {{form.landmark}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Town City</label>
+                                {{form.town_city}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">District</label>
+                                {{form.district}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Sub District</label>
+                                {{form.sub_district}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Postal Zip Code</label>
+                                {{form.postal_zip_code}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Country</label>
+                                {{form.country}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">State</label>
+                                {{form.state}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Telephone</label>
+                                {{form.telephone}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">mobile No.</label>
+                                {{form.mobile}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Active Email</label>
+                                {{form.active_email}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">STD Code</label>
+                                {{form.std_code}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">ISD Code</label>
+                                {{form.isd_code}}
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-check mt-5" style="margin-left: 45%;" onchange="getSelectValueSame();">
+                            {{form.same_as_above}}
+                            <label for="" class="">Same As Above</label>
+                        </div>
+                        <div class="row mt-2" id="permanentAddress">
+                            
+                            <h3 class="text-center">Permanent Address</h3>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 1</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.p_address_one}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 2</label>
+                                {{form.p_address_two}}
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 3</label>
+                                {{form.p_address_three}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 4</label>
+                                {{form.p_address_four}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">landmark Street</label>
+                                {{form.p_landmark}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Town City</label>
+                                {{form.p_town}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">District</label>
+                                {{form.p_dictrict}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Sub District</label>
+                                {{form.p_sub_district}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Postal Zip Code</label>
+                                {{form.p_postal_code}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Country</label>
+                                {{form.p_country}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">State</label>
+                                {{form.p_state}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Telephone</label>
+                                {{form.p_telephone}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">mobile No.</label>
+                                {{form.p_mobile}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Active Email</label>
+                                {{form.p_active_email}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">STD Code</label>
+                                {{form.p_std_code}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">ISD Code</label>
+                                {{form.p_isd_code}}
+                            </div>
+
+
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <a href="{% url 'personal-form' profile.id %}" class="btn btn-warning">Previous</a>&nbsp;
+                            <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                        </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    var permanentAddress = document.getElementById('permanentAddress')
+    // permanentAddress.style.display = 'none'; 
+    var addOne = document.getElementById('id_address_line_one').value;
+    var addTwo = document.getElementById('id_address_line_two').value;
+    var addThree = document.getElementById('id_address_line_three').value;
+    var addFour = document.getElementById('id_address_line_four').value;
+    var landmark = document.getElementById('id_landmark').value;
+    var town = document.getElementById('id_town_city').value;
+    var district = document.getElementById('id_district').value;
+    var subDistrict = document.getElementById('id_sub_district').value;
+    var postalCode = document.getElementById('id_postal_zip_code').value;
+    var country = document.getElementById('id_country').value;
+    var state = document.getElementById('id_state').value;
+    var telephone = document.getElementById('id_telephone').value;
+    var mobile = document.getElementById('id_mobile').value;
+    var activeEmail = document.getElementById('id_active_email').value;
+    var stdCode = document.getElementById('id_std_code').value;
+    var isdCode = document.getElementById('id_isd_code').value;
+    console.log(addOne,addTwo,addThree,addFour,landmark,town,district,subDistrict,postalCode,country,state,telephone,mobile,activeEmail,stdCode,isdCode)
+
+    
+
+    function getSelectValueSame(){
+    if (document.getElementById('id_same_as_above').checked){
+        // permanentAddress.style.display = 'none';
+        var addOne = document.getElementById('id_address_line_one').value;
+        var addTwo = document.getElementById('id_address_line_two').value;
+        var addThree = document.getElementById('id_address_line_three').value;
+        var addFour = document.getElementById('id_address_line_four').value;
+        var landmark = document.getElementById('id_landmark').value;
+        var town = document.getElementById('id_town_city').value;
+        var district = document.getElementById('id_district').value;
+        var subDistrict = document.getElementById('id_sub_district').value;
+        var postalCode = document.getElementById('id_postal_zip_code').value;
+        var country = document.getElementById('id_country').value;
+        var state = document.getElementById('id_state').value;
+        var telephone = document.getElementById('id_telephone').value;
+        var mobile = document.getElementById('id_mobile').value;
+        var activeEmail = document.getElementById('id_active_email').value;
+        var stdCode = document.getElementById('id_std_code').value;
+        var isdCode = document.getElementById('id_isd_code').value;
+        // let quantity = document.getElementById('id_isd_code').value;
+        // console.log(quantity)
+
+        document.getElementById('id_p_address_one').value = addOne;
+        document.getElementById('id_p_address_two').value = addTwo;
+        document.getElementById('id_p_address_three').value = addThree;
+        document.getElementById('id_p_address_four').value = addFour;
+        document.getElementById('id_p_landmark').value = landmark;
+        document.getElementById('id_p_town').value = town;
+        document.getElementById('id_p_dictrict').value = district;
+        document.getElementById('id_p_sub_district').value = subDistrict;
+        document.getElementById('id_p_postal_code').value = postalCode;
+        document.getElementById('id_p_country').value = country;
+        document.getElementById('id_p_state').value = state;
+        document.getElementById('id_p_telephone').value = telephone;
+        document.getElementById('id_p_mobile').value = mobile;
+        document.getElementById('id_p_active_email').value = activeEmail;
+        document.getElementById('id_p_std_code').value = stdCode;
+        document.getElementById('id_p_isd_code').value = isdCode;
+        
+    }else{
+        document.getElementById('id_p_address_one').value = '';
+        document.getElementById('id_p_address_two').value = '';
+        document.getElementById('id_p_address_three').value = '';
+        document.getElementById('id_p_address_four').value = '';
+        document.getElementById('id_p_landmark').value = '';
+        document.getElementById('id_p_town').value = '';
+        document.getElementById('id_p_dictrict').value = '';
+        document.getElementById('id_p_sub_district').value = '';
+        document.getElementById('id_p_postal_code').value = '';
+        document.getElementById('id_p_country').value = '';
+        document.getElementById('id_p_state').value = '';
+        document.getElementById('id_p_telephone').value = '';
+        document.getElementById('id_p_mobile').value = '';
+        document.getElementById('id_p_active_email').value = '';
+        document.getElementById('id_p_std_code').value = '';
+        document.getElementById('id_p_isd_code').value = '';
+    }
+    
+}
+</script>
+{% endblock content %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Purchase Requisition For Particular E-Tender</h5>
+            <!-- Example single danger button -->
+            <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'bulk-order-list'%}">Update All Firm Total Pre-Purchase Order</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+            </div>
+            <!-- <div class="row"> -->
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Tender Product</th>
+                      <th>Company Name</th>
+                      <th>Company Address</th>
+                      <th>Cotact Person</th>
+                      <th>Quantity</th>
+                      <th>Fixed Amount</th>
+                      <th>Total Quantity Of Product</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for firm in accepted %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{firm.tender_product}}-{{pk}}</td>
+                        <td>{{firm.company_name}}</td>
+                        <td>{{firm.company_address}}</td>
+                        <td>{{firm.contact_person}}</td>
+                        <td>{{firm.amount_range}}</td>
+                        <td>{{firm.fixed_amount}}</td>
+                        <td>{{firm.total_product_quantity}}</td>
+                        <td>
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Suply Order
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li>
+                        <a class="dropdown-item" href="{% url 'pre-prequisite-breakup' firm.pk %}?id={{pk}}">Create Pre-Purchase Order</a></li>
+                        <a class="dropdown-item" href="{% url 'order-breakup' firm.pk %}?id={{pk}}">Pre-Purchase Order Breakup</a></li>
+                            {% comment %} <li><a class="dropdown-item" href="{% url 'create-bulk-order' %}?firm_id={{firm.pk}}">Create Order</a></li>
+                            <li><hr class="dropdown-divider"></li> {% endcomment %}
+                            {% comment %} <li><a class="dropdown-item" href="#">Pre-Purchase Requisite</a></li> {% endcomment %}
+                        </ul>
+                        </div>
+                        {% comment %} <a href="{% url 'create-bulk-order' %}?firm_id={{firm.pk}}" class="btn btn-primary">Create Order In Bulk</a> {% endcomment %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

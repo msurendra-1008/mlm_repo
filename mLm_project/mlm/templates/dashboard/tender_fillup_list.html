@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <h5 class="alert alert-success text-center mt-3">Updated List Of Applicaitons Received By Invitation Of E-Tender</h5>
+            <!-- <div class="row"> -->
+            <!-- Example single danger button -->
+            <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Action
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="{% url 'accepted-tender-firm' %}" class="dropdown-item">Pre-Purchase Requisition</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">#</a></li>
+            </ul>
+            </div>   
+                <table id="customers">
+                    <tr>
+                      <th>S.No</th>
+                      <th>Tender Product</th>
+                      <th>Company Name</th>
+                      <th>Company Address</th>
+                      <th>Cotact Person</th>
+                      <th>Produt Quantity By Vendor</th>
+                      <th>Fixed Amount</th>
+                      <th>Contact Mobile No.</th>
+                      <th>Tender Status</th>
+                      <th>Action</th>
+                    </tr>
+                    {% for firm in tenders %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{firm.tender_product.product_name}}</td>
+                        <td>{{firm.company_name}}</td>
+                        <td>{{firm.company_address}}</td>
+                        <td>{{firm.contact_person}}</td>
+                        <td>{{firm.amount_range}}</td>
+                        <td>{{firm.fixed_amount}}</td>
+                        <td>{{firm.contact_mobile}}</td>
+                        <td>
+                            {% if firm.tender_status == "Pending" %}
+                            <i class="fa fa-square-o" aria-hidden="true" style="color: red"> {{firm.tender_status}}</i>
+                            {% elif firm.tender_status == "Accepted" %}
+                            <i class="fa fa-check-square-o" aria-hidden="true" style="color: green;"> {{firm.tender_status}}</i>
+                            {% else %}
+                            <i class="fa fa-times" aria-hidden="true" style="color: red;"> {{firm.tender_status}}</i>
+                            {% endif %}
+                        </td>
+                        <td>
+                        {% comment %} {% if firm.tender_status == "Pending"%}
+                            
+                            <form method="GET" action="{% url 'tender_accept'%}">
+                                {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{firm.pk}}">
+                            <button type="submit" class="btn btn-warning mt-2" >
+                                 Accept
+                            </button>
+                            </form>
+                            <form method="GET" action="{% url 'tender_reject'%}">
+                                {% csrf_token %}
+                                <input type="hidden" name="pk" value="{{firm.pk}}">
+                            <button type="submit" class="btn btn-danger mt-2" >
+                                 Reject
+                            </button>
+                            </form>
+                           {% elif firm.tender_status == "Negotiated" %}
+                           <form method="GET" action="{% url 'tender_accept'%}">
+                            {% csrf_token %}
+                            <input type="hidden" name="pk" value="{{firm.pk}}">
+                        <button type="submit" class="btn btn-warning mt-2" >
+                             Accept
+                        </button>
+                        </form>
+                        <form method="GET" action="{% url 'tender_reject'%}">
+                            {% csrf_token %}
+                            <input type="hidden" name="pk" value="{{firm.pk}}">
+                        <button type="submit" class="btn btn-danger mt-2" >
+                             Reject
+                        </button>
+                        </form>
+                            {% endif %} {% endcomment %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

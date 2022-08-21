@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            <form action="" method="POST">
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        {% csrf_token %}
+                        <h5 class="text-center">Beneficiary Details</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="" class="">Name of Beneficiary</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.beneficiary_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Beneficiary ID (DID)</label>
+                                {{form.beneficiary_id_no}}
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="" class="">Relation With UPA</label>
+                                {{form.relation_upa}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Other</label>
+                                {{form.other}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">First Name</label>
+                                {{form.ben_first_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Middle Name</label>
+                                {{form.ben_middle_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Last Name</label>
+                                {{form.ben_last_name}}
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <h5 class="text-center">Father / Husband / Gaurdian Details</h5>
+                            <div class="col-md-4">
+                                <label for="" class="">First Name</label>
+                                {{form.f_g_first_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Middle Name</label>
+                                {{form.f_g_middle_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Last Name</label>
+                                {{form.f_g_last_name}}
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <h5 class="text-center">Mother's Maiden Name</h5>
+                            <div class="col-md-4">
+                                <label for="" class="">First Name</label>
+                                {{form.m_m_first_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Middle Name</label>
+                                {{form.m_m_middle_name}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Last Name</label>
+                                {{form.m_m_last_name}}
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-4">
+                                <label for="" class="">Date of Birth</label>
+                                {{form.birth_date}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Update Age as per DOB</label>
+                                {{form.update_age_dob}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Gender</label>
+                                {{form.gender}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Marital Status</label>
+                                {{form.marital_status}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Nationality</label>
+                                {{form.nationality}}
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mt-5">
+                            <h5 class="text-center">Permanent Address</h5>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 1</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.address_line_one}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 2</label>
+                                {{form.address_line_two}}
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 3</label>
+                                {{form.address_line_three}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Address Line 4</label>
+                                {{form.address_line_four}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">landmark Street</label>
+                                {{form.landmark}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Town City</label>
+                                {{form.town}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">District</label>
+                                {{form.district}}
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <label for="" class="">Postal Zip Code</label>
+                                {{form.postal_code}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Country</label>
+                                {{form.country}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">State</label>
+                                {{form.state}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Telephone</label>
+                                {{form.telephone}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">mobile No.</label>
+                                {{form.mobile}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Active Email</label>
+                                {{form.active_email}}
+                            </div>
+                           
+
+
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <h5>Proof Of Identity</h5>
+                                <div class="col md-4" onchange="getbenIdentity();">
+                                    <label for="" class="">Select for Identity</label>
+                                    {{form.identity_proof}}
+                                </div>
+                                
+                            </div>
+                            <div class="col-6">
+                                <h5 class="text-center">Proof Of Address</h5>
+                                <div class="col md-4" onchange="getbenAddress();">
+                                    <label for="" class="">Select for Address</label>
+                                    <!-- <input type="text" class="form-control"> -->
+                                    {{form.address_proof}}
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-6" id="benIdentityProof">
+                                <h5>Proof Of Identity Details</h5>
+                                <div class="col md-8">
+                                    <label for="" class="">Identity Proof No.</label>
+                                    {{form.id_proof_no}}
+                                </div>
+                                <div class="col md-8">
+                                    <label for="" class="">Issued At</label>
+                                    {{form.id_issued_at}}
+                                </div>
+                                <div class="col md-8">
+                                    <label for="" class="">Issued By</label>
+                                    {{form.id_issued_by}}
+                                </div>
+                            </div>
+                            <div class="col-6" id="benAddressProof">
+                                <h5>Proof Of Address Details</h5>
+                                <div class="col md-8">
+                                    <label for="" class="">Identity Proof No.</label>
+                                    {{form.add_proof_no}}
+                                </div>
+                                <div class="col md-8">
+                                    <label for="" class="">Issued At</label>
+                                    {{form.add_issued_at}}
+                                </div>
+                                <div class="col md-8">
+                                    <label for="" class="">Issued By</label>
+                                    {{form.add_issued_by}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                        </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    var identitySection = document.getElementById('benIdentityProof');
+    identitySection.style.display = 'none';
+    function getbenIdentity(){
+        var idValue = document.getElementById('id_identity_proof').value;
+        console.log(idValue);
+        if (idValue == ""){
+            identitySection.style.display = 'none';
+        }else{
+            identitySection.style.display = 'block';
+        }
+    }
+
+    var addressSection = document.getElementById('benAddressProof');
+    addressSection.style.display = 'none';
+    function getbenAddress(){
+        var addValue = document.getElementById('id_address_proof').value;
+        console.log(addValue);
+        if (addValue == ""){
+            addressSection.style.display = 'none';
+        }else{
+            addressSection.style.display = 'block';
+        }
+
+    }
+</script>
+{% endblock content %}

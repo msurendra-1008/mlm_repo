@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include 'left_panel.html' %}
+        <div class="col">
+            {% include 'upa/header_panel.html' %}
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card my-4">
+                    <div class="card-body main-row">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="" class="">Applicant Name</label>
+                                {{form.applicant_name}}
+                            </div>
+                            <div class="col-md-4" onchange="readURL(this);">
+                                <label for="" class="">Applicant Photo</label>
+                                {{form.applicant_image}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Applicant ID Proof</label>
+                                {{form.id_proof}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Verifier ID No.</label>
+                                {{form.verifier_id}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Verifier Photo</label>
+                                {{form.verifier_image}}
+                            </div>
+                            <div class="col-md-4">
+                                <!-- <img id="myimage" src="xyz" > -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <a href="{% url 'operation-mode-form' profile.id %}" class="btn btn-warning">Previous</a>&nbsp;
+                    <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+    
+            reader.onload = function (e) {
+                $('#myimage').attr('src', e.target.result);
+            };
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    </script>
+
+{% endblock content %}
