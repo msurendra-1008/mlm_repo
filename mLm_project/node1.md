@@ -26,3 +26,6 @@
                             {% else %}
                             <i class="fa fa-times" aria-hidden="true" style="color: red;"> {{firm.tender_status}}</i>
                             {% endif %}
+
+
+### changes in node file.
