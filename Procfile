@@ -1,0 +1,1 @@
+web: gunicorn mLm_project.mlm.mlm.wsgi --log-file -
