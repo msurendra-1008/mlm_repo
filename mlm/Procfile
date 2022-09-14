@@ -1,1 +1,1 @@
-web: gunicorn mlm.wsgi.application --log-file -
+web: gunicorn mlm/mlm.wsgi.application --log-file -
