@@ -1,0 +1,60 @@
+.{
+    color: aliceblue;
+}
+
+select, input[type='text'],  input[type='number'],  input[type='date'], input[type="number"], input[type="email"], input[type="file"],  textarea{ display: block;
+    width: 100%;
+    height: 38px;
+    font-size: 0.750rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #495057;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border: 1px solid #dedede;
+    font-family: "Roboto", sans-serif;
+    padding: 0.56rem 0.4rem;
+    line-height: 14px;}
+
+
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      
+      #customers tr:nth-child(even){background-color: #f2f2f2;}
+      
+      #customers tr:hover {background-color: #ddd;}
+      
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #38ACEC;
+        color: black;
+      }
+      {% comment %} #04AA6D {% endcomment %}
+      #customers td {
+          text-align: center;
+      }
+      #view {
+        color:black;
+      }
+      #view:hover {
+        background-color:#38ACEC;
+      }
+      #edit:hover {
+        background-color:#38ACEC;
+      }
+
+.nav-item {
+  color: #fdbe39;
+}
