@@ -43,11 +43,11 @@ Thumbs.db
 # python | django ignor files
 *.pyc
 *.pyo
-migrations
-/accounts/migrations/
-/dashboard/migrations/
-/inventory/migrations/
-/upa/migrations/
+# migrations
+# /accounts/migrations/
+# /dashboard/migrations/
+# /inventory/migrations/
+# /upa/migrations/
 /media/
 db.sqlite3
 sqlite3.db
