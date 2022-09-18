@@ -49,8 +49,8 @@ Thumbs.db
 # /inventory/migrations/
 # /upa/migrations/
 /media/
-db.sqlite3
-sqlite3.db
+# db.sqlite3
+# sqlite3.db
 node.md
 /dashboard/node.md
 # Large media files
