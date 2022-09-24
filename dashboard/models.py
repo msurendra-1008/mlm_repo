@@ -55,7 +55,10 @@ class IncomeSetting(models.Model):
         return f"{self.created_by}"
 
 class IncomeSettingForWomenOld(models.Model):
-    AGE_TYPE = (
+    CATEGORY_TYPE = (
+        ('N/A','N/A'),
+        ('BPL','BPL'),
+        ('Handicap','Handicap'),
         ('Child Below 18', 'Child Below 18'),
         ('Senior Citizen', 'Senior Citizen'),
         ('Mature Female', 'Mature Female'),
@@ -63,9 +66,7 @@ class IncomeSettingForWomenOld(models.Model):
 
     created_by = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True,related_name='income_setting_for_old_women')
     updated_by = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True,related_name='income_setting_for_old_women_update')
-    child_one = models.CharField(max_length=15,choices=AGE_TYPE,blank=True, null=True)
-    child_two = models.CharField(max_length=15,choices=AGE_TYPE,blank=True, null=True)
-    child_three = models.CharField(max_length=15,choices=AGE_TYPE,blank=True, null=True)
+    category_type = models.CharField(max_length=15,choices=CATEGORY_TYPE,blank=True, null=True)
     income = models.PositiveIntegerField(default=0,blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateField(auto_now=True)

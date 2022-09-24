@@ -82,9 +82,7 @@
                   <thead>
                       <tr>
                           <th>S.No.</th>
-                          <th scope="col">Child 1</th>
-                          <th scope="col">Child 2</th>
-                          <th scope="col">Child 3</th>
+                          <th scope="col">Category Type</th>
                           <th scope="col">Income</th>
                           <th scope="col">Action</th>
                       </tr>
@@ -93,9 +91,7 @@
                       {% for i in income_for_others %}
                       <tr>
                           <td>{{forloop.counter}}</td>
-                          <td>{{i.child_one}}</td>
-                          <td>{{i.child_two}}</td>
-                          <td>{{i.child_three}}</td>
+                          <td>{{i.category_type}}</td>
                           <td>{{i.income}}</td>
                           <td>
                               <a href="{% url 'update-income-setting-for-women-old' i.pk%}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
