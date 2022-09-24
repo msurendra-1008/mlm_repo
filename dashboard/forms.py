@@ -46,7 +46,7 @@ class IncomeSettingForm(forms.ModelForm):
 class IncomeSettingForWomenOldForm(forms.ModelForm):
     class Meta:
         model = IncomeSettingForWomenOld
-        fields = ['child_one','child_two','child_three','income']
+        fields = ['category_type','income']
         
 
 class FirmRegistrationForm(forms.ModelForm):
