@@ -12,7 +12,7 @@
                     <div class="card-body main-row">
                         {% csrf_token %}
                         <div class="row">
-                            <h3 class="text-center">Personal Address</h3>
+                            <h3 class="text-center alert alert-danger">Personal Address</h3>
                             <div class="col-md-4">
                                 <label for="" class="">Address Line 1</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -71,14 +71,14 @@
                                 <label for="" class="">Active Email</label>
                                 {{form.active_email}}
                             </div>
-                            <div class="col-md-4">
+                            {% comment %} <div class="col-md-4">
                                 <label for="" class="">STD Code</label>
                                 {{form.std_code}}
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="">ISD Code</label>
                                 {{form.isd_code}}
-                            </div>
+                            </div> {% endcomment %}
 
 
                         </div>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="row mt-2" id="permanentAddress">
                             
-                            <h3 class="text-center">Permanent Address</h3>
+                            <h3 class="text-center alert alert-danger">Permanent Address</h3>
                             <div class="col-md-4">
                                 <label for="" class="">Address Line 1</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -148,14 +148,14 @@
                                 <label for="" class="">Active Email</label>
                                 {{form.p_active_email}}
                             </div>
-                            <div class="col-md-4">
+                            {% comment %} <div class="col-md-4">
                                 <label for="" class="">STD Code</label>
                                 {{form.p_std_code}}
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="">ISD Code</label>
                                 {{form.p_isd_code}}
-                            </div>
+                            </div> {% endcomment %}
 
 
                         </div>

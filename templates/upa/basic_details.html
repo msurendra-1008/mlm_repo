@@ -12,6 +12,7 @@
 				<div class="card-body main-row">
                     {% csrf_token %}
                     <div class="row">
+                        <h5 class="text-center alert alert-danger">Basic Details</h5>
                         <div class="col-md-4">
                             <label for="" class="">Sponsor UID</label>
                             <!-- <input type="text" class="form-control"> -->
@@ -39,7 +40,7 @@
                             <label for="" class="">Post Applied For</label>
                             {{form.post_applied}}
                         </div>
-                        <div class="col-md-4">
+                        {% comment %} <div class="col-md-4">
                             <label for="" class="">Applicant UPA Type</label>
                             {{form.applicant_upa_type}}
                         </div>
@@ -58,7 +59,7 @@
                         <div class="col-md-4">
                             <label for="" class="">Applicant Distributor ID (DID) Number</label>
                             {{form.applicant_dis_id_number}}
-                        </div>
+                        </div> {% endcomment %}
                         <div class="col-md-4">
                             <label for="" class="">Applicant Full Name</label>
                             {{form.full_name}}

@@ -1,4 +1,7 @@
+from email.policy import default
+from secrets import choice
 from time import time
+from unittest.util import _MAX_LENGTH
 from django.db.models.fields import BooleanField, CharField
 from django.db.models.fields.related import OneToOneField
 from accounts.models import Profile
@@ -108,7 +111,21 @@ class PersonalInformation(models.Model):
         ('No','No'),
     )
 
+    TITLE_TYPE = (
+        ('Mr','Mr'),
+        ('Ms','Ms'),
+        ('Smt','Smt'),
+    )
+    
+    GAURDIAN_TYPE = (
+        ('Father','Father'),
+        ('Father','Father'),
+        ('Gaurdian','Gaurdian'),
+        ('Spouse','Spouse'),
+    )
+    
     user = models.OneToOneField(Profile,on_delete=models.CASCADE,blank=True, null=True,related_name="personal_details")
+    personal_title = models.CharField(max_length=3,choices=TITLE_TYPE,default="Mr",blank=True,null=True)
     name = models.CharField(max_length=100,blank=True, null=True,verbose_name="Name")
     first_name = models.CharField(max_length=100,blank=True, null=True,verbose_name="First Name")
     middle_name = models.CharField(max_length=100,blank=True, null=True,verbose_name="Middle Name")
@@ -116,6 +133,8 @@ class PersonalInformation(models.Model):
     other = models.CharField(max_length=100,blank=True, null=True,verbose_name="Other")
     father_name = models.CharField(max_length=100,blank=True, null=True,verbose_name="Father's Name")
     # husband/gaurdian
+    title = models.CharField(max_length=3,choices=TITLE_TYPE,default="Mr",blank=True,null=True)
+    gaurdian_type = models.CharField(max_length=10,choices=GAURDIAN_TYPE,blank=True,null=True)
     first_name_hg = models.CharField(max_length=100,blank=True, null=True)
     middle_name_hg = models.CharField(max_length=100,blank=True, null=True)
     gaurdian_name_hg = models.CharField(max_length=100,blank=True, null=True)
@@ -313,6 +332,18 @@ class BeneficiaryDetails(models.Model):
         ('Passport','Passport'),
         ('Driving License','Driving License'),
     )
+    TITLE_TYPE = (
+        ('Mr','Mr'),
+        ('Ms','Ms'),
+        ('Smt','Smt'),
+    )
+    
+    GAURDIAN_TYPE = (
+        ('Father','Father'),
+        ('Father','Father'),
+        ('Gaurdian','Gaurdian'),
+        ('Spouse','Spouse'),
+    )
     user = models.OneToOneField(Profile,on_delete=models.CASCADE,blank=True, null=True,related_name="beneficiary_details")
     beneficiary_name = models.CharField(max_length=100,blank=True, null=True)
     beneficiary_id_no = models.CharField(max_length=100,blank=True, null=True)
@@ -322,6 +353,8 @@ class BeneficiaryDetails(models.Model):
     ben_middle_name = models.CharField(max_length=100,blank=True, null=True)
     ben_last_name = models.CharField(max_length=100,blank=True, null=True)
     # beneficiary father/gaurdian details
+    title = models.CharField(max_length=3,choices=TITLE_TYPE,blank=True,null=True)
+    gaurdian_type = models.CharField(max_length=8,choices=GAURDIAN_TYPE,blank=True,null=True)
     f_g_first_name = models.CharField(max_length=100,blank=True, null=True)
     f_g_middle_name = models.CharField(max_length=100,blank=True, null=True)
     f_g_last_name = models.CharField(max_length=100,blank=True, null=True)
@@ -478,7 +511,7 @@ class OperationMode(models.Model):
     )
     JOINT_ACCOUNT = (
         ('1','1'),
-        ('2','2'),
+        # ('2','2'),
     )
     TRANSACTION_MODE = (
         ('CARD','CARD'),

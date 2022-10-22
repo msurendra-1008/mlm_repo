@@ -11,7 +11,7 @@
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
-                        <h5 class="text-center">Beneficiary Details</h5>
+                        <h5 class="text-center alert alert-danger">Beneficiary Details</h5>
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="" class="">Name of Beneficiary</label>
@@ -45,7 +45,15 @@
                             </div>
                         </div>
                         <div class="row mt-5">
-                            <h5 class="text-center">Father / Husband / Gaurdian Details</h5>
+                            <h5 class="text-center alert alert-danger">Father / Husband / Gaurdian Details</h5>
+                            <div class="col-md-4">
+                                <label for="" class="">Gaurdian Type</label>
+                                {{form.gaurdian_type}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Title</label>
+                                {{form.title}}
+                            </div>
                             <div class="col-md-4">
                                 <label for="" class="">First Name</label>
                                 {{form.f_g_first_name}}
@@ -60,7 +68,7 @@
                             </div>
                         </div>
                         <div class="row mt-5">
-                            <h5 class="text-center">Mother's Maiden Name</h5>
+                            <h5 class="text-center alert alert-danger">Mother's Maiden Name</h5>
                             <div class="col-md-4">
                                 <label for="" class="">First Name</label>
                                 {{form.m_m_first_name}}
@@ -100,7 +108,7 @@
                         </div>
 
                         <div class="row mt-5">
-                            <h5 class="text-center">Permanent Address</h5>
+                            <h5 class="text-center alert alert-danger">Permanent Address</h5>
                             <div class="col-md-4">
                                 <label for="" class="">Address Line 1</label>
                                 <!-- <input type="text" class="form-control"> -->
