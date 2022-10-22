@@ -16,7 +16,7 @@
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
-                        <h5 class="text-center">UPA Type & Proof of Identity Details</h5>
+                        <h5 class="text-center alert alert-danger">UPA Type & Proof of Identity Details</h5>
                         <div class="row">
                             <div class="col-md-4" onchange="getSelectValue();">
                                 <label for="" class="">UPA Type</label>
@@ -54,7 +54,7 @@
                         
                         <div class="row mt-5">
                             <div class="col-6" onchange="getIdentityProof();">
-                                <h5>Proof Of Identity</h5>
+                                <h5 class="alert alert-danger">Proof Of Identity</h5>
                                 <div class="col md-4">
                                     <label for="" class="">Select for Identity</label>
                                     {{form.identity_proof}}
@@ -62,7 +62,7 @@
                                 
                             </div>
                             <div class="col-6" onchange="getAddressProof();">
-                                <h5 class="text-center">Proof Of Address</h5>
+                                <h5 class="text-center alert alert-danger">Proof Of Address</h5>
                                 <div class="col md-4">
                                     <label for="" class="">Select for Address</label>
                                     <!-- <input type="text" class="form-control"> -->
@@ -74,7 +74,7 @@
 
                         <div class="row mt-5">
                             <div class="col-6" id="identityProofSection">
-                                <h5>Proof Of Identity Details</h5>
+                                <h5 class="alert alert-danger">Proof Of Identity Details</h5>
                                 <div class="col-md-8">
                                     <label for="" class="">Identity Proof No.</label>
                                     {{form.id_proof_no}}
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                             <div class="col-6" id="addressProofSection">
-                                <h5>Proof Of Address Details</h5>
+                                <h5 class="alert alert-danger">Proof Of Address Details</h5>
                                 <div class="col-md-8">
                                     <label for="" class="">Identity Proof No.</label>
                                     {{form.add_proof_no}}

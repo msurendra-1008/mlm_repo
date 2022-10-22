@@ -10,7 +10,7 @@
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
-                        <h5 class="text-center">Beneficiary Details</h5>
+                        <h5 class="text-center alert alert-danger">Beneficiary Details</h5>
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="" class="">Name of Beneficiary</label>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="row mt-5">
-                            <h5 class="text-center">Father / Husband / Gaurdian Details</h5>
+                            <h5 class="text-center alert alert-danger">Father / Husband / Gaurdian Details</h5>
                             <div class="col-md-4">
                                 <label for="" class="">First Name</label>
                                 {{form.f_g_first_name}}
