@@ -159,6 +159,26 @@
 
 
                         </div>
+                        <div class="row">
+                            <h3 class="text-center alert alert-danger">Communication & Other Activity Detials</h3>
+                            <div class="col-md-4">
+                                <label for="" class="">Select Language</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.customer_language}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Enter Active Mob Number</label>
+                                {{form.active_mobile}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Enter Active Email ID</label>
+                                {{form.active_email}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Delivery Location</label>
+                                {{form.delivery_location}}
+                            </div>
+                        </div>
                         <div class="d-flex justify-content-center mt-4">
                             <a href="{% url 'personal-form' profile.id %}" class="btn btn-warning">Previous</a>&nbsp;
                             <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
