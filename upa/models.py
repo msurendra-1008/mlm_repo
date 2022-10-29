@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from email.policy import default
 from secrets import choice
 from time import time
@@ -114,7 +115,7 @@ class PersonalInformation(models.Model):
     TITLE_TYPE = (
         ('Mr','Mr'),
         ('Ms','Ms'),
-        ('Smt','Smt'),
+        ('Mrs','Mrs'),
     )
     
     GAURDIAN_TYPE = (
@@ -139,6 +140,7 @@ class PersonalInformation(models.Model):
     middle_name_hg = models.CharField(max_length=100,blank=True, null=True)
     gaurdian_name_hg = models.CharField(max_length=100,blank=True, null=True)
     mother_median_name = models.CharField(max_length=200,blank=True, null=True)
+    mother_title = models.CharField(max_length=3,choices=TITLE_TYPE, default="Mrs",blank=True,null=True)
     first_name_m = models.CharField(max_length=100,blank=True, null=True)
     middle_name_m = models.CharField(max_length=100,blank=True, null=True)
     last_name_m = models.CharField(max_length=100,blank=True, null=True)
@@ -147,6 +149,11 @@ class PersonalInformation(models.Model):
     gender = models.CharField(max_length=10,choices=GENDER_TYPE,blank=True, null=True)
     marital_status = models.CharField(max_length=10,choices=MARITAL_TYPE,blank=True, null=True)
     nationality = models.CharField(max_length=100,blank=True, null=True)
+    customer_type = models.CharField(max_length=8,choices=(("Normal","Normal"),("BPL","BPL"),("Handicap","Handicap")),blank=True,null=True)
+    customer_nature = models.CharField(max_length=40,choices=(("Minor","Minor"),("Mature Female","Mature Female"),("Senior Citizen","Senior Citizen"),("None Of The Above","None Of The Above")),blank=True,null=True)
+    customer_nature = models.CharField(max_length=40,choices=(("Minor","Minor"),("Mature Female","Mature Female"),("Senior Citizen","Senior Citizen"),("None Of The Above","None Of The Above")),blank=True,null=True)
+    customer_education = models.CharField(max_length=40,choices=(("Educated","Educated"),("Illiterate/Un-educated","Illiterate/Un-educated")),blank=True,null=True)
+    customer_work = models.CharField(max_length=15,choices=(("Employee","Employee"),("Un-employed","Un-employed")),blank=True,null=True)
 
     def __str__(self):
         return f"{self.user}"
@@ -189,6 +196,10 @@ class UPAAddress(models.Model):
     p_active_email = models.EmailField(blank=True, null=True)
     p_std_code = models.PositiveIntegerField(blank=True, null=True)
     p_isd_code = models.PositiveIntegerField(blank=True, null=True)
+    customer_language = models.CharField(max_length=40,choices=(("English","English"),("Hindi","Hindi")),blank=True,null=True)
+    active_mobile = models.CharField(max_length=10,blank=True,null=True)
+    active_email = models.EmailField(blank=True,null=True)
+    delivery_location = models.CharField(max_length=40, choices=(("Permanent","Permanent"),("Present","Present")),blank=True,null=True)
 
     def __str__(self):
         return f"{self.user}"
@@ -267,11 +278,13 @@ class UPAIdentityProof(models.Model):
     upa_type = models.CharField(max_length=20,choices=UPA_TYPE,blank=True, null=True)
     # if BPL 
     bpl_ration_card_no  = models.CharField(max_length=100,blank=True, null=True)
+    bpl_ration_card_image = models.ImageField(upload_to="additinal_details/bpl/",blank=True,null=True)
     # bpl_ration_card_image = models.CharField
     personal_income_type = models.CharField(max_length=20,choices=PERSONAL_INCOME_TYPE,blank=True, null=True)
     personal_income = models.CharField(max_length=100,blank=True, null=True)
     # if handicap
     cmo_certificate_no = models.CharField(max_length=20,blank=True, null=True)
+    cmo_certificate_image = models.ImageField(upload_to="additinal_details/cmo/",blank=True,null=True)
     # cmo_certificate_image = 
     # this will for identity proof
     # aadhar_card_id = models.BooleanField(default=False)

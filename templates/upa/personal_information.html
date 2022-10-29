@@ -76,6 +76,10 @@
                         {% comment %} <h5>Mother / Gaurdian Details</h5> {% endcomment %}
                         <div class="col-md-4">
                             <label for="" class="">First Name</label>
+                            {{form.mother_title}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="">First Name</label>
                             {{form.first_name_m}}
                         </div>
                         <div class="col-md-4">
@@ -113,6 +117,28 @@
                         </div>
 
                          </div>
+                         <br>
+                         <div class="row">
+                            <h5 class="text-center alert alert-danger">Customer Pesonal Details</h5>
+                            {% comment %} <h5>Father / Gaurdian Details</h5> {% endcomment %}
+                            <div class="col-md-4">
+                                <label for="" class="">Customer Type</label>
+                                {{form.customer_type}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Customer Nature</label>
+                                {{form.customer_nature}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Customer Education</label>
+                                {{form.customer_education}}
+                            </div>
+                            <div class="col-md-4">
+                                <label for="" class="">Customer Employment</label>
+                                {{form.customer_work}}
+                            </div>
+                            
+                        </div>
                          <div class="d-flex justify-content-center mt-4">
                         <a href="{% url 'basic-detail-form' profile.id%}" class="btn btn-warning">Previous</a>&nbsp; 
                         <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>
