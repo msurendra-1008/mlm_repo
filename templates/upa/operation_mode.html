@@ -13,7 +13,7 @@
                     <div class="card-body main-row">
                         <!-- <h5 class="text-center">Service Required</h5> -->
                         <div class="row">
-                            <h5 class="alert alert-danger text-center">Service Mode</h5>
+                            <h5 class="alert alert-danger text-center">Transaction / Facilities</h5>
                             <div class="col-md-4">
                                 <label for="" class="">Total Amount</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -27,6 +27,10 @@
                                 <label for="" class="">Mode of Transaction</label>
                                 {{form.transaction_mode}}
                             </div>
+                            <div>
+                            <br>
+                            <div class="row">
+                                <h5 class="alert alert-danger text-center">Service Mode</h5>
                             <div class="col-md-4" onchange="getSelectValueJoint();">
                                 <label for="" class="">Mode of Operation UPA Account</label>
                                 {{form.upa_account_operation_mode}}

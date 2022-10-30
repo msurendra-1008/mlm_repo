@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    .hide {
+      display: none;
+    }
+        
+    .sms:hover + .hide {
+      display: block;
+      color: red;
+    }
+    </style>
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
@@ -25,19 +35,19 @@
                                 <tbody>
                                 {% if upa_type.upa_type == "Normal" %}
                                     <tr>
-                                        <td>Royal Green Bussiness ID Card</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Royal Green Bussiness ID Card <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.green_card_charge}}</td>
                                         <td>{{form.royal_green_card}}</td>
                                     </tr>
                                 {% elif upa_type.upa_type == "Handicap" %}
                                     <tr>
-                                        <td>Royal Yellow Bussiness ID Card</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Royal Yellow Bussiness ID Card <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.yellow_card_charge}}</td>
                                         <td>{{form.royal_yellow_card}}</td>
                                     </tr>
                                 {% elif upa_type.upa_type == "BPL" %}
                                     <tr>
-                                        <td>Royal Red Bussiness ID Card</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Royal Red Bussiness ID Card <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.red_card_charge}}</td>
                                         <td>{{form.royal_red_card}}</td>
                                     </tr>
@@ -59,25 +69,25 @@
                                 <tbody>
                                 {% if upa_type.upa_type == "Normal" %}
                                     <tr>
-                                        <td>Royal Green PayCard</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Royal Green PayCard <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.green_atm_card_charge}}</td>
                                         <td>{{form.royal_green_atm}}</td>
                                     </tr>
                                 {% elif upa_type.upa_type == "Handicap" %}
                                     <tr>
-                                        <td>Royal Yellow Pay Card</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Royal Yellow Pay Card <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.yellow_atm_card_charge}}</td>
                                         <td>{{form.royal_yellow_atm}}</td>
                                     </tr>
                                 {% elif upa_type.upa_type == "BPL" %}
                                     <tr>
-                                        <td>Royal Red Pay Card</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Royal Red Pay Card <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.red_atm_card_charge}}</td>
                                         <td>{{form.royal_red_atm}}</td>
                                     </tr>
                                 {% endif %}
                                     <tr>
-                                        <td>Royal Rainbow Pay Card</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Royal Rainbow Pay Card <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.blue_atm_card_charge}}</td>
                                         <td>{{form.royal_blue_atm}}</td>
                                     </tr>
@@ -98,12 +108,12 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Account Passbook</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Account Passbook <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.account_passbook_charge}}</td>
                                         <td>{{form.accouont_passbook}}</td>
                                     </tr>
                                     <tr>
-                                        <td>E-Account Statement</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">E-Account Statement <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.e_account_statement_charge}}</td>
                                         <td>{{form.e_account_statement}}</td>
                                     </tr>
@@ -124,12 +134,12 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>General Color Visiting Card</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">General Color Visiting Card <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.general_color_charge}}</td>
                                         <td>{{form.general_color_card}}</td>
                                     </tr>
                                     <tr>
-                                        <td>PVC Color Visiting Card</td>
+                                        <td title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">PVC Color Visiting Card <i class="fa fa-info-circle" aria-hidden="true"></i></td>
                                         <td>{{form.pvc_color_charge}}</td>
                                         <td>{{form.pvc_color_card}}</td>
                                     </tr>
@@ -141,19 +151,19 @@
                             <div class="row mt-5">
                                 
                                 <div class="col-md-4">
-                                    <label for="" class="">SMS Alert</label>
+                                    <label for="" class="" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium, velit cupiditate rem ad sapiente temporibus neque porro">SMS Alert <i class="fa fa-info-circle" aria-hidden="true"></i></label>
                                     {{form.sms_alert}}
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="" class="">Home Delivery Prodcuts</label>
+                                    <label for="" class="" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Home Delivery Prodcuts <i class="fa fa-info-circle" aria-hidden="true"></i></label>
                                     {{form.home_delevery}}
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="" class="">Product Cart Display For Order Booking</label>
+                                    <label for="" class="" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Product Cart Display For Order Booking <i class="fa fa-info-circle" aria-hidden="true"></i></label>
                                     {{form.product_display}}
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="" class="">Books & News Update</label>
+                                    <label for="" class="" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci debitis autem praesentium">Books & News Update <i class="fa fa-info-circle" aria-hidden="true"></i></label>
                                     {{form.book_new_update}}
                                 </div>
                             </div>

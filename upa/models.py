@@ -57,6 +57,11 @@ class BasicDetails(models.Model):
     applicant_dis_id_number = models.CharField(max_length=100,blank=True, null=True,verbose_name="Applicant Distributor ID(D.I.D) Number")
     full_name = models.CharField(max_length=200,blank=True, null=True,verbose_name="Applicant Full Name")
     # applicant_image = models.ImageField(upload_to = )
+    customer_type = models.CharField(max_length=8,choices=(("Normal","Normal"),("BPL","BPL"),("Handicap","Handicap")),blank=True,null=True)
+    customer_nature = models.CharField(max_length=40,choices=(("Minor","Minor"),("Mature Female","Mature Female"),("Senior Citizen","Senior Citizen"),("None Of The Above","None Of The Above")),blank=True,null=True)
+    customer_nature = models.CharField(max_length=40,choices=(("Minor","Minor"),("Mature Female","Mature Female"),("Senior Citizen","Senior Citizen"),("None Of The Above","None Of The Above")),blank=True,null=True)
+    customer_education = models.CharField(max_length=40,choices=(("Educated","Educated"),("Illiterate/Un-educated","Illiterate/Un-educated")),blank=True,null=True)
+    customer_work = models.CharField(max_length=15,choices=(("Employee","Employee"),("Un-employed","Un-employed")),blank=True,null=True)
     submission_date = models.DateTimeField(auto_now_add=True,blank=True, null=True,verbose_name="Form Submission Date / Time")
 
     def __str__(self):
@@ -149,11 +154,7 @@ class PersonalInformation(models.Model):
     gender = models.CharField(max_length=10,choices=GENDER_TYPE,blank=True, null=True)
     marital_status = models.CharField(max_length=10,choices=MARITAL_TYPE,blank=True, null=True)
     nationality = models.CharField(max_length=100,blank=True, null=True)
-    customer_type = models.CharField(max_length=8,choices=(("Normal","Normal"),("BPL","BPL"),("Handicap","Handicap")),blank=True,null=True)
-    customer_nature = models.CharField(max_length=40,choices=(("Minor","Minor"),("Mature Female","Mature Female"),("Senior Citizen","Senior Citizen"),("None Of The Above","None Of The Above")),blank=True,null=True)
-    customer_nature = models.CharField(max_length=40,choices=(("Minor","Minor"),("Mature Female","Mature Female"),("Senior Citizen","Senior Citizen"),("None Of The Above","None Of The Above")),blank=True,null=True)
-    customer_education = models.CharField(max_length=40,choices=(("Educated","Educated"),("Illiterate/Un-educated","Illiterate/Un-educated")),blank=True,null=True)
-    customer_work = models.CharField(max_length=15,choices=(("Employee","Employee"),("Un-employed","Un-employed")),blank=True,null=True)
+    
 
     def __str__(self):
         return f"{self.user}"
@@ -213,6 +214,7 @@ class AdditionalDetails(models.Model):
     RELIGION_TYPE = (
         ('HINDU','HINDU'),
         ('MUSLIM','MUSLIM'),
+        ('Other','Other'),
     )
 
     CATEGORY_TYPE = (
