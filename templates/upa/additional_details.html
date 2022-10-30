@@ -23,11 +23,11 @@
                             {{form.personal_title}}
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4" onchange="getRegionValue();">
                             <label for="" class="">Religion</label>
                             {{form.religion}}
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" id="otherReligion">
                             <label for="" class="">Other</label>
                             {{form.rel_other}}
                         </div>
@@ -58,7 +58,7 @@
                         
 
                          </div>
-
+                         <br>
                          <div class="row">
                             <h3 class="text-center alert alert-danger">Personal Income Details</h3>
                                 <div class="col-md-4">
@@ -94,5 +94,22 @@
         </div>
     </div>
 </div>
+
+<script>
+    // here if religion will be other then other section will appear
+    var element = document.getElementById("otherReligion");
+
+    function getRegionValue(){
+        var selectedValue = document.getElementById("id_religion").value;
+        console.log(selectedValue)
+        if (selectedValue == "Other"){
+            element.style.display = 'block';
+        }else{
+            element.style.display = 'none'
+        }
+
+    }
+    getRegionValue()
+</script>
 
 {% endblock content %}
