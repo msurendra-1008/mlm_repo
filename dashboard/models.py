@@ -36,20 +36,17 @@ class IncomeSetting(models.Model):
         ('N/A','N/A'),
         ('Normal','Normal'),
         ('BPL','BPL'),
-        ('Handicap','Handicap'),
-        ('Child Below 18','Child Below 18'),
-        ('Senior Citizen','Senior Citizen'),
-        ('Mature Female','Mature Female'),
+        ('Handicap','Handicap')
     )
-
-    created_by = models.ForeignKey(User,on_delete=models.CASCADE,blank=True, null=True,related_name='income_setting')
-    updated_by = models.ForeignKey(User,on_delete=models.CASCADE,blank=True, null=True,related_name='income_setting_update')
-    child_one = models.CharField(max_length=15,choices=CHILD_TYPE,blank=True, null=True)
-    child_two = models.CharField(max_length=15,choices=CHILD_TYPE,blank=True, null=True)
-    child_three = models.CharField(max_length=15,choices=CHILD_TYPE,blank=True, null=True)
-    income = models.PositiveIntegerField(default=0,blank=True, null=True)
-    created_date = models.DateField(auto_now_add=True)
-    updated_date = models.DateField(auto_now=True)
+    
+    created_by              = models.ForeignKey(User,on_delete=models.CASCADE,blank=True, null=True,related_name='income_setting')
+    updated_by              = models.ForeignKey(User,on_delete=models.CASCADE,blank=True, null=True,related_name='income_setting_update')
+    child_one               = models.CharField(max_length=15,choices=CHILD_TYPE,blank=True, null=True)
+    child_two               = models.CharField(max_length=15,choices=CHILD_TYPE,blank=True, null=True)
+    child_three             = models.CharField(max_length=15,choices=CHILD_TYPE,blank=True, null=True)
+    income                  = models.PositiveIntegerField(default=0,blank=True, null=True)
+    created_date            = models.DateField(auto_now_add=True)
+    updated_date            = models.DateField(auto_now=True)
 
     def __str__(self):
         return f"{self.created_by}"
@@ -57,8 +54,6 @@ class IncomeSetting(models.Model):
 class IncomeSettingForWomenOld(models.Model):
     CATEGORY_TYPE = (
         ('N/A','N/A'),
-        ('BPL','BPL'),
-        ('Handicap','Handicap'),
         ('Child Below 18', 'Child Below 18'),
         ('Senior Citizen', 'Senior Citizen'),
         ('Mature Female', 'Mature Female'),

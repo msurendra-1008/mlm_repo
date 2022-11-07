@@ -43,9 +43,16 @@
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
         <div class="col">
-            <h5 class="alert alert-success text-center mt-3">Income Setting</h5>
+            <h5 class="alert alert-success text-center mt-3">Monthly Income Setting</h5>
+            <h6 class="alert alert-success text-center mt-3">Create Monthly Basic Income Setting For UPA In Table No. - 1</h6>
+            <h6 class="alert alert-success text-center mt-3">Incentive <button class="btn btn-success">+</button> Plus Income</h6>
+            <h6 class="alert alert-success text-center mt-3">Create Monthly Incentive Plus Income Setting For Child Below 18 Years <br>
+            Mature Female & Senior Citizen UPA In Table No. - 2
+            </h6>
+            <hr>
             <a href="{% url 'create-income-setting'%}" class="btn btn-primary">Create Income Setting</a>
-            <a href="{% url 'income-setting-for-women-old'%}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            <h5 class="alert alert-success text-center mt-3">Table No. -1</h5>
+            <h6 class="alert alert-success text-center mt-3"> Monthly Basic Income Slab For General, BPL & Handicap</h6>
             <!-- <div class="row"> -->
                 <table class="table">
                     <thead>
@@ -54,8 +61,9 @@
                             <th scope="col">Child 1</th>
                             <th scope="col">Child 2</th>
                             <th scope="col">Child 3</th>
-                            <th scope="col">Income</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Privious Income</th>
+                            <th scope="col">Updated Income</th>
+                            <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,10 +73,11 @@
                             <td>{{i.child_one}}</td>
                             <td>{{i.child_two}}</td>
                             <td>{{i.child_three}}</td>
+                            <td>-</td>
                             <td>{{i.income}}</td>
                             <td>
                                 <a href="{% url 'update-income-setting' i.pk %}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
-
+                                <a href="" class="btn btn-outline-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -78,12 +87,16 @@
                 <br>
                 <br>
                 <hr>
+                <a href="{% url 'income-setting-for-women-old'%}" class="btn btn-primary">Create Monthly Incentive <i class="fa fa-plus" aria-hidden="true"></i> Income</a>
+                <h5 class="alert alert-success text-center mt-3">Table No. -2</h5>
+                <h6 class="alert alert-success text-center mt-3"> Monthly Incentive Plus Income Slab For Child Below 18 Years, Mature Female & Senior Citizen</h6>
                 <table class="table">
                   <thead>
                       <tr>
                           <th>S.No.</th>
                           <th scope="col">Category Type</th>
-                          <th scope="col">Income</th>
+                          <th scope="col"> Previous Income</th>
+                          <th scope="col"> Updated Income</th>
                           <th scope="col">Action</th>
                       </tr>
                   </thead>
@@ -92,9 +105,11 @@
                       <tr>
                           <td>{{forloop.counter}}</td>
                           <td>{{i.category_type}}</td>
+                          <td></td>
                           <td>{{i.income}}</td>
                           <td>
                               <a href="{% url 'update-income-setting-for-women-old' i.pk%}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
+                              <a href="" class="btn btn-outline-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a> 
 
                           </td>
                       </tr>
