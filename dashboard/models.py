@@ -54,9 +54,11 @@ class IncomeSetting(models.Model):
 class IncomeSettingForWomenOld(models.Model):
     CATEGORY_TYPE = (
         ('N/A','N/A'),
+        ('BPL','BPL'),
+        ('Handicap','Handicap'),
         ('Child Below 18', 'Child Below 18'),
-        ('Senior Citizen', 'Senior Citizen'),
         ('Mature Female', 'Mature Female'),
+        ('Senior Citizen', 'Senior Citizen')
     )
 
     created_by = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True,related_name='income_setting_for_old_women')
