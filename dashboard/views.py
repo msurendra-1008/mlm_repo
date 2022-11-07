@@ -180,7 +180,7 @@ def upa_tree(request):
     context = {'upas':upas,'j':j}
     return render(request,'dashboard/upa_tree.html',context)
 
-
+@login_required(login_url="/login")
 def income_setting(request):
     incomes = IncomeSetting.objects.all()
     incomes_for_women_old = IncomeSettingForWomenOld.objects.all()
