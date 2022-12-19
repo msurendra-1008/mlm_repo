@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-dj39hwomy&x@&e%pqbf-e!9-pc9cechlpr1)=^esot7)1c#=(w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mlmnative.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh','mlmnative.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
