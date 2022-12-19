@@ -4,7 +4,7 @@
         {
         "src": "mlm/wsgi.py",
         "use": "@vercel/python",
-        "config":{ "maxLambdaSize": "15mb", "runtime": "3.9"}
+        "config":{ "maxLambdaSize": "15mb", "runtime": "python3.9"}
         },
         {
             "src": "build_files.sh",
@@ -17,7 +17,7 @@
     "routes": [
         {
             "src": "/static/(.*)",
-            "dest": "/"
+            "dest": "/static/$1"
         },
         {
             "src": "/(.*)",

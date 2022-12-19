@@ -39,6 +39,7 @@ Thumbs.db
 *.app
 *.exe
 *.war
+*.env
 
 # python | django ignor files
 *.pyc
