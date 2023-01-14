@@ -29,3 +29,33 @@
 
 
 ### changes in node file.
+
+
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/project/mlm_repo
+ExecStart=/home/ubuntu/project/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/project/mlm_repo.sock mlm.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+server {
+    listen 80;
+    server_name 3.110.90.176;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/project/mlm_repo.sock;
+    }
+}
+
+sudo systemctl daemon-restart
+sudo systemctl restart junicorn
+sudo systemctl restart nginx
