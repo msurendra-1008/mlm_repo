@@ -1,7 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<style>
+    div {
+        /* Add some padding and a background color to the div */
+        <!-- padding: 10px; -->
+        background-color: #f2f2f2;
+        /* Center the heading and checkbox within the div */
+        text-align: center;
+    }
+</style>
 <div class="container-fluid">
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
@@ -11,8 +19,16 @@
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
-                        <h5 class="text-center alert alert-danger">Beneficiary Details</h5>
-                        <div class="row">
+                        <div>
+                            <label for="example">
+                                <h3>Do want Beneficiary Facility, Please tick the below checkbox.</h3>
+                                <input type="checkbox" id="example" name="example" value="option1">
+                            </label>
+                        </div>
+                        
+
+                        <div class="row" id="div1-id">
+                            <h5 class="text-center alert alert-danger">Beneficiary Details</h5>
                             <div class="col-md-4">
                                 <label for="" class="">Name of Beneficiary</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -44,7 +60,7 @@
                                 {{form.ben_last_name}}
                             </div>
                         </div>
-                        <div class="row mt-5">
+                        <div class="row mt-5" id="div2-id">
                             <h5 class="text-center alert alert-danger">Father / Husband / Gaurdian Details</h5>
                             <div class="col-md-4">
                                 <label for="" class="">Gaurdian Type</label>
@@ -67,7 +83,7 @@
                                 {{form.f_g_last_name}}
                             </div>
                         </div>
-                        <div class="row mt-5">
+                        <div class="row mt-5" id="div3-id">
                             <h5 class="text-center alert alert-danger">Mother's Maiden Name</h5>
                             <div class="col-md-4">
                                 <label for="" class="">First Name</label>
@@ -82,7 +98,7 @@
                                 {{form.m_m_last_name}}
                             </div>
                         </div>
-                        <div class="row mt-5">
+                        <div class="row mt-5" id="div4-id">
                             <div class="col-md-4">
                                 <label for="" class="">Date of Birth</label>
                                 {{form.birth_date}}
@@ -107,7 +123,7 @@
 
                         </div>
 
-                        <div class="row mt-5">
+                        <div class="row mt-5" id="div5-id">
                             <h5 class="text-center alert alert-danger">Permanent Address</h5>
                             <div class="col-md-4">
                                 <label for="" class="">Address Line 1</label>
@@ -168,7 +184,7 @@
 
 
                         </div>
-                        <div class="row mt-5">
+                        <div class="row mt-5" id="div6-id">
                             <div class="col-6">
                                 <h5>Proof Of Identity</h5>
                                 <div class="col md-4" onchange="getbenIdentity();">
@@ -188,7 +204,7 @@
                             </div>
                         </div>
 
-                        <div class="row mt-5">
+                        <div class="row mt-5" id="div7-id">
                             <div class="col-6" id="benIdentityProof">
                                 <h5>Proof Of Identity Details</h5>
                                 <div class="col md-8">
@@ -229,6 +245,52 @@
     </div>
 </div>
 <script>
+    window.onload = function() {
+        const checkbox = document.querySelector("input[name='example']");
+        const div1 = document.querySelector("#div1-id");
+        const div2 = document.querySelector("#div2-id");
+        const div3 = document.querySelector("#div3-id");
+        const div4 = document.querySelector("#div4-id");
+        const div5 = document.querySelector("#div5-id");
+        const div6 = document.querySelector("#div6-id");
+        const div7 = document.querySelector("#div7-id");
+
+        checkbox.addEventListener("change", function() {
+        if (checkbox.checked) {
+            div1.style.display = "block";
+            div2.style.display = "block";
+            div3.style.display = "block";
+            div4.style.display = "block";
+            div5.style.display = "block";
+            div6.style.display = "block";
+            div7.style.display = "block";
+            localStorage.setItem("checkbox", "checked");
+        } else {
+            div1.style.display = "none";
+            div2.style.display = "none";
+            div3.style.display = "none";
+            div4.style.display = "none";
+            div5.style.display = "none";
+            div6.style.display = "none";
+            div7.style.display = "none";
+            localStorage.removeItem("checkbox");
+        }
+        });
+
+        // On page load, check if checkbox is checked
+        if (localStorage.getItem("checkbox") === "checked") {
+        checkbox.checked = true;
+        div1.style.display = "block";
+        div2.style.display = "block";
+        div3.style.display = "block";
+        div4.style.display = "block";
+        div5.style.display = "block";
+        div6.style.display = "block";
+        div7.style.display = "block";
+        }
+    }
+
+
     var identitySection = document.getElementById('benIdentityProof');
     identitySection.style.display = 'none';
     function getbenIdentity(){
@@ -252,6 +314,6 @@
             addressSection.style.display = 'block';
         }
 
-    }
+    }  
 </script>
 {% endblock content %}
