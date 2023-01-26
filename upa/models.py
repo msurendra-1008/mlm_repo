@@ -113,8 +113,8 @@ class PersonalInformation(models.Model):
     )
 
     MARITAL_TYPE = (
-        ('Yes','Yes'),
-        ('No','No'),
+        ('Married','Married'),
+        ('Unmarried','Unmarried'),
     )
 
     TITLE_TYPE = (
@@ -125,7 +125,7 @@ class PersonalInformation(models.Model):
     
     GAURDIAN_TYPE = (
         ('Father','Father'),
-        ('Father','Father'),
+        ('Husband','Husband'),
         ('Gaurdian','Gaurdian'),
         ('Spouse','Spouse'),
     )
@@ -259,8 +259,8 @@ this is 5th step of the form here user will fill the relation with UPA .
 class UPAIdentityProof(models.Model):
     UPA_TYPE = (
         ('Normal','Normal'),
-        ('Handicap','Handicap'),
         ('BPL','BPL'),
+        ('Handicap','Handicap'),
     )
 
     PERSONAL_INCOME_TYPE = (
@@ -359,6 +359,7 @@ class BeneficiaryDetails(models.Model):
         ('Gaurdian','Gaurdian'),
         ('Spouse','Spouse'),
     )
+    beneficiary_required = models.BooleanField(default=False)
     user = models.OneToOneField(Profile,on_delete=models.CASCADE,blank=True, null=True,related_name="beneficiary_details")
     beneficiary_name = models.CharField(max_length=100,blank=True, null=True)
     beneficiary_id_no = models.CharField(max_length=100,blank=True, null=True)

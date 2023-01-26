@@ -204,16 +204,18 @@
     var telephone = document.getElementById('id_telephone').value;
     var mobile = document.getElementById('id_mobile').value;
     var activeEmail = document.getElementById('id_active_email').value;
-    var stdCode = document.getElementById('id_std_code').value;
-    var isdCode = document.getElementById('id_isd_code').value;
-    console.log(addOne,addTwo,addThree,addFour,landmark,town,district,subDistrict,postalCode,country,state,telephone,mobile,activeEmail,stdCode,isdCode)
+    //var stdCode = document.getElementById('id_std_code').value;
+    //var isdCode = document.getElementById('id_isd_code').value;
+    console.log(addOne,addTwo,addThree,addFour,landmark,town,district,subDistrict,postalCode,country,state,telephone,mobile,activeEmail)
 
     
 
     function getSelectValueSame(){
     if (document.getElementById('id_same_as_above').checked){
         // permanentAddress.style.display = 'none';
+        //console.log(document.getElementById('id_same_as_above').checked)
         var addOne = document.getElementById('id_address_line_one').value;
+        console.log("add one value",addOne)
         var addTwo = document.getElementById('id_address_line_two').value;
         var addThree = document.getElementById('id_address_line_three').value;
         var addFour = document.getElementById('id_address_line_four').value;
@@ -227,8 +229,8 @@
         var telephone = document.getElementById('id_telephone').value;
         var mobile = document.getElementById('id_mobile').value;
         var activeEmail = document.getElementById('id_active_email').value;
-        var stdCode = document.getElementById('id_std_code').value;
-        var isdCode = document.getElementById('id_isd_code').value;
+        //var stdCode = document.getElementById('id_std_code').value;
+        //var isdCode = document.getElementById('id_isd_code').value;
         // let quantity = document.getElementById('id_isd_code').value;
         // console.log(quantity)
 
@@ -246,8 +248,8 @@
         document.getElementById('id_p_telephone').value = telephone;
         document.getElementById('id_p_mobile').value = mobile;
         document.getElementById('id_p_active_email').value = activeEmail;
-        document.getElementById('id_p_std_code').value = stdCode;
-        document.getElementById('id_p_isd_code').value = isdCode;
+        //document.getElementById('id_p_std_code').value = stdCode;
+        //document.getElementById('id_p_isd_code').value = isdCode;
         
     }else{
         document.getElementById('id_p_address_one').value = '';
@@ -264,8 +266,8 @@
         document.getElementById('id_p_telephone').value = '';
         document.getElementById('id_p_mobile').value = '';
         document.getElementById('id_p_active_email').value = '';
-        document.getElementById('id_p_std_code').value = '';
-        document.getElementById('id_p_isd_code').value = '';
+        //document.getElementById('id_p_std_code').value = '';
+        //document.getElementById('id_p_isd_code').value = '';
     }
     
 }
