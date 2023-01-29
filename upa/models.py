@@ -331,6 +331,9 @@ class BeneficiaryDetails(models.Model):
         ('Sister','Sister'),
         ('Daughter','Daughter'),
         ('Son','Son'),
+        ('Husband','Husband'),
+        ('Wife','Wife'),
+        ('Other','Other'),
     )
     GENDER_TYPE = (
         ('Male','Male'),

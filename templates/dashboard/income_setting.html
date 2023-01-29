@@ -46,10 +46,6 @@
             <h5 class="alert alert-success text-center mt-3">Monthly Income Setting</h5>
             <h6 class="alert alert-success text-center mt-3">Create Monthly Basic Income Setting For UPA In Table No. - 1</h6>
             <h6 class="alert alert-success text-center mt-3">Incentive <button class="btn btn-success">+</button> Plus Income</h6>
-            <h6 class="alert alert-success text-center mt-3">Create Monthly Incentive Plus Income Setting For Child Below 18 Years <br>
-            Mature Female & Senior Citizen UPA In Table No. - 2
-            </h6>
-            <hr>
             <a href="{% url 'create-income-setting'%}" class="btn btn-primary">Create Income Setting</a>
             <h5 class="alert alert-success text-center mt-3">Table No. -1</h5>
             <h6 class="alert alert-success text-center mt-3"> Monthly Basic Income Slab For General, BPL & Handicap</h6>
@@ -58,9 +54,9 @@
                     <thead>
                         <tr>
                             <th>S.No.</th>
-                            <th scope="col">Child 1</th>
-                            <th scope="col">Child 2</th>
-                            <th scope="col">Child 3</th>
+                            <th scope="col">Branch 1</th>
+                            <th scope="col">Branch 2</th>
+                            <th scope="col">Branch 3</th>
                             <th scope="col">Privious Income</th>
                             <th scope="col">Updated Income</th>
                             <th scope="col" class="text-center">Action</th>
@@ -87,9 +83,13 @@
                 <br>
                 <br>
                 <hr>
+                <h6 class="alert alert-success text-center mt-3">Create Monthly Incentive Plus Income Setting For Child Below 18 Years <br>
+                    Mature Female & Senior Citizen UPA In Table No. - 2
+                </h6>
+                <hr>
                 <a href="{% url 'income-setting-for-women-old'%}" class="btn btn-primary">Create Monthly Incentive <i class="fa fa-plus" aria-hidden="true"></i> Income</a>
                 <h5 class="alert alert-success text-center mt-3">Table No. -2</h5>
-                <h6 class="alert alert-success text-center mt-3"> Monthly Incentive Plus Income Slab For Child Below 18 Years, Mature Female & Senior Citizen</h6>
+                <h6 class="alert alert-success text-center mt-3"> Monthly Incentive Plus Income Slab For BPL, Handicap, Child Below 18 Years, Mature Female & Senior Citizen</h6>
                 <table class="table">
                   <thead>
                       <tr>
