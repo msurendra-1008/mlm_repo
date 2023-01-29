@@ -43,7 +43,7 @@
                                 <label for="" class="">Relation With UPA</label>
                                 {{form.relation_upa}}
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4" id="otherField">
                                 <label for="" class="">Other</label>
                                 {{form.other}}
                             </div>
@@ -314,6 +314,25 @@
             addressSection.style.display = 'block';
         }
 
-    }  
+    }
+    
+    // Get the "other" field and the dropdown field
+    var relationDropdown = document.getElementById("id_relation_upa")
+    var otherField = document.getElementById("otherField")
+
+    // Hide the other field by default
+    otherField.style.display = "none";
+
+    // Add an event listener to the dropdown field to listen for changes
+    relationDropdown.addEventListener("change", function() {
+        // If the "other" option is selected, show the "other" field
+        if (relationDropdown.value === "Other") {
+            otherField.style.display = "block";
+        } else {
+            // otherwise, "hide otherField" field
+            otherField.style.display = "none";
+        }
+    });
+
 </script>
 {% endblock content %}
