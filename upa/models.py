@@ -146,11 +146,12 @@ class PersonalInformation(models.Model):
     gaurdian_name_hg = models.CharField(max_length=100,blank=True, null=True)
     mother_median_name = models.CharField(max_length=200,blank=True, null=True)
     mother_title = models.CharField(max_length=3,choices=TITLE_TYPE, default="Mrs",blank=True,null=True)
+    mother_full_name = models.CharField(max_length=50, blank=True, null=True)
     first_name_m = models.CharField(max_length=100,blank=True, null=True)
     middle_name_m = models.CharField(max_length=100,blank=True, null=True)
     last_name_m = models.CharField(max_length=100,blank=True, null=True)
     dob = models.DateField(blank=True, null=True)
-    update_age_dob = models.DateField(blank=True, null=True)
+    update_age_dob = models.CharField(max_length=50,blank=True,null=True)
     gender = models.CharField(max_length=10,choices=GENDER_TYPE,blank=True, null=True)
     marital_status = models.CharField(max_length=10,choices=MARITAL_TYPE,blank=True, null=True)
     nationality = models.CharField(max_length=100,blank=True, null=True)
@@ -306,11 +307,19 @@ class UPAIdentityProof(models.Model):
 
     id_proof_no = models.CharField(max_length=100,blank=True, null=True)
     id_issued_at = models.DateField(blank=True, null=True)
+    place_of_issue = models.CharField(max_length=100, blank=True, null=True)
+    issue_date = models.DateField(blank=True, null=True)
+    valid_upto = models.DateField(blank=True, null=True)
+    identity_proof_image = models.ImageField(upload_to='identity_proof/image/', blank=True, null=True)
     id_issued_by = models.CharField(max_length=100,blank=True, null=True)
     # id_proof_image
 
     add_proof_no = models.CharField(max_length=100,blank=True, null=True)
     add_issued_at = models.DateField(blank=True, null=True)
+    add_place_of_issue = models.CharField(max_length=100, blank=True, null=True)
+    add_issue_date = models.DateField(blank=True, null=True)
+    add_valid_upto = models.DateField(blank=True, null=True)
+    add_proof_image = models.ImageField(upload_to='address_proof/image/', blank=True, null=True)
     add_issued_by = models.CharField(max_length=100,blank=True, null=True)
 
     def __str__(self):

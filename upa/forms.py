@@ -24,7 +24,7 @@ class PersonalInformationForm(forms.ModelForm):
         exclude = ('user',)
         widgets = {
             'dob':DateInput(),
-            'update_age_dob':DateInput(),
+            # 'update_age_dob':DateInput(),
         }
 
 class UPAAddressForm(forms.ModelForm):
@@ -48,6 +48,10 @@ class UPAIdentityProofForm(forms.ModelForm):
         widgets = {
             'id_issued_at':DateInput(),
             'add_issued_at':DateInput(),
+            'issue_date':DateInput(),
+            'valid_upto':DateInput(),
+            'add_issue_date':DateInput(),
+            'add_valid_upto':DateInput(),
         }
 
 class BeneficiaryDetailsForm(forms.ModelForm):

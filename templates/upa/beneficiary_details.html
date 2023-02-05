@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="row mt-5" id="div3-id">
-                            <h5 class="text-center alert alert-danger">Mother's Maiden Name</h5>
+                            <h5 class="text-center alert alert-danger">Mother's Name & Other Details</h5>
                             <div class="col-md-4">
                                 <label for="" class="">First Name</label>
                                 {{form.m_m_first_name}}
@@ -184,55 +184,59 @@
 
 
                         </div>
-                        <div class="row mt-5" id="div6-id">
-                            <div class="col-6">
-                                <h5>Proof Of Identity</h5>
-                                <div class="col md-4" onchange="getbenIdentity();">
-                                    <label for="" class="">Select for Identity</label>
-                                    {{form.identity_proof}}
+                        <br> <br>
+                        <div>
+                            <h5 class="text-center alert alert-danger">PROOF OF IDENTITY & ADDRESS DETAILS</h5>
+                            <div class="row mt-5" id="div6-id">
+                                <div class="col-6">
+                                    <h5>Proof Of Identity</h5>
+                                    <div class="col md-4" onchange="getbenIdentity();">
+                                        <label for="" class="">Select for Identity</label>
+                                        {{form.identity_proof}}
+                                    </div>
+                                    
                                 </div>
-                                
-                            </div>
-                            <div class="col-6">
-                                <h5 class="text-center">Proof Of Address</h5>
-                                <div class="col md-4" onchange="getbenAddress();">
-                                    <label for="" class="">Select for Address</label>
-                                    <!-- <input type="text" class="form-control"> -->
-                                    {{form.address_proof}}
+                                <div class="col-6">
+                                    <h5 class="text-center">Proof Of Address</h5>
+                                    <div class="col md-4" onchange="getbenAddress();">
+                                        <label for="" class="">Select for Address</label>
+                                        <!-- <input type="text" class="form-control"> -->
+                                        {{form.address_proof}}
+                                    </div>
+                                    
                                 </div>
-                                
                             </div>
-                        </div>
 
-                        <div class="row mt-5" id="div7-id">
-                            <div class="col-6" id="benIdentityProof">
-                                <h5>Proof Of Identity Details</h5>
-                                <div class="col md-8">
-                                    <label for="" class="">Identity Proof No.</label>
-                                    {{form.id_proof_no}}
+                            <div class="row mt-5" id="div7-id">
+                                <div class="col-6" id="benIdentityProof">
+                                    <h5>Proof Of Identity Details</h5>
+                                    <div class="col md-8">
+                                        <label for="" class="">Identity Proof No.</label>
+                                        {{form.id_proof_no}}
+                                    </div>
+                                    <div class="col md-8">
+                                        <label for="" class="">Issued At</label>
+                                        {{form.id_issued_at}}
+                                    </div>
+                                    <div class="col md-8">
+                                        <label for="" class="">Issued By</label>
+                                        {{form.id_issued_by}}
+                                    </div>
                                 </div>
-                                <div class="col md-8">
-                                    <label for="" class="">Issued At</label>
-                                    {{form.id_issued_at}}
-                                </div>
-                                <div class="col md-8">
-                                    <label for="" class="">Issued By</label>
-                                    {{form.id_issued_by}}
-                                </div>
-                            </div>
-                            <div class="col-6" id="benAddressProof">
-                                <h5>Proof Of Address Details</h5>
-                                <div class="col md-8">
-                                    <label for="" class="">Identity Proof No.</label>
-                                    {{form.add_proof_no}}
-                                </div>
-                                <div class="col md-8">
-                                    <label for="" class="">Issued At</label>
-                                    {{form.add_issued_at}}
-                                </div>
-                                <div class="col md-8">
-                                    <label for="" class="">Issued By</label>
-                                    {{form.add_issued_by}}
+                                <div class="col-6" id="benAddressProof">
+                                    <h5>Proof Of Address Details</h5>
+                                    <div class="col md-8">
+                                        <label for="" class="">Identity Proof No.</label>
+                                        {{form.add_proof_no}}
+                                    </div>
+                                    <div class="col md-8">
+                                        <label for="" class="">Issued At</label>
+                                        {{form.add_issued_at}}
+                                    </div>
+                                    <div class="col md-8">
+                                        <label for="" class="">Issued By</label>
+                                        {{form.add_issued_by}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

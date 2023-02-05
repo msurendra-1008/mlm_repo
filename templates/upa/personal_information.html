@@ -50,7 +50,7 @@
                             {{form.gaurdian_type}}
                         </div>
                         <div class="col-md-4">
-                            <label for="" class="">Title</label>
+                            <label for="" class="">Prefix</label>
                             {{form.title}}
                         </div>
                         <div class="col-md-4">
@@ -76,7 +76,7 @@
                         {% comment %} <h5>Mother / Gaurdian Details</h5> {% endcomment %}
                         <div class="col-md-4">
                             <label for="" class="">Mother's Full Name</label>
-                            {{form.mother_title}}
+                            {{form.mother_full_name}}
                         </div>
                         <div class="col-md-4">
                             <label for="" class="">First Name</label>
@@ -126,5 +126,29 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    // Get the DOB input element and the updated_dob input element
+    const dobInput = document.getElementById("id_dob");
+    const updatedDobInput = document.getElementById("id_update_age_dob");
+
+    dobInput.onchange = function() {
+    const dob = new Date(this.value);
+    const today = new Date();
+    let ageInMilliseconds = today - dob;
+    let ageInYears = ageInMilliseconds / 1000 / 60 / 60 / 24 / 365.25;
+    ageInYears = Math.floor(ageInYears);
+    ageInMilliseconds -= ageInYears * 365.25 * 24 * 60 * 60 * 1000;
+    let ageInMonths = ageInMilliseconds / 1000 / 60 / 60 / 24 / 30.4375;
+    ageInMonths = Math.floor(ageInMonths);
+    ageInMilliseconds -= ageInMonths * 30.4375 * 24 * 60 * 60 * 1000;
+    let ageInDays = ageInMilliseconds / 1000 / 60 / 60 / 24;
+    ageInDays = Math.floor(ageInDays);
+    updatedDobInput.value = `${ageInYears} years, ${ageInMonths} months, ${ageInDays} days`;
+    };
+
+ 
+</script>
 
 {% endblock content %}
