@@ -96,67 +96,73 @@
 </style>
 
 <div class="container-fluid">
-    <div class="row flex-nowrap">
+    <div class="row">
         {% include 'left_panel.html' %}
         <div class="col">
-            <h5 class="alert alert-success text-center mt-3">Detail Change Request Status</h5>
-            <table id="customers">
-                <tr>
-                    <th>S.No</th>
-                    <th>UPA ID</th>
-                    <th>Request No</th>
-                    <th>Subject</th>
-                    <th>Message</th>
-                    <th>Request Date</th>
-                    <th>Status</th>
-                    {% if group == "Admin" %}
-                    <th>Action</th>
-                    {% endif %}
-                </tr>
-                {% for status in req_status %}
-                <tr>
-                    <td>{{forloop.counter}}</td>
-                    <td>{{status.user.uid_no}}</td>
-                    <td>{{status.request_no}}</td>
-                    <td>{{status.subject}}</td>
-                    <td>{{status.message}}
-                        {% if status.reply_message%}
-                        <br> <hr>
-                        <span class="badge bg-danger">Bussiness Bazar</span>
-                        {{status.reply_message}}
+            <h3 class="text-center m-4">Detail Change Request Status</h3>
+                <table class="table table-striped table-hover table-bordered align-middle mb-5">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>UPA ID</th>
+                            <th>Request No</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Request Date</th>
+                            <th>Status</th>
+                            {% if group == "Admin" %}
+                            <th>Action</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for status in req_status %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{status.user.uid_no}}</td>
+                        <td>{{status.request_no}}</td>
+                        <td>{{status.subject}}</td>
+                        <td width="30%">
+                            {{status.message}}
+                            {% if status.reply_message%}
+                            <br> <hr>
+                            <span class="badge bg-danger">Bussiness Bazar</span>
+                            {{status.reply_message}}
+                            {% endif %}
+                        </td>
+                        <td>{{status.request_date}}</td>
+                        <td>
+                            {% if status.status == "Pending"%}
+                            <span class="badge bg-danger">{{status.status}}</span>
+                            {% else %}
+                            <span class="badge bg-success">{{status.status}}</span>
+                            {% endif %}
+                        </td>
+                        {% if group == "Admin" %}
+                        
+                        <td>
+                            {% if status.status == "Pending"%}
+                            <a href="{% url 'reply_to_request' status.id %}" class="btn btn-sm btn-success">Reply</a>
+                            <div class="dropdown">
+                                <button class="dropbtn btn btn-sm btn-success">Select Form</button>
+                                <div class="dropdown-content">
+                                  <a href="{% url 'change-address-form' status.user.id %}">Address Form</a>
+                                  <a href="{% url 'change-additional-form' status.user.id %}">Additional Detail Form</a>
+                                  <a href="{% url 'change-beneficiary-form' status.user.id %}">Beneficiary Detail Form</a>
+                                  <a href="{% url 'change-service-required-form' status.user.id %}">Service Required Form</a>
+                                  <a href="{% url 'change-operation-mode-form' status.user.id %}">Operation Mode Form</a>
+                                </div>
+                              </div>
+                            {% else %}
+                            <span class="badge bg-success">Done</span>
+                            {% endif%}
+                        </td>
                         {% endif %}
-                    </td>
-                    <td>{{status.request_date}}</td>
-                    <td>
-                        {% if status.status == "Pending"%}
-                        <span class="badge bg-danger">{{status.status}}</span>
-                        {% else %}
-                        <span class="badge bg-success">{{status.status}}</span>
-                        {% endif %}
-                    </td>
-                    {% if group == "Admin" %}
-                    
-                    <td width="150">
-                        {% if status.status == "Pending"%}
-                        <a href="{% url 'reply_to_request' status.id %}" class="btn btn-sm btn-success">Reply</a>
-                        <div class="dropdown">
-                            <button class="dropbtn">Select Form</button>
-                            <div class="dropdown-content">
-                              <a href="{% url 'change-address-form' status.user.id %}">Address Form</a>
-                              <a href="{% url 'change-additional-form' status.user.id %}">Additional Detail Form</a>
-                              <a href="{% url 'change-beneficiary-form' status.user.id %}">Beneficiary Detail Form</a>
-                              <a href="{% url 'change-service-required-form' status.user.id %}">Service Required Form</a>
-                              <a href="{% url 'change-operation-mode-form' status.user.id %}">Operation Mode Form</a>
-                            </div>
-                          </div>
-                        {% else %}
-                        <span class="badge bg-success">Done</span>
-                        {% endif%}
-                    </td>
-                    {% endif %}
-                </tr>
-                {% endfor %}
-            </table>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
         </div>
     </div>
 </div>

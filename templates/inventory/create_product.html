@@ -6,43 +6,43 @@
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
         <div class="col">
-            <h5 class="text-center mt-2 alert alert-danger">{{page}}</h5>
+            <h3 class="text-center m-5 ">{{page}}</h3>
             <form action="" method="POST" enctype="multipart/form-data">
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col-md-4">
-                                <label for="" class="">Select Firm</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Select Firm</label>
                                 <!-- <input type="text" class="form-control"> -->
                                 {{form.firm}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Category</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Category</label>
                                 {{form.category}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Product Image</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Product Image</label>
                                 {{form.product_image}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Product Name</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Product Name</label>
                                 {{form.product_name}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Quantity</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Quantity</label>
                                 {{form.quantity}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Cost Price</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Cost Price</label>
                                 {{form.cost_price}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Selling Price</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Selling Price</label>
                                 {{form.selling_price}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Product Description</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Product Description</label>
                                 {{form.product_description}}
                             </div>
                             

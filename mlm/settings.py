@@ -92,19 +92,19 @@ WSGI_APPLICATION = 'mlm.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
     
-   'default': {
-      'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'webserver_db',
-      'USER': 'postgres',
-      'PASSWORD': 'tQfM3ju7Yk',
-      'HOST': 'databasewebserver.cbfvkpph3wvc.ap-south-1.rds.amazonaws.com',
-      'PORT': '5432',
-   }
+#    'default': {
+#       'ENGINE': 'django.db.backends.postgresql',
+#       'NAME': 'webserver_db',
+#       'USER': 'postgres',
+#       'PASSWORD': 'tQfM3ju7Yk',
+#       'HOST': 'databasewebserver.cbfvkpph3wvc.ap-south-1.rds.amazonaws.com',
+#       'PORT': '5432',
+#    }
 }
 
 #DATABASES['default'] = dj_database_url.config()

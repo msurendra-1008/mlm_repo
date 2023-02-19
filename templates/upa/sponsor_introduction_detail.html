@@ -11,17 +11,50 @@
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
-                        <h5 class="text-center alert alert-danger">Beneficiary Details</h5>
+                        <h5 class="text-center alert alert-primary">Beneficiary Details</h5>
                         <h3>Sponsor Introduction Details</h3>
-                        <div class="">
-                            I {{form.name}} having D.I.D {{form.did_no}} Confirm that I am an holder of
-                            account number {{form.account_no}} Of Bussiness bazaar for the past {{form.time_in_bussiness}}
-                            months/year(s) and persinally know the applicant(s) for more than {{form.time_with_applicant}}
-                            months/year(s) and confirm his/her/their identity and address as stated above.
-                        </div>
                         <div class="row">
-                            <div class="col-md-5">Date/Time {{form.date}}</div>
-                            <div class="col-md-7"><input type="text" /> <br />Sinature of the Introducer</div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">I</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.name}}
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">having D.I.D</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.did_no}} 
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Confirm that I am an holder of
+                                    account number</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.account_no}}
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Of Bussiness bazaar for the past </label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.time_in_bussiness}}
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">months/year(s) and persinally know the applicant(s) for more than </label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.time_with_applicant}}
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">months/year(s) and confirm his/her/their identity and address as stated above.</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Date/Time </label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.date}}
+                            </div> 
+                            
+                            
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-4"><textarea class="form-control" aria-label="With textarea"></textarea><br />Sinature of the Introducer</div>
                         </div>
                         <div class="row">
                         </div>

@@ -12,47 +12,47 @@
 				<div class="card-body main-row">
                     {% csrf_token %}
                     <div class="row">
-                    <h3 class="text-center alert alert-danger">Additional Details</h3>
-                        <div class="col-md-4">
-                            <label for="" class="">Nickname</label>
+                    <h5 class="text-center alert alert-primary">Additional Details</h5>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Nickname</label>
                             <!-- <input type="text" class="form-control"> -->
                             {{form.nickname}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Personal Title</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Personal Title</label>
                             {{form.personal_title}}
                         </div>
 
-                        <div class="col-md-4" onchange="getRegionValue();">
-                            <label for="" class="">Religion</label>
+                        <div class="col-md-4 mb-3" onchange="getRegionValue();">
+                            <label for="" class="form-label">Religion</label>
                             {{form.religion}}
                         </div>
-                        <div class="col-md-4" id="otherReligion">
-                            <label for="" class="">Other</label>
+                        <div class="col-md-4 mb-3" id="otherReligion">
+                            <label for="" class="form-label">Other</label>
                             {{form.rel_other}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Category</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Category</label>
                             {{form.category}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Education Qualification</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Education Qualification</label>
                             {{form.educational_qualification}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Occupation Type</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Occupation Type</label>
                             {{form.occupation_type}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Employer Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Employer Name</label>
                             {{form.employer_name}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Designation</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Designation</label>
                             {{form.designation}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Self Employed</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Self Employed</label>
                             {{form.self_employeed}}
                         </div>
                         
@@ -60,27 +60,27 @@
                          </div>
                          <br>
                          <div class="row">
-                            <h3 class="text-center alert alert-danger">Personal Income Details</h3>
-                                <div class="col-md-4">
-                                    <label for="" class="">Monthly Income</label>
+                            <h5 class="text-center alert alert-primary">Personal Income Details</h5>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">Monthly Income</label>
                                     <!-- <input type="text" class="form-control"> -->
                                     {{form.monthly_income}}
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="" class="">Assest (Approximate Value)</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">Assest (Approximate Value)</label>
                                     {{form.assets}}
                                 </div>
         
-                                <div class="col-md-4">
-                                    <label for="" class="">Source</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">Source</label>
                                     {{form.source}}
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="" class="">IT PAN No.</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">IT PAN No.</label>
                                     {{form.it_pan_no}}
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="" class="">Bussiness Nature</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">Bussiness Nature</label>
                                     {{form.bussiness_nature}}
                                 </div>
                                 

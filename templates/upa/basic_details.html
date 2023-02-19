@@ -12,79 +12,77 @@
 				<div class="card-body main-row">
                     {% csrf_token %}
                     <div class="row">
-                        <h5 class="text-center alert alert-danger">Basic Details</h5>
-                        <div class="col-md-4">
-                            <label for="" class="">Sponsor UID</label>
-                            <!-- <input type="text" class="form-control"> -->
-                            {{form.sponsor_uid}}
-                            {{ form.errors }}
-                        </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Sponsor Name</label>
-                            {{form.sponsor_name}}
-                        </div>
+                        <h5 class="text-center alert alert-primary">Basic Details</h5>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Sponsor UID</label>
+                                <!-- <input type="text" class="form-control"> -->
+                                {{form.sponsor_uid}}
+                                {{ form.errors }}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Sponsor Name</label>
+                                {{form.sponsor_name}}
+                            </div>
 
-                        <div class="col-md-4">
-                            <label for="" class="">Branch</label>
-                            {{form.branch}}
-                        </div>
-                        <div class="col-md-4">
-                            <label for="" class="">UPA Type</label>
-                            {{form.upa_type}}
-                        </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Relation with UPA</label>
-                            {{form.relation_upa}}
-                        </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Post Applied For</label>
-                            {{form.post_applied}}
-                        </div>
-                        {% comment %} <div class="col-md-4">
-                            <label for="" class="">Applicant UPA Type</label>
-                            {{form.applicant_upa_type}}
-                        </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Applicant Collect Sequence Number</label>
-                            {{form.applicant_appl_seq_num}}
-                        </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Applicant Collect Refrence Number</label>
-                            {{form.applicant_coll_ref_num}}
-                        </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Applicant Collect Registration Number</label>
-                            {{form.applicant_reg_seq_num}}
-                        </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Applicant Distributor ID (DID) Number</label>
-                            {{form.applicant_dis_id_number}}
-                        </div> {% endcomment %}
-                        <div class="col-md-4">
-                            <label for="" class="">Applicant Full Name</label>
-                            {{form.full_name}}
-                        </div>
-                        <div class="row">
-                            <h5 class="text-center alert alert-danger">Customer Pesonal Details</h5>
+                            <div class="col-md-4 mb-3 ">
+                                <label for="" class="form-label">Branch</label>
+                                {{form.branch}}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">UPA Type</label>
+                                {{form.upa_type}}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Relation with UPA</label>
+                                {{form.relation_upa}}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Post Applied For</label>
+                                {{form.post_applied}}
+                            </div>
+                            {% comment %} <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Applicant UPA Type</label>
+                                {{form.applicant_upa_type}}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Applicant Collect Sequence Number</label>
+                                {{form.applicant_appl_seq_num}}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Applicant Collect Refrence Number</label>
+                                {{form.applicant_coll_ref_num}}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Applicant Collect Registration Number</label>
+                                {{form.applicant_reg_seq_num}}
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Applicant Distributor ID (DID) Number</label>
+                                {{form.applicant_dis_id_number}}
+                            </div> {% endcomment %}
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Applicant Full Name</label>
+                                {{form.full_name}}
+                            </div>
+                            <h5 class="text-center alert alert-primary">Customer Pesonal Details</h5>
                             {% comment %} <h5>Father / Gaurdian Details</h5> {% endcomment %}
-                            <div class="col-md-4">
-                                <label for="" class="">Customer Type</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Customer Type</label>
                                 {{form.customer_type}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Customer Nature</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Customer Nature</label>
                                 {{form.customer_nature}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Customer Education</label>
+                            <div class="col-md-4 mb-3"> 
+                                <label for="" class="form-label">Customer Education</label>
                                 {{form.customer_education}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Customer Employment</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Customer Employment</label>
                                 {{form.customer_work}}
                             </div>
                             
-                        </div>
                          </div>
                          <div class="d-flex justify-content-center mt-4">
                         <button type="submit" class="btn btn-primary btn-customlg">Save & Next</button>

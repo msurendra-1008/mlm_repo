@@ -10,28 +10,28 @@
                 {% csrf_token %}
                 <div class="card my-4">
                     <div class="card-body main-row">
-                    <h4 class="alert alert-success text-center mt-3" >{{page_name}}</h4>
+                    <h3 class="text-center m-4" >{{page_name}}</h3>
                     <hr>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="" class="">Tender No.</label>
+                        <div class="row mx-3">
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Tender No.</label>
                                 {{form.tender_product_no}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Product Name</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Product Name</label>
                                 {{form.product_name}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Product Image</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Product Image</label>
                                 {{form.product_image}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Tender Product Quantity</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Tender Product Quantity</label>
                                 {{form.tender_product_quantity}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Tender Date</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Tender Date</label>
                                 {{form.tender_date}}
                             </div>
                             

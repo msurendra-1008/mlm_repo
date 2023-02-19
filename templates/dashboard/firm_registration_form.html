@@ -6,95 +6,95 @@
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
         <div class="col">
-            <h5 class="text-center mt-2 alert alert-danger">{{page}}</h5>
+            <h5 class="text-center mt-2 alert alert-primary">{{page}}</h5>
             <form action="" method="POST">
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col-md-4">
-                                <label for="" class="">GSTIN No.</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">GSTIN No.</label>
                                 <!-- <input type="text" class="form-control"> -->
                                 {{form.gst_no}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Name</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Name</label>
                                 {{form.firm_name}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Firm Image</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Firm Image</label>
                                 {{form.firm_image}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Address 1</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Address 1</label>
                                 {{form.address_one}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Address 2</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Address 2</label>
                                 {{form.address_two}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Address 3</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Address 3</label>
                                 {{form.address_three}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Address 4</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Address 4</label>
                                 {{form.address_four}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Landmark</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Landmark</label>
                                 {{form.landmark}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">City / Town</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">City / Town</label>
                                 {{form.town_city}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Sub-District</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Sub-District</label>
                                 {{form.sub_district}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">District</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">District</label>
                                 {{form.district}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Postal Code</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Postal Code</label>
                                 {{form.postal_code}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">State</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">State</label>
                                 {{form.state}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Country</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Country</label>
                                 {{form.country}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Telephone</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Telephone</label>
                                 {{form.telephone}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Mobile</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Mobile</label>
                                 {{form.mobile}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Email</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Email</label>
                                 {{form.email}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Website</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Website</label>
                                 {{form.website}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Firm Mode</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Firm Mode</label>
                                 {{form.firm_mode}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class=""> Firm Status</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label"> Firm Status</label>
                                 {{form.status}}
                             </div>
-                            <div class="col-md-4">
-                                <label for="" class="">Product Description</label>
+                            <div class="col-md-4 mb-3">
+                                <label for="" class="form-label">Product Description</label>
                                 {{form.product_description}}
                             </div>
                         </div>

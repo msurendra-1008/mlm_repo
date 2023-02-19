@@ -16,64 +16,64 @@
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
-                        <h5 class="text-center alert alert-danger">UPA Type & Proof of Identity Details</h5>
+                        <h5 class="text-center alert alert-primary">UPA Type & Proof of Identity Details</h5>
                         <div class="row">
-                            <div class="col-md-4" onchange="getSelectValue();">
-                                <label for="" class="">UPA Type</label>
+                            <div class="col-md-4 mb-3" onchange="getSelectValue();">
+                                <label for="" class="form-label">UPA Type</label>
                                 <!-- <input type="text" class="form-control"> -->
                                 {{form.upa_type}}
                             </div>
                         </div>
                         <!-- <div class="row bpl_Form" id="showMe"> -->
                             <div class="row" id="bplShow">
-                                <div class="col-md-4">
-                                    <label for="" class="">BPL Ration Card No.</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">BPL Ration Card No.</label>
                                     {{form.bpl_ration_card_no}}
                                 </div>
 
-                                <div class="col-md-4">
-                                    <label for="" class="">Personal Income Type Monthly/Yearly</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">Personal Income Type Monthly/Yearly</label>
                                     {{form.personal_income_type}}
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="" class="">Personal Income</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">Personal Income</label>
                                     {{form.personal_income}}
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="" class="">Ration Card image</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">Ration Card image</label>
                                     {{form.bpl_ration_card_image}}
                                 </div>
                             </div>
                             <div class="row" id="ShowYou">
-                                <div class="col-md-4">
-                                    <label for="" class="">CMO Certificate No.</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">CMO Certificate No.</label>
                                     {{form.cmo_certificate_no}}
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="" class="">CMO Certificate Image</label>
+                                <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">CMO Certificate Image</label>
                                     {{form.cmo_certificate_image}}
                                 </div>
-                                {% comment %} <div class="col-md-4">
-                                    <label for="" class="">Education Qualification</label>
+                                {% comment %} <div class="col-md-4 mb-3">
+                                    <label for="" class="form-label">Education Qualification</label>
                                     {{form.educational_qualification}}
                                 </div> {% endcomment %}
                             </div>
                             <br>
                         <!-- </div> -->
-                        <h4 class="text-center alert alert-danger">Proof Of Identity & Address Details</h4>
+                        <h4 class="text-center alert alert-primary">Proof Of Identity & Address Details</h4>
                         <div class="row mt-5">
                             <div class="col-6" onchange="getIdentityProof();">
-                                <h5 class="alert alert-danger">Proof Of Identity</h5>
+                                <h5 class="alert alert-primary">Proof Of Identity</h5>
                                 <div class="col md-4">
-                                    <label for="" class="">Select for Identity</label>
+                                    <label for="" class="form-label">Select for Identity</label>
                                     {{form.identity_proof}}
                                 </div>
                                 
                             </div>
                             <div class="col-6" onchange="getAddressProof();">
-                                <h5 class="text-center alert alert-danger">Proof Of Address</h5>
+                                <h5 class="text-center alert alert-primary">Proof Of Address</h5>
                                 <div class="col md-4">
-                                    <label for="" class="">Select for Address</label>
+                                    <label for="" class="form-label">Select for Address</label>
                                     <!-- <input type="text" class="form-control"> -->
                                     {{form.address_proof}}
                                 </div>
@@ -83,64 +83,64 @@
 
                         <div class="row mt-5">
                             <div class="col-6" id="identityProofSection">
-                                <h5 class="alert alert-danger">Proof Of Identity Details</h5>
+                                <h5 class="alert alert-primary">Proof Of Identity Details</h5>
                                 <div class="col-md-8">
-                                    <label for="" class="">Identity Proof No.</label>
+                                    <label for="" class="form-label">Identity Proof No.</label>
                                     {{form.id_proof_no}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Issued At</label>
+                                    <label for="" class="form-label">Issued At</label>
                                     {{form.id_issued_at}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Place Of Issue</label>
+                                    <label for="" class="form-label">Place Of Issue</label>
                                     {{form.place_of_issue}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Issue Date</label>
+                                    <label for="" class="form-label">Issue Date</label>
                                     {{form.issue_date}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Valid Up-To</label>
+                                    <label for="" class="form-label">Valid Up-To</label>
                                     {{form.valid_upto}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Identity Proof Image</label>
+                                    <label for="" class="form-label">Identity Proof Image</label>
                                     {{form.identity_proof_image}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Issued By</label>
+                                    <label for="" class="form-label">Issued By</label>
                                     {{form.id_issued_by}}
                                 </div>
                             </div>
                             <div class="col-6" id="addressProofSection">
-                                <h5 class="alert alert-danger">Proof Of Address Details</h5>
+                                <h5 class="alert alert-primary">Proof Of Address Details</h5>
                                 <div class="col-md-8">
-                                    <label for="" class="">Identity Proof No.</label>
+                                    <label for="" class="form-label">Identity Proof No.</label>
                                     {{form.add_proof_no}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Issued At</label>
+                                    <label for="" class="form-label">Issued At</label>
                                     {{form.add_issued_at}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Place Of Issue</label>
+                                    <label for="" class="form-label">Place Of Issue</label>
                                     {{form.add_place_of_issue}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Issue Date</label>
+                                    <label for="" class="form-label">Issue Date</label>
                                     {{form.add_issue_date}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Valid Up-To</label>
+                                    <label for="" class="form-label">Valid Up-To</label>
                                     {{form.add_valid_upto}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Address Proof Image</label>
+                                    <label for="" class="form-label">Address Proof Image</label>
                                     {{form.add_proof_image}}
                                 </div>
                                 <div class="col-md-8">
-                                    <label for="" class="">Issued By</label>
+                                    <label for="" class="form-label">Issued By</label>
                                     {{form.add_issued_by}}
                                 </div>
                             </div>

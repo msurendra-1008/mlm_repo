@@ -6,24 +6,27 @@
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
         <div class="col">
-            <h5 class="alert alert-success text-center mt-3">All Store List</h5>
+            <h3 class="text-center m-5">All Store List</h3>
            <a href="{% url 'store-creation' %}" class="btn btn-outline-primary">Create Store</a>
            <a href="{% url 'product-updated-list'%}" class="btn btn-outline-primary">Updated Product List</a> 
            <a href="{% url 'product-all-list'%}" class="btn btn-outline-primary">All Product List</a> 
            <hr>
             <!-- <div class="row"> -->
-                <table id="customers">
-                    <tr>
-                      <th>S.No</th>
-                      <th>Store Location</th>
-                      <th>Store Name</th>
-                      <th>Store Capacity</th>
-                      <th>Racks No. In Store</th>
-                      <th>Section In Racks</th>
-                      <th>Active</th>
-                      <th>Action</th>
-                    </tr>
-                    {% for store in stores %}
+                <table class="table table-striped table-hover table-bordered align-middle mb-5">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Store Location</th>
+                            <th>Store Name</th>
+                            <th>Store Capacity</th>
+                            <th>Racks No. In Store</th>
+                            <th>Section In Racks</th>
+                            <th>Active</th>
+                            <th>Action</th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                        {% for store in stores %}
                     <tr>
                         <td>{{forloop.counter}}</td>
                         <td>{{store.location}}</td>
@@ -40,6 +43,7 @@
                         </td>
                     </tr>
                     {% endfor %}
+                    </tbody>
                 </table>
 
         </div>

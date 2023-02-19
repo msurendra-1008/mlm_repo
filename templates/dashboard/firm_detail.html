@@ -43,86 +43,90 @@
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
         <div class="col">
-            <table id="customers">
-                <tr>
-                  <th>Firm Name</th>
-                  <td>{{firm_details.firm_name}}</td>
-                  </tr>
-                  <tr>
-                      <th>Firm Image</th>
-                      <td>
-                            <img src="{{firm_details.firm_image.url}}" alt="No Image">
-                      </td>
-                  </tr>
-                  
-                <tr>
-                    <th>GSTIN No.</th>
-                    <td>{{firm_details.gst_no}}</td>
-                </tr>
-                <tr>
-                    <th>Active Status</th>
-                    <td>{{firm_details.active_firm}}</td>
-                </tr>
-                <tr>
-                    <th>Status</th>
-                    <td>{{firm_details.status}}</td>
-                </tr>
-                <tr>
-                    <th>Address</th>
-                    <td>{{firm_details.address_one}},{{firm_details.address_two}},{{firm_details.address_three}},{{firm_details.address_four}}</td>
-                </tr>
-                <tr>
-                    <th>Landmark</th>
-                    <td>{{firm_details.landmark}}</td>
-                </tr>
-                <tr>
-                    <th>City / Town</th>
-                    <td>{{firm_details.town_city}}</td>
-                </tr>
-                <tr>
-                    <th>Sub-District</th>
-                    <td>{{firm_details.sub_district}}</td>
-                </tr>
-                <tr>
-                    <th>District</th>
-                    <td>{{firm_details.district}}</td>
-                </tr>
-                <tr>
-                    <th>Postal Code</th>
-                    <td>{{firm_details.postal_code}}</td>
-                </tr>
-                <tr>
-                    <th>State</th>
-                    <td>{{firm_details.state}}</td>
-                </tr>
-                <tr>
-                    <th>Country</th>
-                    <td>{{firm_details.country}}</td>
-                </tr>
-                <tr>
-                    <th>Telephone</th>
-                    <td>{{firm_details.telephone}}</td>
-                </tr>
-                <tr>
-                    <th>Mobile</th>
-                    <td>{{firm_details.mobile}}</td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td>{{firm_details.email}}</td>
-                </tr><tr>
-                    <th>Website</th>
-                    <td>{{firm_details.website}}</td>
-                </tr>
-                <tr>
-                    <th>Firm Mode</th>
-                    <td>{{firm_details.firm_mode}}</td>
-                </tr>
-                <tr>
-                    <th>Product Description</th>
-                    <td>{{firm_details.product_description}}</td>
-                </tr>
-            </table>
+            <h3 class="text-center m-5">Firm Details</h3>
+            <div class="card my-5 px-5 py-3 mx-auto"style="width: 70%">
+                <table class="table table-striped table-hover table-bordered align-middle mb-5">
+    
+                    <tr>
+                      <th>Firm Name</th>
+                      <td>{{firm_details.firm_name}}</td>
+                      </tr>
+                      <tr>
+                          <th>Firm Image</th>
+                          <td>
+                                <img src="{{firm_details.firm_image.url}}" alt="No Image">
+                          </td>
+                      </tr>
+                      
+                    <tr>
+                        <th>GSTIN No.</th>
+                        <td>{{firm_details.gst_no}}</td>
+                    </tr>
+                    <tr>
+                        <th>Active Status</th>
+                        <td>{{firm_details.active_firm}}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>{{firm_details.status}}</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>{{firm_details.address_one}},{{firm_details.address_two}},{{firm_details.address_three}},{{firm_details.address_four}}</td>
+                    </tr>
+                    <tr>
+                        <th>Landmark</th>
+                        <td>{{firm_details.landmark}}</td>
+                    </tr>
+                    <tr>
+                        <th>City / Town</th>
+                        <td>{{firm_details.town_city}}</td>
+                    </tr>
+                    <tr>
+                        <th>Sub-District</th>
+                        <td>{{firm_details.sub_district}}</td>
+                    </tr>
+                    <tr>
+                        <th>District</th>
+                        <td>{{firm_details.district}}</td>
+                    </tr>
+                    <tr>
+                        <th>Postal Code</th>
+                        <td>{{firm_details.postal_code}}</td>
+                    </tr>
+                    <tr>
+                        <th>State</th>
+                        <td>{{firm_details.state}}</td>
+                    </tr>
+                    <tr>
+                        <th>Country</th>
+                        <td>{{firm_details.country}}</td>
+                    </tr>
+                    <tr>
+                        <th>Telephone</th>
+                        <td>{{firm_details.telephone}}</td>
+                    </tr>
+                    <tr>
+                        <th>Mobile</th>
+                        <td>{{firm_details.mobile}}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{firm_details.email}}</td>
+                    </tr><tr>
+                        <th>Website</th>
+                        <td>{{firm_details.website}}</td>
+                    </tr>
+                    <tr>
+                        <th>Firm Mode</th>
+                        <td>{{firm_details.firm_mode}}</td>
+                    </tr>
+                    <tr>
+                        <th>Product Description</th>
+                        <td>{{firm_details.product_description}}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -8,39 +8,39 @@
         <div class="col">
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="card my-4">
+                <div class="card my-5 px-5 py-3 mx-auto">
                     <div class="card-body main-row">
-                    <h4 class="alert alert-success text-center mt-3" >{{page_name}}</h4>
+                    <h4 class="text-center m-5" >{{page_name}}</h4>
                     <hr>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="" class="">Store Name</label>
+                                <label for="" class="form-label mt-3">Store Name</label>
                                 {{form.store}}
                             </div>
                             <div class="col-md-4">
-                                <label for="" class="">Box Name</label>
+                                <label for="" class="form-label mt-3">Box Name</label>
                                 {{form.box_name}}
                             </div>
                             <div class="col-md-4">
-                                <label for="" class="">Product Name</label>
+                                <label for="" class="form-label mt-3">Product Name</label>
                                 {{form.product_names}}
                             </div>
                             <div class="col-md-4">
-                                <label for="" class="">Product Quantity In Box</label>
+                                <label for="" class="form-label mt-3">Product Quantity In Box</label>
                                 {{form.product_quantity_in_box}}
                             </div>
                             <div class="col-md-4">
-                                <label for="" class="">Rack In Row</label>
+                                <label for="" class="form-label mt-3">Rack In Row</label>
                                 {{form.rack_row}}
                             </div>
                             <div class="col-md-4">
-                                <label for="" class="">Section Number On Rack</label>
+                                <label for="" class="form-label mt-3">Section Number On Rack</label>
                                 {{form.section_number_on_rack}}
                             </div>
                             
                         </div>
-                        <div class="d-flex justify-content-center mt-4">
+                        <div class="d-flex justify-content-center m-4">
                             
                             <button type="submit" class="btn btn-primary btn-customlg">Save</button>
                         </div>

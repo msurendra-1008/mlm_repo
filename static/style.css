@@ -2,6 +2,35 @@
     color: aliceblue;
 }
 
+.menu_tile {
+  color: #525b75;
+}
+.main_title {
+  color: #525b75;
+  font-weight: bold;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+.main_primary {
+  background-color: #E5EDFF;
+  color: #3874ff;
+}
+
+.header_panel {
+  margin: 4px;
+}
+
+.bg_page {
+  background-color: #e3e6ed;
+}
+
+.white {
+  background-color:white;
+}
+
+
+
 select, input[type='text'],  input[type='number'],  input[type='date'], input[type="number"], input[type="email"], input[type="file"],  textarea{ display: block;
     width: 100%;
     height: 38px;

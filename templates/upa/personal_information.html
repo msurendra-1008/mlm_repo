@@ -12,107 +12,107 @@
 				<div class="card-body main-row">
                     {% csrf_token %}
                     <div class="row">
-                        <h5 class="text-center alert alert-danger">UPA Personal Details</h5>
-                        <div class="col-md-4">
-                            <label for="" class="">Title</label>
+                        <h5 class="text-center alert alert-primary">UPA Personal Details</h5>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Title</label>
                             <!-- <input type="text" class="form-control"> -->
                             {{form.personal_title}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Applicant Full Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Applicant Full Name</label>
                             <!-- <input type="text" class="form-control"> -->
                             {{form.name}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">First Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">First Name</label>
                             {{form.first_name}}
                         </div>
 
-                        <div class="col-md-4">
-                            <label for="" class="">Middle Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Middle Name</label>
                             {{form.middle_name}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Last Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Last Name</label>
                             {{form.last_name}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Nickname</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Nickname</label>
                             {{form.other}}
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <h5 class="text-center alert alert-danger">Details Of Relation</h5>
+                        <h5 class="text-center alert alert-primary">Details Of Relation</h5>
                         {% comment %} <h5>Father / Gaurdian Details</h5> {% endcomment %}
-                        <div class="col-md-4">
-                            <label for="" class="">Type Of Relation</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Type Of Relation</label>
                             {{form.gaurdian_type}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Prefix</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Prefix</label>
                             {{form.title}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Father's Full Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Father's Full Name</label>
                             {{form.father_name}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">First Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">First Name</label>
                             {{form.first_name_hg}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Middle Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Middle Name</label>
                             {{form.middle_name_hg}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Last Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Last Name</label>
                             {{form.gaurdian_name_hg}}
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <h5 class="text-center alert alert-danger">Mother Details</h5>
+                        <h5 class="text-center alert alert-primary">Mother Details</h5>
                         {% comment %} <h5>Mother / Gaurdian Details</h5> {% endcomment %}
-                        <div class="col-md-4">
-                            <label for="" class="">Mother's Full Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Mother's Full Name</label>
                             {{form.mother_full_name}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">First Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">First Name</label>
                             {{form.first_name_m}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Middle Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Middle Name</label>
                             {{form.middle_name_m}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Last Name</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Last Name</label>
                             {{form.last_name_m}}
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <h5 class="text-center alert alert-danger">Other Details</h5>
+                        <h5 class="text-center alert alert-primary">Other Details</h5>
                         {% comment %} <h5>Other Details</h5> {% endcomment %}
-                        <div class="col-md-4">
-                            <label for="" class="">Date Of Birth</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Date Of Birth</label>
                             {{form.dob}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Updated Age As per DOB</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Updated Age As per DOB</label>
                             {{form.update_age_dob}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Gender</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Gender</label>
                             {{form.gender}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Marital Status</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Marital Status</label>
                             {{form.marital_status}}
                         </div>
-                        <div class="col-md-4">
-                            <label for="" class="">Nationality</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="" class="form-label">Nationality</label>
                             {{form.nationality}}
                         </div>
 

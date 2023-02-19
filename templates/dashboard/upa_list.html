@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<style>
+<!-- <style>
     #customers {
       font-family: Arial, Helvetica, sans-serif;
       border-collapse: collapse;
@@ -37,34 +37,35 @@
     #edit:hover {
       background-color:#38ACEC;
     }
-    </style>
+    </style> -->
 <div class="container-fluid">
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
         <div class="col">
-            <h5 class="alert alert-success text-center mt-3">UPA LIST</h5>
+            <h5 class="alert alert-primary text-center mt-3">UPA LIST</h5>
             <!-- <div class="row"> -->
-                <table id="customers">
-                    <tr>
-                      <th>S.No</th>
-                      <th>UPA ID</th>
-                      <th>Username</th>
-                      <th>Email</th>
-                      <th>Name</th>
-                      <th>Phone</th>
-                      <th>Action</th>
-                    </tr>
+                <!-- <table id="customers"> -->
+                <table class="table table-striped table-hover table-bordered align-middle">
+                  <thead>
+                    <th>S.No</th>
+                    <th>UPA ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                  </thead>
                     {% for upa in upas%}
                     <tr>
-                        <td>{{forloop.counter}}</td>
+                        <td class="center">{{forloop.counter}}</td>
                         <td>{{upa.uid_no}}</td>
                         <td>{{upa.user.username}}</td>
                         <td>{{upa.user.email}}</td>
                         <td>{{upa.user.first_name}}{{upa.user.last_name}}</td>
                         <td>{{upa.phone}}</td>
                         <td>
-                            <a href="{% url 'upa-detail' upa.pk %}" class="btn btn-outline" id="view" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            {% comment %} <a href="{% url 'basic-detail-form' upa.id %}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> {% endcomment %}
+                            <a href="{% url 'upa-detail' upa.pk %}" class="p-2 menu_tile" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            {% comment %} <a href="{% url 'basic-detail-form' upa.id %}" class="btn btn-outline-info" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> {% endcomment %}
                         </td>
                       </tr>
                     {% endfor %}

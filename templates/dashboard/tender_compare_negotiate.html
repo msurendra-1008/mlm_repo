@@ -6,7 +6,7 @@
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
         <div class="col">
-            <h5 class="alert alert-success text-center mt-3">Pre-Confirm Tender Bid</h5>
+            <h3 class="text-center m-5">Pre-Confirm Tender Bid</h3>
             <!-- <div class="row"> -->
             <!-- Example single danger button -->
             <div class="btn-group">
@@ -19,7 +19,8 @@
                 <li><a class="dropdown-item" href="#">#</a></li>
             </ul>
             </div>   
-                <table id="customers">
+            <table class="table table-striped table-hover table-bordered align-middle mb-5">
+                <thead class="bg-primary text-white">
                     <tr>
                       <th>S.No</th>
                       <th>Tender Product</th>
@@ -32,6 +33,8 @@
                       <th>Tender Status</th>
                       <th>Action</th>
                     </tr>
+                </thead>
+                <tbody>
                     {% for firm in tenders %}
                     <tr>
                         <td>{{forloop.counter}}</td>
@@ -78,6 +81,7 @@
                         </td>
                     </tr>
                     {% endfor %}
+                </tbody>
                 </table>
 
         </div>

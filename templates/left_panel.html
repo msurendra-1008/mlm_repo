@@ -1,40 +1,40 @@
 {% comment %} <div class="container-fluid">
     <div class="row flex-nowrap"> {% endcomment %}
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Dashboard</span>
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 white border-end">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
+                <a href="/" class="d-flex align-items-center py-4 text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline main_title">Dashboard</span>
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu" style="color: brown;">
                     <li class="nav-item">
-                        <a href="{% url 'upa-list' %}" class="nav-link align-middle px-0" style="color:#fdb00d;">
+                        <a href="{% url 'upa-list' %}" class="nav-link align-middle px-0 menu_tile">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">UPA List</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'income-setting'%}" class="nav-link align-middle px-0" style="color:#fdb00d;">
+                        <a href="{% url 'income-setting'%}" class="nav-link align-middle px-0 menu_tile">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Income Setting</span>
                         </a>
                     </li>
                     {% comment %} <li class="nav-item">
-                        <a href="{% url 'firm-list'%}" class="nav-link align-middle px-0" style="color:#fdb00d;">
+                        <a href="{% url 'firm-list'%}" class="nav-link align-middle px-0 menu_tile">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Firm List</span>
                         </a>
                     </li> {% endcomment %}
                     {% comment %} <li class="nav-item">
-                        <a href="{% url 'create-product'%}" class="nav-link align-middle px-0" style="color:#fdb00d;">
+                        <a href="{% url 'create-product'%}" class="nav-link align-middle px-0 menu_tile">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Create Product</span>
                         </a>
                     </li> {% endcomment %}
                     <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle" style="color:#fdb00d;">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Request</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle menu_tile">
+                            <i class="fs-4 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline pe-2">Request</span><i class="fa fa-caret-down" aria-hidden="true"></i> </a>
+                        <ul class="collapse show nav flex-column ms-1 ps-2" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="{% url 'changes-request' %}" class="nav-link px-0" style="color:#fdb00d;"> <span class="d-none d-sm-inline">Change Application Form</span></a>
+                                <a href="{% url 'changes-request' %}" class="nav-link px-0 menu_tile"> <span class="d-none d-sm-inline">Change Application Form</span></a>
                             </li>
                             <li>
-                                <a href="{% url 'changes-request-status'%}" class="nav-link px-0" style="color:#fdb00d;"> <span class="d-none d-sm-inline">Request Status</span></a>
+                                <a href="{% url 'changes-request-status'%}" class="nav-link px-0 menu_tile"> <span class="d-none d-sm-inline">Request Status</span></a>
                             </li>
                         </ul>
                     </li>
@@ -51,7 +51,7 @@
                           </div>
                     </li> -->
                     <li>
-                        <a href="{% url 'upa-tree' %}" class="nav-link px-0 align-middle" style="color:#fdb00d;">
+                        <a href="{% url 'upa-tree' %}" class="nav-link px-0 align-middle menu_tile">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">UPA Tree</span></a>
                     </li>
                     {% comment %} <li>
@@ -59,12 +59,12 @@
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Tender</span></a>
                     </li> {% endcomment %}
                     <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle " style="color:#fdb00d;">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Inventory</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle menu_tile ">
+                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline pe-2">Inventory</span><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        <ul class="collapse nav flex-column ms-1 ps-3" id="submenu2" data-bs-parent="#menu">
                         <!-- Example single danger button -->
                         <div class="btn-group">
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <!-- <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Action
                         </button>
                         <ul class="dropdown-menu">
@@ -73,25 +73,25 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Separated link</a></li>
-                        </ul>
+                        </ul> -->
                         </div>
                             <li class="w-100">
-                                <a href="{% url 'firm-list'%}" class="nav-link px-0" style="color:#fdb00d;"> <span class="d-none d-sm-inline">Firm List</span></a>
+                                <a href="{% url 'firm-list'%}" class="nav-link px-0 menu_tile"> <span class="d-none d-sm-inline">Firm List</span></a>
                             </li>
                             <li>
-                                <a href="{% url 'tender_display'%}" class="nav-link px-0" style="color:#fdb00d;"> <span class="d-none d-sm-inline">Tender Display</span></a>
+                                <a href="{% url 'tender_display'%}" class="nav-link px-0 menu_tile"> <span class="d-none d-sm-inline">Tender Display</span></a>
                             </li>
                             <li>
-                                <a href="{% url 'create-product'%}" class="nav-link px-0" style="color:#fdb00d;"> <span class="d-none d-sm-inline">Create Product</span></a>
+                                <a href="{% url 'create-product'%}" class="nav-link px-0 menu_tile"> <span class="d-none d-sm-inline">Create Product</span></a>
                             </li>
                             <li>
-                                <a href="{% url 'product-list' %}" class="nav-link px-0" style="color:#fdb00d;"> <span class="d-none d-sm-inline">Manually Created Products</span></a>
+                                <a href="{% url 'product-list' %}" class="nav-link px-0 menu_tile"> <span class="d-none d-sm-inline">Manually Created Products</span></a>
                             </li>
                             <li>
-                                <a href="{% url 'recieved-products' %}" class="nav-link px-0" style="color:#fdb00d;"> <span class="d-none d-sm-inline">Recieving Product</span></a>
+                                <a href="{% url 'recieved-products' %}" class="nav-link px-0 menu_tile"> <span class="d-none d-sm-inline">Recieving Product</span></a>
                             </li>
                             <li>
-                                <a href="{% url 'product-recieved-rejected'%}" class="nav-link px-0" style="color:#fdb00d;"> <span class="d-none d-sm-inline">Return/Rejected Product</span></a>
+                                <a href="{% url 'product-recieved-rejected'%}" class="nav-link px-0 menu_tile"> <span class="d-none d-sm-inline">Return/Rejected Product</span></a>
                             </li>
                             {% comment %} <li>
                                 <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Create Product</span></a>
@@ -99,7 +99,7 @@
                         </ul>
                     </li>
                     {% comment %} <li>
-                        <a href="{% url 'product-list' %}" class="nav-link px-0 align-middle" style="color:#fdb00d;">
+                        <a href="{% url 'product-list' %}" class="nav-link px-0 align-middle menu_tile">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Products List</span></a>
                     </li> {% endcomment %}
                     <!-- <li>
@@ -121,17 +121,17 @@
                         </ul>
                     </li> -->
                     <li>
-                        <a href="{% url 'store-list' %}" class="nav-link px-0 align-middle" style="color:#fdb00d;">
+                        <a href="{% url 'store-list' %}" class="nav-link px-0 align-middle menu_tile">
                             <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Store Unit</span> </a>
                     </li>
                 </ul>
                 <!-- Example split danger button -->
                 <!-- Example single danger button -->
                 <hr>
-                <div class="dropdown pb-4">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="py-4">
+                    <a href="#" class="text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">loser</span>
+                        <span class="d-none d-sm-inline mx-1 menu_tile">loser</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="#">New project...</a></li>

@@ -42,10 +42,11 @@
     <div class="row flex-nowrap">
         {% include 'left_panel.html' %}
         <div class="col">
-            <h5 class="alert alert-success text-center mt-3">Firm List</h5>
+            <h3 class="text-center m-5">Firm List</h3>
             <a href="{% url 'firm-registration'%}" class="btn btn-success">Create Firm</a>
             <!-- <div class="row"> -->
-                <table id="customers">
+              <table class="table table-striped table-hover table-bordered align-middle mb-5">
+                <thead class="bg-primary text-white">
                     <tr>
                       <th>S.No</th>
                       <th>GST NO</th>
@@ -57,7 +58,9 @@
                       <th>Register Status</th>
                       <th>Action</th>
                     </tr>
-                    {% for firm in firms %}
+                    </thead>
+                    <tbody>
+                      {% for firm in firms %}
                     <tr>
                         <td>{{forloop.counter}}</td>
                         <td>{{firm.gst_no}}</td>
@@ -89,6 +92,7 @@
                         </td>
                     </tr>
                     {% endfor %}
+                    </tbody>
                 </table>
 
         </div>
