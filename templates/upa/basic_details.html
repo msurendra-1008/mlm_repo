@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        {% include 'left_panel.html' %}
+        
         <div class="col">
             {% include 'upa/header_panel.html' %}
             <form action="" method="POST">
@@ -12,7 +12,7 @@
 				<div class="card-body main-row">
                     {% csrf_token %}
                     <div class="row">
-                        <h5 class="text-center alert alert-primary">Basic Details</h5>
+                        <h5 class="text-center alert theme">Basic Details</h5>
                             <div class="col-md-4 mb-3">
                                 <label for="" class="form-label">Sponsor UID</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -64,7 +64,7 @@
                                 <label for="" class="form-label">Applicant Full Name</label>
                                 {{form.full_name}}
                             </div>
-                            <h5 class="text-center alert alert-primary">Customer Pesonal Details</h5>
+                            <h5 class="text-center alert theme">Customer Pesonal Details</h5>
                             {% comment %} <h5>Father / Gaurdian Details</h5> {% endcomment %}
                             <div class="col-md-4 mb-3">
                                 <label for="" class="form-label">Customer Type</label>

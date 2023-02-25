@@ -41,19 +41,19 @@
     </style>
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        {% include 'left_panel.html' %}
+        
         <div class="col">
             <h2 class="text-center pb-2 mt-4">Monthly Income Setting</h2>
             <hr class="hr mx-5"/>
             <p class="text-center ">Create Monthly Basic Income Setting For UPA In Table No. - 1</p>
             <p class="text-center"> Monthly Incentive Plus Income Slab For General, BPL & Handicap</p>
             <p class="text-center">Incentive <button class="btn btn-success">+</button> Plus Income</p>
-            <a href="{% url 'create-income-setting'%}" class="btn btn-primary">Create Income Setting</a>
+            <a href="{% url 'create-income-setting'%}" class="btn btn-primary btn-style">Create Income Setting</a>
             <h4 class="mt-5">Table No. -1</h4>
             <h6 class="fs-6 fw-light mb-4"> Monthly Basic Income Slab For General, BPL & Handicap</h6>
             <!-- <div class="row"> -->
                 <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                    <thead>
+                    <thead class="theme_nav">
                         <tr>
                             <th>S.No.</th>
                             <th scope="col">Leg 1</th>
@@ -87,11 +87,11 @@
                 <h6 class="text-center mt-3">Create Monthly Incentive Plus Income Setting For Child Below 18 Years <br>
                     Mature Female & Senior Citizen UPA In Table No. - 2
                 </h6>
-                <a href="{% url 'income-setting-for-women-old'%}" class="btn btn-primary mt-5">Create Monthly Incentive <i class="fa fa-plus" aria-hidden="true"></i> Income</a>
+                <a href="{% url 'income-setting-for-women-old'%}" class="btn btn-primary mt-5 btn-style">Create Monthly Incentive <i class="fa fa-plus" aria-hidden="true"></i> Income</a>
                 <h4 class="mt-5">Table No. -2</h4>
                 <h6 class="fs-6 fw-light mb-4"> Monthly Incentive Plus Income Slab For BPL, Handicap, Child Below 18 Years, Mature Female & Senior Citizen</h6>
                 <table class="table table-striped table-hover table-bordered align-middle mb-5"> 
-                  <thead>
+                  <thead class="theme_nav">
                       <tr>
                           <th>S.No.</th>
                           <th scope="col">Category Type</th>

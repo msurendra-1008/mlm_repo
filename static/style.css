@@ -1,20 +1,121 @@
-.{
+/* .{
     color: aliceblue;
+} */
+
+:root {
+  --offcanvas-width:270px;
+  --topNavbarHeight:56px;
 }
 
+.sidebar-nav {
+  width: var(--offcanvas-width);
+}
+
+.offcanvas{
+  overflow-y: auto; 
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #eceaea;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a7a5a5;
+  width: 6px !important;
+}
+
+
+@media (min-width:992px) {
+  body{
+    overflow: auto !important;
+  }
+  main{
+    margin-left: var(--offcanvas-width);
+    margin-top: var(--topNavbarHeight);
+  }
+
+  .check_close{
+    visibility: hidden;
+  }
+
+  /* .modal-backdrop::before {
+    display: none !important;
+  } */
+  .sidebar-nav{
+    transform: none;
+    visibility: visible !important;
+    top: var(--topNavbarHeight);
+    height: calc(100% - var(--topNavbarHeight));
+  }
+}
+
+
+
+
 .menu_tile {
-  color: #525b75;
+  color: white;
 }
 .main_title {
-  color: #525b75;
+  color: #00bcd4;
   font-weight: bold;
   font-size: 4rem;
   text-transform: uppercase;
 }
 
-.main_primary {
+/* .main_primary {
   background-color: #E5EDFF;
   color: #3874ff;
+} */
+
+.register-box{
+  background: #fff;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+}
+
+
+.menu ul li a:visited{
+/* background: #00bcd4; */
+/* width: calc(var(--offcanvas-width)-20px); */
+color: #00bcd4 !important;
+}
+.menu ul li a:hover{
+/* background: #00bcd4; */
+/* width: calc(var(--offcanvas-width)-20px); */
+color: #00bcd4 !important;
+}
+.btn-close{
+  color: #00bcd4 !important;
+}
+.menu ul li a:active{
+/* background: #00bcd4; */
+/* width: calc(var(--offcanvas-width)-20px); */
+color: #00bcd4;
+}
+
+.theme{
+  background: #3f4d67 !important;
+  color: #00bcd4;
+}
+.btn-style{
+  background: #3f4d67 !important;
+  color: white !important;
+}
+.theme_nav{
+  background: #00bcd4 !important;
+  color: #3f4d67;
 }
 
 .header_panel {
@@ -22,7 +123,7 @@
 }
 
 .bg_page {
-  background-color: #e3e6ed;
+  background-color: #fde1dc;
 }
 
 .white {
@@ -70,7 +171,7 @@ select, input[type='text'],  input[type='number'],  input[type='date'], input[ty
         background-color: #38ACEC;
         color: black;
       }
-      {% comment %} #04AA6D {% endcomment %}
+      /* {% comment %} #04AA6D {% endcomment %} */
       #customers td {
           text-align: center;
       }

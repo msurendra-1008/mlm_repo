@@ -19,12 +19,12 @@
     } */
     </style>
 
-<div class="contaner-fluid">
+<div class="contaner-fluid m-3">
     <div class="row flex-nowrap">
-        {% include 'left_panel.html' %}
+        
 
-        <div class="row-inside" style="width: 83%;">
-            <div class="col mt-4">
+        <div class="row-inside">
+            <div class="col mt-4 ">
                 <div class="card mb-4" >
                    
                    <div class="row">
@@ -80,11 +80,11 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary">Basic Details</span>
+                    <span class="btn btn-primary theme">Basic Details</span>
                     <div class="table-responsive">
 
                         <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                            <thead>
+                            <thead class="theme_nav">
                                 <tr>
                                     <th>Sponsor UID</th>
                                     <th>Sponsor Name</th>
@@ -120,22 +120,24 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary">Personal Details</span>
+                    <span class="btn btn-primary theme">Personal Details</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Name</th>
-                          <th>First Name</th>
-                          <th>Middle Name</th>
-                          <th>Last Name</th>
-                          <th>Other</th>
-                          <th>Father's Name</th>
-                          <th>Guardian Name</th>
-                          <th>Date Of Birth</th>
-                          <th>Updated Age DOB</th>
-                          <th>Gender</th>
-                          <th>Marital Status</th>
-                          <th>Nationality</th>
-                        </tr>
+                        <thead class="theme_nav">
+                            <tr>
+                                <th>Name</th>
+                                <th>First Name</th>
+                                <th>Middle Name</th>
+                                <th>Last Name</th>
+                                <th>Other</th>
+                                <th>Father's Name</th>
+                                <th>Guardian Name</th>
+                                <th>Date Of Birth</th>
+                                <th>Updated Age DOB</th>
+                                <th>Gender</th>
+                                <th>Marital Status</th>
+                                <th>Nationality</th>
+                              </tr>
+                        </thead>
                         <tr>
                           <td>{{personal.name}}</td>
                           <td>{{personal.first_name}}</td>
@@ -155,26 +157,28 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary">Present Address</span>
+                    <span class="btn btn-primary theme">Present Address</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Addres 1</th>
-                          <th>Address 2</th>
-                          <th>Address 3</th>
-                          <th>Address 4</th>
-                          <th>Landmark</th>
-                          <th>Town / City</th>
-                          <th>District</th>
-                          <th>Sub District</th>
-                          <th>Postal Code</th>
-                          <th>Country</th>
-                          <th>State</th>
-                          <th>Telephone</th>
-                          <th>Mobile</th>
-                          <th>Active Email</th>
-                          <th>STD Code</th>
-                          <th>ISD Code</th>
-                        </tr>
+                        <thead class="theme_nav">
+                            <tr>
+                                <th>Addres 1</th>
+                                <th>Address 2</th>
+                                <th>Address 3</th>
+                                <th>Address 4</th>
+                                <th>Landmark</th>
+                                <th>Town / City</th>
+                                <th>District</th>
+                                <th>Sub District</th>
+                                <th>Postal Code</th>
+                                <th>Country</th>
+                                <th>State</th>
+                                <th>Telephone</th>
+                                <th>Mobile</th>
+                                <th>Active Email</th>
+                                <th>STD Code</th>
+                                <th>ISD Code</th>
+                              </tr>
+                        </thead>
                         <tr>
                           <td>{{additional.address_line_one}}</td>
                           <td>{{additional.address_line_two}}</td>
@@ -199,26 +203,29 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary">Permanent Address</span>
+                    <span class="btn btn-primary theme">Permanent Address</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Addres 1</th>
-                          <th>Address 2</th>
-                          <th>Address 3</th>
-                          <th>Address 4</th>
-                          <th>Landmark</th>
-                          <th>Town / City</th>
-                          <th>District</th>
-                          <th>Sub District</th>
-                          <th>Postal Code</th>
-                          <th>Country</th>
-                          <th>State</th>
-                          <th>Telephone</th>
-                          <th>Mobile</th>
-                          <th>Active Email</th>
-                          <th>STD Code</th>
-                          <th>ISD Code</th>
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>Addres 1</th>
+                              <th>Address 2</th>
+                              <th>Address 3</th>
+                              <th>Address 4</th>
+                              <th>Landmark</th>
+                              <th>Town / City</th>
+                              <th>District</th>
+                              <th>Sub District</th>
+                              <th>Postal Code</th>
+                              <th>Country</th>
+                              <th>State</th>
+                              <th>Telephone</th>
+                              <th>Mobile</th>
+                              <th>Active Email</th>
+                              <th>STD Code</th>
+                              <th>ISD Code</th>
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{upa_add.p_address_line_one}}</td>
                           <td>{{upa_add.p_address_line_two}}</td>
@@ -243,26 +250,29 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary ">Additional Details</span>
+                    <span class="btn btn-primary theme">Additional Details</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Nick Name</th>
-                          <th>Personal Title</th>
-                          <th>Religion</th>
-                          <!-- <th>Religion Other</th> -->
-                          <th>Category</th>
-                          <th>Education /  Qualification</th>
-                          <th>Occupation</th>
-                          <th>Employer Name</th>
-                          <th>Designation</th>
-                          <th>Self Employeed</th>
-                          <th>Monthly Income</th>
-                          <th>Assets</th>
-                          <th>Source</th>
-                          <th>PAN No.</th>
-                          <th>Bussiness Nature</th>
-                          
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>Nick Name</th>
+                              <th>Personal Title</th>
+                              <th>Religion</th>
+                              <!-- <th>Religion Other</th> -->
+                              <th>Category</th>
+                              <th>Education /  Qualification</th>
+                              <th>Occupation</th>
+                              <th>Employer Name</th>
+                              <th>Designation</th>
+                              <th>Self Employeed</th>
+                              <th>Monthly Income</th>
+                              <th>Assets</th>
+                              <th>Source</th>
+                              <th>PAN No.</th>
+                              <th>Bussiness Nature</th>
+                              
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{additional.nickname}}</td>
                           <td>{{additional.personal_title}}</td>
@@ -285,25 +295,28 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary ">UPA Identification</span>
+                    <span class="btn btn-primary theme">UPA Identification</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>UPA Type</th>
-                          <th>BPL Ration Card No.</th>
-                          <th>Personal Income Type</th>
-                          <!-- <th>Religion Other</th> -->
-                          <th>Personal Income</th>
-                          <th>CMO Certification No.</th>
-                          <th>Identity Proof</th>
-                          <th>ID Proof No.</th>
-                          <th>ID Issued At</th>
-                          <th>ID Issued By</th>
-                          <th>Address Proof No</th>
-                          <th>Address Proof Issued At</th>
-                          <th>Address Proof Issued By</th>
-                          
-                          
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>UPA Type</th>
+                              <th>BPL Ration Card No.</th>
+                              <th>Personal Income Type</th>
+                              <!-- <th>Religion Other</th> -->
+                              <th>Personal Income</th>
+                              <th>CMO Certification No.</th>
+                              <th>Identity Proof</th>
+                              <th>ID Proof No.</th>
+                              <th>ID Issued At</th>
+                              <th>ID Issued By</th>
+                              <th>Address Proof No</th>
+                              <th>Address Proof Issued At</th>
+                              <th>Address Proof Issued By</th>
+                              
+                              
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{upa_identity.upa_type}}</td>
                           <td>{{upa_identity.bpl_ration_card_no}}</td>
@@ -325,26 +338,29 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary ">Benificiary</span>
+                    <span class="btn btn-primary theme">Benificiary</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Benificiary Name</th>
-                          <th>Benificicary ID No.</th>
-                          <th>Relation With UPA</th>
-                          <th>Other</th>
-                          <th>Name</th>
-                          <th>Father's Name</th>
-                          <th>Mother's Name</th>
-                          <th>DOB</th>
-                          <th>Update Age DOB</th>
-                          <th>Gender</th>
-                          <th>Marital Status</th>
-                          <th>Nationality</th>
-                          <th>Address 1</th>
-                          <th>Address 2</th>
-                          
-                          
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>Benificiary Name</th>
+                              <th>Benificicary ID No.</th>
+                              <th>Relation With UPA</th>
+                              <th>Other</th>
+                              <th>Name</th>
+                              <th>Father's Name</th>
+                              <th>Mother's Name</th>
+                              <th>DOB</th>
+                              <th>Update Age DOB</th>
+                              <th>Gender</th>
+                              <th>Marital Status</th>
+                              <th>Nationality</th>
+                              <th>Address 1</th>
+                              <th>Address 2</th>
+                              
+                              
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{beneficiary.beneficiary_name}}</td>
                           <td>{{beneficiary.beneficiary_id_no}}</td>
@@ -367,26 +383,29 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary ">Benificiary Other Details</span>
+                    <span class="btn btn-primary theme">Benificiary Other Details</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Address</th>
-                          <th>Landmark</th>
-                          <th>Town</th>
-                          <th>District</th>
-                          <th>State</th>
-                          <th>Postal Code</th>
-                          <th>Country</th>
-                          <th>Telephone</th>
-                          <th>Mobile No.</th>
-                          <th>Email ID</th>
-                          <th>Identity Proof</th>
-                          <th>Address Proof</th>
-                          <th>Identity Proof Details</th>
-                          <th>Address Proof Details</th>
-                          
-                          
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>Address</th>
+                              <th>Landmark</th>
+                              <th>Town</th>
+                              <th>District</th>
+                              <th>State</th>
+                              <th>Postal Code</th>
+                              <th>Country</th>
+                              <th>Telephone</th>
+                              <th>Mobile No.</th>
+                              <th>Email ID</th>
+                              <th>Identity Proof</th>
+                              <th>Address Proof</th>
+                              <th>Identity Proof Details</th>
+                              <th>Address Proof Details</th>
+                              
+                              
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{beneficiary.address_line_three}} {{beneficiary.address_line_four}}</td>
                           <td>{{beneficiary.landmark}}</td>
@@ -408,17 +427,20 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary ">Sponsor Details</span>
+                    <span class="btn btn-primary theme">Sponsor Details</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Name</th>
-                          <th>DID No./ UID No.</th>
-                          <th>Account No.</th>
-                          <th>Time in Bussiness</th>
-                          <th>Time With Applicant</th>
-                          <th>Date</th>
-                           
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>Name</th>
+                              <th>DID No./ UID No.</th>
+                              <th>Account No.</th>
+                              <th>Time in Bussiness</th>
+                              <th>Time With Applicant</th>
+                              <th>Date</th>
+                               
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{beneficiary.name}}</td>
                           <td>{{beneficiary.did_no}}</td>
@@ -432,27 +454,30 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary ">Service Required</span>
+                    <span class="btn btn-primary theme">Service Required</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Royal Green Card</th>
-                          <th>Royal Yellow Card</th>
-                          <th>Royal Red Card</th>
-                          <th>SMS Alert</th>
-                          <th>Home Delivery</th>
-                          <th>Product Display</th>
-                          <th>Book New Update</th>
-                          <th>General Card</th>
-                          <th>PVC Card</th>
-                          <th>Account Passbook</th>
-                          <th>E Account Statement</th>
-                          <th>Royal Green ATM</th>
-                          <th>Royal Yellow ATM</th>
-                          <th>Royal Red ATM</th>
-                          <th>Royal Blue ATM</th>
-                          
-                          
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>Royal Green Card</th>
+                              <th>Royal Yellow Card</th>
+                              <th>Royal Red Card</th>
+                              <th>SMS Alert</th>
+                              <th>Home Delivery</th>
+                              <th>Product Display</th>
+                              <th>Book New Update</th>
+                              <th>General Card</th>
+                              <th>PVC Card</th>
+                              <th>Account Passbook</th>
+                              <th>E Account Statement</th>
+                              <th>Royal Green ATM</th>
+                              <th>Royal Yellow ATM</th>
+                              <th>Royal Red ATM</th>
+                              <th>Royal Blue ATM</th>
+                              
+                              
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{service.royal_green_card}}</td>
                           <td>{{service.royal_yellow_card}}</td>
@@ -475,16 +500,19 @@
             </div>
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary ">Operation Mode</span>
+                    <span class="btn btn-primary theme">Operation Mode</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>Total Amount</th>
-                          <th>Amount in Figure</th>
-                          <th>Transaction Mode</th>
-                          <th>UPA Account Operation Mode</th>
-                          <th>Joint Account</th>
-                          
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>Total Amount</th>
+                              <th>Amount in Figure</th>
+                              <th>Transaction Mode</th>
+                              <th>UPA Account Operation Mode</th>
+                              <th>Joint Account</th>
+                              
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{operations.total_amount}}</td>
                           <td>{{operations.amount_in_figure}}</td>
@@ -498,23 +526,26 @@
 
             <div class="col">
                 <div class="card mb-4">
-                    <span class="btn btn-primary ">First Joint Account Person Details</span>
+                    <span class="btn btn-primary theme">First Joint Account Person Details</span>
                     <table class="table table-striped table-hover table-bordered align-middle mb-5">
-                        <tr>
-                          <th>UID No.</th>
-                          <th>Name</th>
-                          <th>Relation With UPA</th>
-                          <th>Aadhar Card</th>
-                          <th>Account No.</th>
-                          <th>Mobile No.</th>
-                          <th>Email</th>
-                          <th>Address</th>
-                          <th>DOB</th>
-                          <th>Gender</th>
-                          <th>Marital Status</th>
-                          <th>Extra Details</th>  
-                          
-                        </tr>
+                        <thead class="theme_nav">
+
+                            <tr>
+                              <th>UID No.</th>
+                              <th>Name</th>
+                              <th>Relation With UPA</th>
+                              <th>Aadhar Card</th>
+                              <th>Account No.</th>
+                              <th>Mobile No.</th>
+                              <th>Email</th>
+                              <th>Address</th>
+                              <th>DOB</th>
+                              <th>Gender</th>
+                              <th>Marital Status</th>
+                              <th>Extra Details</th>  
+                              
+                            </tr>
+                        </thead>
                         <tr>
                           <td>{{operations.uid_no_f}}</td>
                           <td>{{operations.name_f}}</td>

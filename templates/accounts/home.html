@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        {% include 'left_panel.html' %}
+        <!--  -->
         <div class="col">
             {% include 'message.html'%}
             {%if request.user.is_authenticated%}
@@ -21,7 +21,7 @@
 
 
 
-            {% comment %} {% if enroll %}
+            <!-- {% comment %} {% if enroll %}
             <a href="{% url 'basic-detail-form' user.id %}?ref_no={{enroll.reference_no}}" class="btn btn-success mt-5">UPA Registration with Enrollment No</a>
             {%else%}
             {% if not bd %}
@@ -30,7 +30,7 @@
             {% endif %}
             {% if not enroll%}
             <a href="{% url 'basic-detail-form' user.id %}" class="btn btn-success mt-5">UPA Registration</a>
-            {% endif %} {% endcomment %}
+            {% endif %} {% endcomment %} -->
 
             {% endfor %}
             {% endif %}
@@ -39,11 +39,3 @@
 </div>
 
 {% endblock content %}
-
-{% comment %} {% include 'left_panel.html' %}
-<div class="container mt-5">
-    {% include 'message.html'%}
-    <a href="{% url 'basic-detail-form'%}">UPA Registration</a>
-    <h3 class="alert alert-success text-center">Welcome, {{request.user.username}}</h3>
-
-</div> {% endcomment %}

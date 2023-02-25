@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        {% include 'left_panel.html' %}
+        
         <div class="col">
             {% include 'upa/header_panel.html' %}
             <form action="" method="POST">
@@ -13,7 +13,7 @@
                     <div class="card-body main-row">
                         <!-- <h5 class="text-center">Service Required</h5> -->
                         <div class="row">
-                            <h5 class="alert alert-primary text-center">Transaction / Facilities</h5>
+                            <h5 class="alert theme text-center">Transaction / Facilities</h5>
                             <div class="col-md-4 mb-3">
                                 <label for="" class="form-label">Total Amount</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -30,7 +30,7 @@
                             <div>
                             <br>
                             <div class="row">
-                                <h5 class="alert alert-primary text-center">Service Mode</h5>
+                                <h5 class="alert theme text-center">Service Mode</h5>
                             <div class="col-md-4 mb-3" onchange="getSelectValueJoint();">
                                 <label for="" class="form-label">Mode of Operation UPA Account</label>
                                 {{form.upa_account_operation_mode}}
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <!-- <div class="row" id=joinAccountForm> -->
-                            <h5 class="text-center mt-5 alert alert-primary">Joint Account User Details</h5>
+                            <h5 class="text-center mt-5 alert theme">Joint Account User Details</h5>
                             <div class="row" id="firstUser">
                                 <h5 class="mt-5">For First User</h5>
                                 <div class="col-md-4 mb-3">

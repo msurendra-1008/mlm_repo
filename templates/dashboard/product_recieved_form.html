@@ -4,33 +4,33 @@
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        {% include 'left_panel.html' %}
+        
         <div class="col">
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="card my-4">
+                <div class="card my-4 p-3">
                     <div class="card-body main-row">
-                    <h4 class="alert alert-success text-center mt-3" >{{page_name}}</h4>
+                    <h4 class="alert theme text-center mt-3" >{{page_name}}</h4>
                     <hr>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 mb-3">
                                 <label for="" class="">Tender Product</label>
                                 {{form.tender_product}}
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 mb-3">
                                 <label for="" class="">Company Name</label>
                                 {{form.company_name}}
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 mb-3">
                                 <label for="" class="">Quanity By Firm</label>
                                 {{form.quantity_by_firm}}
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 mb-3">
                                 <label for="" class="">Product Price</label>
                                 {{form.product_price}}
                             </div>
-                            {% comment %} <div class="col-md-4">
+                            {% comment %} <div class="col-md-4 mb-3">
                                 <label for="" class="">Expected Order Month</label>
                                 {{form.order_month}}
                             </div> {% endcomment %}

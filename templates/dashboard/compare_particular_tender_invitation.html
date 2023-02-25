@@ -4,13 +4,13 @@
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        {% include 'left_panel.html' %}
+        
         <div class="col">
-            <h5 class="alert alert-success text-center mt-3">Compare List Of Applicaitons Received By Invitation Of E-Tender-{{pk}}</h5>
+            <h5 class="alert theme text-center mt-3">Compare List Of Applicaitons Received By Invitation Of E-Tender-{{pk}}</h5>
             <!-- <div class="row"> -->
             <!-- Example single danger button -->
             <div class="btn-group">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="btn btn-secondary dropdown-toggle btn-style" data-bs-toggle="dropdown" aria-expanded="false">
                 Action
             </button>
             <ul class="dropdown-menu">
@@ -20,21 +20,23 @@
                 <li><a href="{% url 'accepted-tender-firm' %}" class="dropdown-item">Total Purchase Requisition</a></li>
             </ul>
             </div>   
-                <table id="customers">
-                    <tr>
-                      <th>S.No</th>
-                      <th>Tender Product</th>
-                      <th>Company Name</th>
-                      <th>Company Address</th>
-                      <th>Cotact Person</th>
-                      <th>Produt Quantity By Vendor</th>
-                      <th>Fixed Amount</th>
-                      <th>Negotiated Quantity</th>
-                      <th>Negotiated Amount</th>
-                      <th>Contact Mobile No.</th>
-                      <th>Tender Status</th>
-                      <th>Action</th>
-                    </tr>
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead class="theme_nav">
+                        <tr>
+                          <th>S.No</th>
+                          <th>Tender Product</th>
+                          <th>Company Name</th>
+                          <th>Company Address</th>
+                          <th>Cotact Person</th>
+                          <th>Produt Quantity By Vendor</th>
+                          <th>Fixed Amount</th>
+                          <th>Negotiated Quantity</th>
+                          <th>Negotiated Amount</th>
+                          <th>Contact Mobile No.</th>
+                          <th>Tender Status</th>
+                          <th>Action</th>
+                        </tr>
+                    </thead>
                     {% for firm in tenders %}
                     <tr>
                         <td>{{forloop.counter}}</td>

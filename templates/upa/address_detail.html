@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        {% include 'left_panel.html' %}
+        
         <div class="col">
             {% include 'upa/header_panel.html' %}
             <form action="" method="POST">
@@ -12,7 +12,7 @@
                     <div class="card-body main-row">
                         {% csrf_token %}
                         <div class="row">
-                            <h5 class="text-center alert alert-primary">Personal Address</h5>
+                            <h5 class="text-center alert theme">Personal Address</h5>
                             <div class="col-md-4 mb-3">
                                 <label for="" class="form-label">Address Line 1</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -89,7 +89,7 @@
                         </div>
                         <div class="row mt-2" id="permanentAddress">
                             
-                            <h5 class="text-center alert alert-primary">Permanent Address</h5>
+                            <h5 class="text-center alert theme">Permanent Address</h5>
                             <div class="col-md-4 mb-3">
                                 <label for="" class="form-label">Address Line 1</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -160,7 +160,7 @@
 
                         </div>
                         <div class="row">
-                            <h5 class="text-center alert alert-primary">Communication & Other Activity Detials</h5>
+                            <h5 class="text-center alert theme">Communication & Other Activity Detials</h5>
                             <div class="col-md-4 mb-3">
                                 <label for="" class="form-label">Select Language</label>
                                 <!-- <input type="text" class="form-control"> -->
