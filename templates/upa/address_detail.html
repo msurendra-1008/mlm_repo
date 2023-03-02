@@ -7,12 +7,13 @@
         
         <div class="col">
             {% include 'upa/header_panel.html' %}
+            <h5 class="text-center alert theme mt-3">ADDRESS DETAILS</h5>
             <form action="" method="POST">
                 <div class="card my-4">
                     <div class="card-body main-row">
                         {% csrf_token %}
                         <div class="row">
-                            <h5 class="text-center alert theme">Personal Address</h5>
+                            <h5 class="text-center alert theme">Present Address</h5>
                             <div class="col-md-4 mb-3">
                                 <label for="" class="form-label">Address Line 1</label>
                                 <!-- <input type="text" class="form-control"> -->

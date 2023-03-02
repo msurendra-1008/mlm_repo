@@ -7,13 +7,14 @@
         
         <div class="col">
             {% include 'upa/header_panel.html' %}
+            <h5 class="alert theme text-center mt-3">OPERATION MODE  & CHARGES APPLY</h5>
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="card my-4">
                     <div class="card-body main-row">
                         <!-- <h5 class="text-center">Service Required</h5> -->
                         <div class="row">
-                            <h5 class="alert theme text-center">Transaction / Facilities</h5>
+                            <h5 class="alert theme text-center">Transaction / Facilities Charges</h5>
                             <div class="col-md-4 mb-3">
                                 <label for="" class="form-label">Total Amount</label>
                                 <!-- <input type="text" class="form-control"> -->
@@ -30,7 +31,7 @@
                             <div>
                             <br>
                             <div class="row">
-                                <h5 class="alert theme text-center">Service Mode</h5>
+                                <h5 class="alert theme text-center">Mode of Operation</h5>
                             <div class="col-md-4 mb-3" onchange="getSelectValueJoint();">
                                 <label for="" class="form-label">Mode of Operation UPA Account</label>
                                 {{form.upa_account_operation_mode}}
