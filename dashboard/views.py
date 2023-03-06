@@ -11,6 +11,8 @@ from datetime import date
 from .decorators import admin_only
 from .models import *
 from django.template.loader import render_to_string
+from .helpers import *
+
 # Create your views here.
 
 @login_required(login_url='/login/')
@@ -160,24 +162,29 @@ def reply_to_request(request,pk):
 
 def upa_tree(request):
     upas = Profile.objects.filter(uid_no__isnull = False)
-    print(upas)
-    
+    print("printng upas:",upas)
+    tree_list = []
+    print("printing tree: ", tree_list)
     for i in upas:
-        print("Parent",i)
-        print("Left UPA",i.left_upa)
-        print("Middle UPA",i.middle_upa)
-        print("Right UPA",i.right_upa)
-    
-        for j in Profile.objects.filter(user_id = i.left_upa.id):
-            print(j.left_upa)
-            print("under left upa",j)
+        # print("Parent",i)
+        # print("Left UPA",i.left_upa)
+        # print("Middle UPA",i.middle_upa)
+        # print("Right UPA",i.right_upa)
+
+        # for j in Profile.objects.filter(user_id = i.left_upa.id):
+        #     print(j.left_upa)
+        #     print("under left upa",j)
         # for j in Profile.objects.filter(user_id = i.middle_upa.id):
         #     print(j.middle_upa)
         #     print("under middle upa",j)
         # for j in Profile.objects.filter(user_id = i.right_upa.id):
         #     print(j.right_upa)
         #     print("under right upa",j)
-    context = {'upas':upas,'j':j}
+        tree = build_tree(i.user)
+        tree_list.append(tree)
+    print("printing tree: ", tree_list)    
+    # context = {'upas':upas,'j':j}
+    context = {'tree_list': tree_list}
     return render(request,'dashboard/upa_tree.html',context)
 
 @login_required(login_url="/login")
