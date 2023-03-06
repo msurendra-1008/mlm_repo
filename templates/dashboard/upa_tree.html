@@ -2,7 +2,7 @@
 
 {% block content %}
 <style>
-    /*----------------genealogy-scroll----------*/
+    {% comment %} /*----------------genealogy-scroll----------*/
 
     .genealogy-scroll::-webkit-scrollbar {
         width: 5px;
@@ -147,7 +147,129 @@
         border-radius: 6px;
         background-color: #000;
         z-index: 1;
-    }
+    } {% endcomment %}
+
+    {% comment %} /* Set height and overflow of the genealogy-body for scrolling */
+.genealogy-body {
+    height: 450px;
+    overflow-y: scroll;
+}
+
+/* Center the text inside the genealogy-details */
+.genealogy-details {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style the genealogy-node */
+.genealogy-node {
+    {% comment %} display: inline-block; {% endcomment %}
+    {% comment %} vertical-align: top;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+} {% endcomment %}
+
+{% comment %} /* Set the width of the genealogy-tree and center it */
+.genealogy-tree {
+    display: flex;
+    flex-wrap:wrap;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+} {% endcomment %}
+
+{% comment %} /* Style the genealogy-children */
+.genealogy-children {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Style the genealogy-children nodes */
+.genealogy-children .genealogy-node {
+    margin: 0;
+}
+
+.genealogy-node {
+    width: 200px;
+} {% endcomment %} 
+
+.genealogy-tree {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .genealogy-node {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    position: relative;
+  }
+  
+  .genealogy-details {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .genealogy-children {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  .genealogy-children:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-left: 1px solid #ccc;
+    height: 50%;
+  }
+  
+  .genealogy-children:first-child:before {
+    top: 25%;
+    height: 75%;
+  }
+  
+  .genealogy-children:last-child:before {
+    top: 0;
+    height: 50%;
+  }
+  
+  .genealogy-children .genealogy-node {
+    margin: 0;
+    position: relative;
+  }
+  
+  .genealogy-children .genealogy-details {
+    border: none;
+    margin-top: 20px;
+    z-index: 2;
+  }
+  
+  .genealogy-children .genealogy-details h5 {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .genealogy-children .genealogy-details p {
+    margin: 0;
+    font-size: 12px;
+    color: #888;
+  }
+  
+  
+  
 </style>
 
 <div class="container-fluid">
@@ -158,354 +280,128 @@
             <div class="row">
                 <div class="body genealogy-body genealogy-scroll">
                     <div class="genealogy-tree">
-                        <ul>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="member-view-box">
-                                        <div class="member-image">
-                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg" alt="Member">
-                                            <div class="member-details">
-                                                <!-- {% for upa in upas %}
-                                                <h5>{{upa}}</h5>
-                                                <ul class="active">
-                                                    {% for j in upa.all %}
-                                                        {{j}}
-                                                    {% endfor %}
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>{{upa.left_upa}}</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>{{upa.middle_upa}}</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>{{upa.right_upa}}</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                                {% endfor %} -->
-                                            </div>
+                        {% for tree in tree_list %}
+                            <div class="genealogy-node">
+                                <div class="genealogy-details">
+                                <h5>{{ tree.user }}</h5>
+                                {% comment %} <p>UID No: {{ upa.uid_no }}</p> {% endcomment %}
+                                </div>
+                                <div class="genealogy-children">
+                                    {% if tree.left_leg %}
+                                        <div class="genealogy-node">
+                                        <div class="genealogy-details">
+                                            <h5>{{ tree.left_leg.user }}</h5>
+                                            {% comment %} <p>UID No: {{ tree.left_leg.uid_no }}</p> {% endcomment %}
                                         </div>
-                                    </div>
-                                </a>
-                                <ul class="active">
-                                    {% for upa in upas %}
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="member-view-box">
-                                                <div class="member-image">
-                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                        alt="Member">
-                                                    <div class="member-details">
-                                                        <h5>{{upa}}</h5>
-                                                    </div>
+                                        <div class="genealogy-children">
+                                            {% if tree.left_leg.left_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.left_leg.left_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.left_leg.left_leg.uid_no }}</p> {% endcomment %}
                                                 </div>
                                             </div>
-                                        </a>
-                                        <ul>
-                                            <!-- <li>
-                                                <a href="javascript:void(0);">
-                                                    <div class="member-view-box">
-                                                        <div class="member-image">
-                                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                alt="Member">
-                                                            <div class="member-details">
-                                                                <h3>Member 1-1</h3>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <div class="member-view-box">
-                                                        <div class="member-image">
-                                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                alt="Member">
-                                                            <div class="member-details">
-                                                                <h3>Member 1-2</h3>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li> -->
-                                            
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <div class="member-view-box">
-                                                        <div class="member-image">
-                                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                alt="Member">
-                                                            <div class="member-details">
-                                                                <h5>{{upa.left_upa}}</h5>
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="javascript:void(0);">
-                                                                            <div class="member-view-box">
-                                                                                <div class="member-image">
-                                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                                        alt="Member">
-                                                                                    <div class="member-details">
-                                                                                        <h5>{{j.left_upa}}</h5>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                
-                                            </li>
-                                
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <div class="member-view-box">
-                                                        <div class="member-image">
-                                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                alt="Member">
-                                                            <div class="member-details">
-                                                                <h5>{{upa.middle_upa}}</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <div class="member-view-box">
-                                                        <div class="member-image">
-                                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                alt="Member">
-                                                            <div class="member-details">
-                                                                <h5>{{upa.right_upa}}</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    {% endfor %}
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <div class="member-view-box">
-                                                <div class="member-image">
-                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                        alt="Member">
-                                                    <div class="member-details">
-                                                        <h5>Member 2</h5>
-                                                    </div>
+                                            {% endif %}
+                                            {% if tree.left_leg.middle_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.left_leg.middle_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.left_leg.middle_leg.uid_no }}</p> {% endcomment %}
                                                 </div>
                                             </div>
-                                        </a>
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <div class="member-view-box">
-                                                        <div class="member-image">
-                                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                alt="Member">
-                                                            <div class="member-details">
-                                                                <h5>John Doe</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <div class="member-view-box">
-                                                        <div class="member-image">
-                                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                alt="Member">
-                                                            <div class="member-details">
-                                                                <h5>John Doe</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <div class="member-view-box">
-                                                        <div class="member-image">
-                                                            <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                alt="Member">
-                                                            <div class="member-details">
-                                                                <h5>John Doe</h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">
-                                                            <div class="member-view-box">
-                                                                <div class="member-image">
-                                                                    <img src="https://image.flaticon.com/icons/svg/145/145867.svg"
-                                                                        alt="Member">
-                                                                    <div class="member-details">
-                                                                        <h5>John Doe</h5>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                                            {% endif %}
+                                            {% if tree.left_leg.right_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.left_leg.right_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.left_leg.right_leg.uid_no }}</p> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        </div>
+                                  {% endif %}
+
+                                  {% if tree.middle_leg %}
+                                        <div class="genealogy-node">
+                                        <div class="genealogy-details">
+                                            <h5>{{ tree.middle_leg.user }}</h5>
+                                            {% comment %} <p>UID No: {{ tree.middle.uid_no }}</p> {% endcomment %}
+                                        </div>
+                                        <div class="genealogy-children">
+                                            {% if tree.middle_leg.left_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.middle_leg.left_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.middle_leg.left_leg.uid_no }}</p> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if tree.middle_leg.middle_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.middle_leg.middle_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.middle_leg.middle_leg.uid_no }}</p> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if tree.middle_leg.right_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.middle_leg.right_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.middle_leg.right_leg.uid_no }}</p> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        </div>
+                                  {% endif %}
+
+                                  {% if tree.right_leg %}
+                                        <div class="genealogy-node">
+                                        <div class="genealogy-details">
+                                            <h5>{{ tree.right_leg.user }}</h5>
+                                            {% comment %} <p>UID No: {{ tree.middle.uid_no }}</p> {% endcomment %}
+                                        </div>
+                                        <div class="genealogy-children">
+                                            {% if tree.right_leg.left_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.right_leg.left_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.middle_leg.left_leg.uid_no }}</p> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if tree.middle_leg.middle_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.right_leg.middle_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.middle_leg.middle_leg.uid_no }}</p> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if tree.right_leg.right_leg %}
+                                            <div class="genealogy-node">
+                                                <div class="genealogy-details">
+                                                <h5>{{ tree.right_leg.right_leg.user }}</h5>
+                                                {% comment %} <p>UID No: {{ tree.middle_leg.right_leg.uid_no }}</p> {% endcomment %}
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        </div>
+                                  {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
+{% comment %} <script>
     $(function () {
         $('.genealogy-tree ul').hide();
         $('.genealogy-tree>ul').show();
@@ -518,5 +414,5 @@
         });
     });
 
-</script>
+</script> {% endcomment %}
 {% endblock content %}
