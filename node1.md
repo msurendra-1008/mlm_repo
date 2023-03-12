@@ -59,3 +59,10 @@ server {
 sudo systemctl daemon-restart
 sudo systemctl restart junicorn
 sudo systemctl restart nginx
+
+
+
+
+what to do
+
+jabl krte hain to dropdown open nhi ho rha ha... to kaise kre logout.?
