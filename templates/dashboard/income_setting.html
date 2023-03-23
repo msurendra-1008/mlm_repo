@@ -67,15 +67,15 @@
                     <tbody>
                         {% for i in incomes %}
                         <tr>
-                            <td>{{forloop.counter}}</td>
-                            <td>{{i.child_one}}</td>
-                            <td>{{i.child_two}}</td>
-                            <td>{{i.child_three}}</td>
-                            <td>-</td>
-                            <td>{{i.income}}</td>
+                            <td class="text-center">{{forloop.counter}}</td>
+                            <td class="text-center">{{i.child_one}}</td>
+                            <td class="text-center">{{i.child_two}}</td>
+                            <td class="text-center">{{i.child_three}}</td>
+                            <td class="text-center">{{i.previous_income}}</td>
+                            <td class="text-center">{{i.income}}</td>
                             <td>
                                 <a href="{% url 'update-income-setting' i.pk %}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
-                                <a href="" class="btn btn-outline-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <a href="{% url 'delete-income-setting' i.pk %}" class="btn btn-outline-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -100,13 +100,13 @@
                   <tbody>
                       {% for i in income_for_others %}
                       <tr>
-                          <td>{{forloop.counter}}</td>
-                          <td>{{i.category_type}}</td>
-                          <td></td>
-                          <td>{{i.income}}</td>
+                          <td class="text-center">{{forloop.counter}}</td>
+                          <td class="text-center">{{i.category_type}}</td>
+                          <td class="text-center">{{i.previous_income_for_women_old}}</td>
+                          <td class="text-center">{{i.income}}</td>
                           <td>
                               <a href="{% url 'update-income-setting-for-women-old' i.pk%}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
-                              <a href="" class="btn btn-outline-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a> 
+                              <a href="{% url 'delete-income-setting-for-women-old' i.pk%}" class="btn btn-outline-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a> 
 
                           </td>
                       </tr>

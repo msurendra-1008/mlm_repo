@@ -45,6 +45,7 @@ class IncomeSetting(models.Model):
     child_two               = models.CharField(max_length=15,choices=CHILD_TYPE,blank=True, null=True)
     child_three             = models.CharField(max_length=15,choices=CHILD_TYPE,blank=True, null=True)
     income                  = models.PositiveIntegerField(default=0,blank=True, null=True)
+    previous_income         = models.PositiveIntegerField(default=0,blank=True, null=True)
     created_date            = models.DateField(auto_now_add=True)
     updated_date            = models.DateField(auto_now=True)
 
@@ -65,6 +66,7 @@ class IncomeSettingForWomenOld(models.Model):
     updated_by = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True,null=True,related_name='income_setting_for_old_women_update')
     category_type = models.CharField(max_length=15,choices=CATEGORY_TYPE,blank=True, null=True)
     income = models.PositiveIntegerField(default=0,blank=True, null=True)
+    previous_income_for_women_old = models.PositiveIntegerField(default=0,blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateField(auto_now=True)
 

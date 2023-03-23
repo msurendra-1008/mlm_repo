@@ -1,3 +1,5 @@
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib import messages
 from accounts.models import Profile
 
 '''
@@ -24,3 +26,10 @@ def build_tree(user, level=0):
         tree['right_leg'] = build_tree(profile.right_upa, level+1)
         
     return tree
+
+
+def delete_income_object(request, model, pk, redirect_url):
+    obj = get_object_or_404(model, pk=pk)
+    obj.delete()
+    messages.success(request, f"{model.__name__} delete successfully!")
+    return redirect(redirect_url)
