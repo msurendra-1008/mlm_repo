@@ -2,6 +2,7 @@ from mimetypes import init
 import pdb
 from django.http.response import HttpResponse
 from django.template import context
+from django.shortcuts import redirect, get_object_or_404
 from dashboard.forms import *
 from upa.models import AdditionalDetails, BasicDetails, BeneficiaryDetails, BussinessCardFees, Enrollment, OperationMode, PersonalInformation, ServiceRequired, SponsorIntroductionDetail, UPAAddress, UPAIdentityProof
 from django.shortcuts import redirect, render
@@ -196,12 +197,14 @@ def income_setting(request):
 
 def update_income_setting(request,pk):
     incomes = IncomeSetting.objects.get(pk=pk)
+    old_incomes = incomes.income
     form = IncomeSettingForm(instance=incomes)
     if request.method == "POST":
         form = IncomeSettingForm(request.POST,instance=incomes)
         if form.is_valid():
             qs = form.save(commit=False)
             qs.updated_by = request.user
+            qs.previous_income = old_incomes
             qs.save()
             return redirect('income-setting')
     context = {'incomes':incomes,'form':form}
@@ -209,12 +212,14 @@ def update_income_setting(request,pk):
 
 def update_income_setting_for_women_old(request,pk):
     incomes = IncomeSettingForWomenOld.objects.get(pk=pk)
+    old_income = incomes.income
     form = IncomeSettingForWomenOldForm(instance=incomes)
     if request.method == "POST":
         form = IncomeSettingForm(request.POST,instance=incomes)
         if form.is_valid():
             qs = form.save(commit=False)
             qs.updated_by = request.user
+            qs.previous_income_for_women_old = old_income
             qs.save()
             return redirect('income-setting')
     context = {'incomes':incomes,'form':form}
@@ -248,6 +253,20 @@ def create_income_for_women_old(request):
             return redirect('income-setting')
     context = {'form':form}
     return render(request,'dashboard/income_setting_women_old_form.html',context)
+
+def delete_income_setting(request, pk):
+    # qs = get_object_or_404(IncomeSetting, pk=pk)
+    # qs.delete()
+    # return redirect('income-setting')
+    res = delete_income_object(request, IncomeSetting, pk, 'income-setting')
+    return res
+
+def delete_income_setting_for_women_old(request, pk):
+    # qs = get_object_or_404(IncomeSettingForWomenOld, pk=pk)
+    # qs.delete()
+    # return redirect('income-setting')
+    res = delete_income_object(request, IncomeSettingForWomenOld, pk, 'income-setting')
+    return res
 
 '''
 here we can view the all upa details of the according to the form section

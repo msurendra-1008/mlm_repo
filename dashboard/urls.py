@@ -17,6 +17,8 @@ urlpatterns = [
 
     path('create_income_setting/',create_income_setting,name="create-income-setting"),
     path('income_setting_women_old/',create_income_for_women_old,name="income-setting-for-women-old"),
+    path('delete_income_setting/<int:pk>/',delete_income_setting,name="delete-income-setting"),
+    path('delete_income_setting_for_women_old/<int:pk>/',delete_income_setting_for_women_old,name="delete-income-setting-for-women-old"),
     path('upa_view_form_wise/',upa_view_form_wise,name="upa-view-form-wise"),
     path('firm_list/',firm_list,name="firm-list"),
     path('firm_detail/<int:pk>/',firm_detail,name="firm-detail"),

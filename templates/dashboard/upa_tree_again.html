@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ header }}</h1>
+    <ul>
+      {% for node in tree_list %}
+        <li>
+          {{ node.name }}
+          {% if node.left_child or node.right_child %}
+            <ul>
+              {% if node.left_child %}
+                <li>Left: {{ node.left_child.name }}</li>
+              {% endif %}
+              {% if node.middle_child %}
+                <li>Middle: {{ node.middle_child.name }}</li>
+              {% endif %}
+              {% if node.right_child %}
+                <li>Right: {{ node.right_child.name }}</li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+{% endblock content%}
