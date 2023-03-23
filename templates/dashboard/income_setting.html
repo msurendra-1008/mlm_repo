@@ -54,7 +54,7 @@
             <!-- <div class="row"> -->
                 <table class="table table-striped table-hover table-bordered align-middle mb-5">
                     <thead class="theme_nav">
-                        <tr>
+                        <tr class="text-center">
                             <th>S.No.</th>
                             <th scope="col">Leg 1</th>
                             <th scope="col">Leg 2</th>
@@ -73,8 +73,8 @@
                             <td class="text-center">{{i.child_three}}</td>
                             <td class="text-center">{{i.previous_income}}</td>
                             <td class="text-center">{{i.income}}</td>
-                            <td>
-                                <a href="{% url 'update-income-setting' i.pk %}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
+                            <td class="text-center">
+                                <a href="{% url 'update-income-setting' i.pk %}" class="btn btn-outline-success" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
                                 <a href="{% url 'delete-income-setting' i.pk %}" class="btn btn-outline-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </td>
                         </tr>
@@ -89,7 +89,7 @@
                 <h6 class="fs-5 fw-dark mb-4 text-center"> Monthly Incentive Plus Income Slab For BPL, Handicap, Child Below 18 Years, Mature Female & Senior Citizen</h6>
                 <table class="table table-striped table-hover table-bordered align-middle mb-5"> 
                   <thead class="theme_nav">
-                      <tr>
+                      <tr class="text-center">
                           <th>S.No.</th>
                           <th scope="col">Category Type</th>
                           <th scope="col"> Previous Income</th>
@@ -104,8 +104,8 @@
                           <td class="text-center">{{i.category_type}}</td>
                           <td class="text-center">{{i.previous_income_for_women_old}}</td>
                           <td class="text-center">{{i.income}}</td>
-                          <td>
-                              <a href="{% url 'update-income-setting-for-women-old' i.pk%}" class="btn btn-outline" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
+                          <td class="text-center">
+                              <a href="{% url 'update-income-setting-for-women-old' i.pk%}" class="btn btn-outline-success" id="edit" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
                               <a href="{% url 'delete-income-setting-for-women-old' i.pk%}" class="btn btn-outline-danger" id="delete" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a> 
 
                           </td>
