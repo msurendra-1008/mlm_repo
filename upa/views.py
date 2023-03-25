@@ -1,6 +1,6 @@
 from upa.admin import ChangeOperationModeRecordAdmin
 from django.http.response import HttpResponse
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import View, TemplateView
 # from django.core.urlresolvers import resolve
@@ -518,8 +518,10 @@ class ChangeAddressView(LoginRequiredMixin,View):
 
     def get(self,request,*args,**kwargs):
         profile = Profile.objects.get(id=kwargs['id'])
-        print(profile)
-        add = UPAAddress.objects.get(user_id = profile.id)
+        try: 
+            add = UPAAddress.objects.get(user_id = profile.id)
+        except UPAAddress.DoesNotExist:
+            add= None
         form = ChangeAddressRecordForm(instance=add)
         context = {'form':form}
         return render(request,'upa/change_address_form.html',context)
@@ -542,7 +544,10 @@ class ChangeAdditionalRecordView(LoginRequiredMixin,View):
 
     def get(self,request,*arsgs,**kwargs):
         profile = Profile.objects.get(id=kwargs['id'])
-        additional = AdditionalDetails.objects.get(user_id = profile.id)
+        try:
+            additional = AdditionalDetails.objects.get(user_id = profile.id)
+        except AdditionalDetails.DoesNotExist:
+            additional = None
         form = ChangeAdditionalRecordForm(instance=additional)
         context = {'form':form}
         return render(request,'upa/change_additional_form.html',context)
@@ -565,7 +570,10 @@ class ChangeBeneficiaryRecordView(LoginRequiredMixin,View):
 
     def get(self,request,*args,**kwargs):
         profile = Profile.objects.get(id=kwargs['id'])
-        bene = BeneficiaryDetails.objects.get(user_id = profile.id)
+        try:
+            bene = BeneficiaryDetails.objects.get(user_id = profile.id)
+        except BeneficiaryDetails.DoesNotExist:
+            bene = None
         form = BeneficiaryDetailsForm(instance=bene)
         context = {'form':form,'profile':profile}
         return render(request,'upa/change_beneficiary_form.html',context)
@@ -588,7 +596,10 @@ class ChangeServiceRequiredRecordView(LoginRequiredMixin,View):
 
     def get(self,request,*args,**kwargs):
         profile = Profile.objects.get(id=kwargs['id'])
-        ser = ServiceRequired.objects.get(user_id = profile.id)
+        try:
+            ser = ServiceRequired.objects.get(user_id = profile.id)
+        except ServiceRequired.DoesNotExist:
+            ser = None
         form = ChangeServiceRequiredRecordForm(instance=ser)
         context = {'form':form,'profile':profile}
         return render(request,'upa/change_service_required_form.html',context)
@@ -611,7 +622,10 @@ class ChangeOperationModeRecordView(LoginRequiredMixin,View):
     
     def get(self,request,*args,**kwargs):
         profile = Profile.objects.get(id=kwargs['id'])
-        oper = OperationMode.objects.get(user_id = profile.id)
+        try:
+            oper = OperationMode.objects.get(user_id = profile.id)
+        except OperationMode.DoesNotExist:
+            oper = None
         form = ChangeOperationModeRecordForm(instance=oper)
         context = {'form':form}
         return render(request,'upa/change_operation_mode_form.html',context)
