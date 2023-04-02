@@ -44,54 +44,155 @@ def upa_list(request):
     return render(request,'dashboard/upa_list.html',context)
 
 @admin_only
-def upa_view(request,pk):
-    upa_details = Profile.objects.get(pk=pk)
+def upa_view(request, pk):
+    # Try to retrieve the Profile object with the given primary key. If it doesn't exist, return a 404 error.
+    upa_details = get_object_or_404(Profile, pk=pk)
+
+    # Initialize all the objects to None, so we can return them as part of the context even if we can't retrieve them from the database.
     left_uid_no = None
     middle_uid_no = None
     right_uid_no = None
-    basic=None
-    personal=None
-    upa_add=None
-    additional=None
-    upa_identity=None
-    beneficiary=None
-    sponsor_details=None
-    service=None
-    operations=None
-    try:
-        left_uid_no = Profile.objects.get(user_id = upa_details.left_upa.id)
-        middle_uid_no = Profile.objects.get(user_id = upa_details.middle_upa.id)
-        right_uid_no = Profile.objects.get(user_id = upa_details.right_upa.id)
-
-        # upa details
-        basic = BasicDetails.objects.get(user_id = upa_details.id)
-        personal = PersonalInformation.objects.get(user_id = upa_details.id)
-        upa_add = UPAAddress.objects.get(user_id = upa_details.id)
-        additional = AdditionalDetails.objects.get(user_id = upa_details.id)
-        upa_identity = UPAIdentityProof.objects.get(user_id = upa_details.id)
-        beneficiary = BeneficiaryDetails.objects.get(user_id = upa_details.id)
-        sponsor_details = SponsorIntroductionDetail.objects.get(user_id = upa_details.id)
-        service = ServiceRequired.objects.get(user_id = upa_details.id)
-        operations = OperationMode.objects.get(user_id = upa_details.id)
-       
-    except:
-        pass
+    basic = None
+    personal = None
+    upa_add = None
+    additional = None
+    upa_identity = None
+    beneficiary = None
+    sponsor_details = None
+    service = None
+    operations = None
     
-    context = {'upa_details':upa_details,
-                'left_uid_no':left_uid_no,
-                'middle_uid_no':middle_uid_no,
-                'right_uid_no':right_uid_no,
-                'basic':basic,
-                'personal':personal,
-                'upa_add':upa_add,
-                'additional':additional,
-                'upa_identity':upa_identity,
-                'beneficiary':beneficiary,
-                'sponsor_details':sponsor_details,
-                'service':service,
-                'operations':operations,
+    try:
+        # Try to retrieve the left, middle, and right upa details. If any of them don't exist, set the corresponding object to None.
+        left_upa_details = upa_details.left_upa
+        left_uid_no = Profile.objects.get(user_id=left_upa_details.id)
+    except (Profile.DoesNotExist, AttributeError):
+        pass
+
+    try:
+        middle_upa_details = upa_details.middle_upa
+        middle_uid_no = Profile.objects.get(user_id=middle_upa_details.id)
+    except (Profile.DoesNotExist, AttributeError):
+        pass
+
+    try:
+        right_upa_details = upa_details.right_upa
+        right_uid_no = Profile.objects.get(user_id=right_upa_details.id)
+    except (Profile.DoesNotExist, AttributeError):
+        pass
+
+    # Try to retrieve all the other objects. If any of them don't exist, set the corresponding object to None.
+    try:
+        basic = BasicDetails.objects.get(user_id=upa_details.id)
+    except BasicDetails.DoesNotExist:
+        pass
+
+    try:
+        personal = PersonalInformation.objects.get(user_id=upa_details.id)
+    except PersonalInformation.DoesNotExist:
+        pass
+
+    try:
+        upa_add = UPAAddress.objects.get(user_id=upa_details.id)
+    except UPAAddress.DoesNotExist:
+        pass
+
+    try:
+        additional = AdditionalDetails.objects.get(user_id=upa_details.id)
+    except AdditionalDetails.DoesNotExist:
+        pass
+
+    try:
+        upa_identity = UPAIdentityProof.objects.get(user_id=upa_details.id)
+    except UPAIdentityProof.DoesNotExist:
+        pass
+
+    try:
+        beneficiary = BeneficiaryDetails.objects.get(user_id=upa_details.id)
+    except BeneficiaryDetails.DoesNotExist:
+        pass
+
+    try:
+        sponsor_details = SponsorIntroductionDetail.objects.get(user_id=upa_details.id)
+    except SponsorIntroductionDetail.DoesNotExist:
+        pass
+
+    try:
+        service = ServiceRequired.objects.get(user_id=upa_details.id)
+    except ServiceRequired.DoesNotExist:
+        pass
+
+    try:
+        operations = OperationMode.objects.get(user_id=upa_details.id)
+    except OperationMode.DoesNotExist:
+        pass
+
+    context = {
+        'upa_details': upa_details,
+        'left_uid_no': left_uid_no,
+        'middle_uid_no': middle_uid_no,
+        'right_uid_no': right_uid_no,
+        'basic': basic,
+        'personal': personal,
+        'upa_add': upa_add,
+        'additional': additional,
+        'upa_identity': upa_identity,
+        'beneficiary': beneficiary,
+        'sponsor_details': sponsor_details,
+        'service': service,
+        'operations': operations,
     }
-    return render(request,'dashboard/upa_detail.html',context)
+    return render(request, 'dashboard/upa_detail.html', context)
+# def upa_view(request,pk):
+#     upa_details = Profile.objects.get(pk=pk)
+#     left_uid_no = None
+#     middle_uid_no = None
+#     right_uid_no = None
+#     basic=None
+#     personal=""
+#     print("getting personal", personal)
+#     upa_add=None
+#     additional=None
+#     upa_identity=None
+#     beneficiary=None
+#     sponsor_details=None
+#     service=None
+#     operations=None
+#     # try:
+#     left_uid_no = Profile.objects.get(user_id = upa_details.left_upa.id)
+#     middle_uid_no = Profile.objects.get(user_id = upa_details.middle_upa.id)
+#     right_uid_no = Profile.objects.get(user_id = upa_details.right_upa.id)
+
+#     # upa details
+#     basic = BasicDetails.objects.get(user_id = upa_details.id)
+#     personal = PersonalInformation.objects.get(user_id = upa_details.id)
+#     print("getting personal details: ",personal)
+#     upa_add = UPAAddress.objects.get(user_id = upa_details.id)
+#     additional = AdditionalDetails.objects.get(user_id = upa_details.id)
+#     upa_identity = UPAIdentityProof.objects.get(user_id = upa_details.id)
+#     beneficiary = BeneficiaryDetails.objects.get(user_id = upa_details.id)
+#     sponsor_details = SponsorIntroductionDetail.objects.get(user_id = upa_details.id)
+#     service = ServiceRequired.objects.get(user_id = upa_details.id)
+#     operations = OperationMode.objects.get(user_id = upa_details.id)
+       
+#     # except:
+#         # pass
+    
+#     context = {'upa_details':upa_details,
+#                 'left_uid_no':left_uid_no,
+#                 'middle_uid_no':middle_uid_no,
+#                 'right_uid_no':right_uid_no,
+#                 'basic':basic,
+#                 'personal':personal,
+#                 'upa_add':upa_add,
+#                 'additional':additional,
+#                 'upa_identity':upa_identity,
+#                 'beneficiary':beneficiary,
+#                 'sponsor_details':sponsor_details,
+#                 'service':service,
+#                 'operations':operations,
+#     }
+#     return render(request,'dashboard/upa_detail.html',context)
 
 
 
