@@ -17,7 +17,7 @@ class UPAChangeRequestForm(forms.ModelForm):
 
     class Meta:
         model = UPAChangeRequest
-        fields = ['upa_id','subject','message']
+        fields = ['upa_id','subject','message','form_name']
 
     # def clean(self):
     #     super(UPAChangeRequestForm,self).clean()

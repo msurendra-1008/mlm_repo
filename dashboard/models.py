@@ -12,12 +12,20 @@ class UPAChangeRequest(models.Model):
         ('Pending','Pending'),
         ('Read','Read'),
     )
+    FORM_TYPE = (
+        ('Address Form', 'Address Form'),
+        ('Additional Detail Form', 'Additional Detail Form'),
+        ('Beneficiary Detail Form', 'Beneficiary Detail Form'),
+        ('Service Required Form', 'Service Required Form'),
+        ('Operation Mode Form', 'Operation Mode Form'),
+    )
     user = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=True, null=True,related_name="changes_request")
     upa_id = models.CharField(max_length=20,blank=True, null=True)
     subject = models.CharField(max_length=100,blank=True, null=True)
     message = models.TextField(blank=True, null=True)
     request_no = models.PositiveIntegerField(blank=True, null=True)
     request_date = models.DateField(auto_now=True,blank=True, null=True)
+    form_name = models.CharField(max_length=25,choices=FORM_TYPE,default="",blank=True, null=True)
     status = models.CharField(max_length=20,choices=REQUEST_STATUS,default="Pending",blank=True, null=True)
     reply_message = models.TextField(blank=True, null=True)
     def __str__(self):
