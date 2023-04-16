@@ -8,7 +8,7 @@ from upa.models import AdditionalDetails, BasicDetails, BeneficiaryDetails, Buss
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from accounts.models import Profile
-from datetime import date
+from datetime import date, datetime
 from .decorators import admin_only
 from .models import *
 from django.template.loader import render_to_string
@@ -437,7 +437,14 @@ def tender_display(request):
     return render(request,'dashboard/tender_display.html',context)
 
 def newest_raised_tender_list(request):
-    tenders = TenderProduct.objects.filter(active=True).order_by('-id')
+    now = date.today()
+    print("current date:",now)
+    tenders = TenderProduct.objects.filter(
+        active=True,
+        created_at__year = now.year,
+        created_at__month = now.month
+        ).order_by('-id')
+    print("tenders")
     context = {'tenders':tenders}
     return render(request,'dashboard/newest_raised_tender_list.html',context)
 
@@ -650,8 +657,8 @@ def new_tender_edit_from_Admin(request):
 
 def approvedToOpenForTender(request):
     if request.method == "GET":
-        import pdb
-        pdb.set_trace()
+        # import pdb
+        # pdb.set_trace()
         pk = request.GET['id']
         qs = TenderProduct.objects.get(pk=pk)
         print(qs)

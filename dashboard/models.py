@@ -135,7 +135,7 @@ class FirmRegistration(models.Model):
     def __str__(self):
         return f"{self.firm_name}"
 
-
+from django.utils import timezone
 class TenderProduct(models.Model):
     tender_product_no = models.PositiveIntegerField(unique=True,blank=True, null=True)
     product_image = models.ImageField(upload_to = "tender_product/image/",blank=True, null=True)
@@ -145,11 +145,17 @@ class TenderProduct(models.Model):
     tender_date = models.DateTimeField(blank=True, null=True)
     tender_product_quantity = models.PositiveIntegerField(blank=True, null=True)
     total_product_quantity_by_vendor = models.IntegerField(blank=True, null=True,default=0)
+    created_at = models.DateTimeField(blank=True, null=True, default=None)
     created_by = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True,related_name="create_tender")
     updated_by = models.ForeignKey(User,on_delete=models.SET_NULL,blank=True, null=True,related_name="update_tender")
 
     def __str__(self):
         return f'{self.product_name}'
+    
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.created_at = timezone.now()
+        super().save(*args, **kwargs)
 
     @property
     def tenderImageURL(self):
