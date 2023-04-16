@@ -8,9 +8,10 @@
         <div class="col">
             <h3 class=" text-center m-5">Total E-Tender List</h3>
             <a href="{% url 'create-tender' %}" class="btn btn-outline-primary mt-2">Create Tender</a>
+            <a href="{% url 'newest_raised_tender_list' %}" class="btn btn-outline-danger mt-2">Updated Tender</a>
             <a href="{% url 'tender_compare_negotiate_list' %}" class="btn btn-outline-danger mt-2">Compare & Negotiate List</a>
             <a href="{% url 'tender_fill_list' %}" class="btn btn-outline-danger mt-2">Go To Tender</a>
-            <a href="{% url 'newest_raised_tender_list' %}" class="btn btn-outline-danger mt-2">Updated Tender</a>
+            <a href="{% url 'created-tender-edit-from-admin' %}" class="btn btn-outline-primary mt-2" style="position: absolute; right: 0;">Go To Tender Approval Section</a>
             <hr>
             <!-- <div class="row"> -->
               <table class="table table-striped table-hover table-bordered align-middle mb-5">
@@ -37,7 +38,7 @@
                         <td>{{tender.active}}</td>
                         <td>
                         
-                            <a href="{% url 'tender_fillup'%}?id={{tender.pk}}" class="btn btn-outline-success" title="Fill Tender Form"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            {% comment %} <a href="{% url 'tender_fillup'%}?id={{tender.pk}}" class="btn btn-outline-success" title="Fill Tender Form"><i class="fa fa-pencil" aria-hidden="true"></i></a> {% endcomment %}
                             <a href="{% url 'update-created-tender' tender.pk %}" class="btn btn-outline-danger" title="Update"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <a href="{% url 'compare-list-particular-tender' tender.pk %}" class="btn btn-outline-success" title="Compare">Compare</a>
                         </td>
