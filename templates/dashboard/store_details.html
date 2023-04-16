@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        
+        <div class="col">
+            <h3 class="text-center m-5">Store Details</h3>
+           <a href="{% url 'product-updated-list'%}" class="btn btn-outline-primary">Updated Product List</a> 
+           <a href="{% url 'product-all-list'%}" class="btn btn-outline-primary">All Product List</a> 
+           <hr>
+            <!-- <div class="row"> -->
+                <table class="table table-striped table-hover table-bordered align-middle mb-5">
+                    <thead class="theme_nav">
+                        <tr>
+                            <th>Store Location</th>
+                            <td>{{ stores.location }}</td>
+                        </tr>
+                        <tr>
+                            <th>Store Name</th>
+                            <td>{{ stores.store_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Store Capacity</th>
+                            <td>{{ stores.store_size }}</td>
+                        </tr>
+                        <tr>
+                            <th>Racks No. In Store</th>
+                            <td>{{ stores.no_of_racks }}</td>
+                        </tr>
+                        <tr>
+                            <th>Section In Racks</th>
+                            <td>{{ stores.avg_section_rack }}</td>
+                        </tr>
+                        <tr>
+                            <th>Active</th>
+                            <td>{{ stores.store_Status }}</td>
+                        </tr>
+                    </thead>
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+    

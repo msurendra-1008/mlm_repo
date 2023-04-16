@@ -832,6 +832,11 @@ def store_list(request):
     context = {'stores':qs}
     return render(request,'dashboard/store_list.html',context)
 
+def store_detail(request, pk):
+    qs = StoreKeepingUnit.objects.get(pk=pk)
+    print("details",qs)
+    context = {'stores':qs}
+    return render(request, 'dashboard/store_details.html', context)
 
 def store_creation(request):
     page_name = "Store Creation Form"

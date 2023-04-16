@@ -65,6 +65,7 @@ urlpatterns = [
 
     # store section
     path('store_list/',store_list,name="store-list"),
+    path('store/<int:pk>',store_detail,name="store-details"),
     path('store_creation/',store_creation,name="store-creation"),
     path('update_store_creation/<int:pk>/',update_store_creation,name="update-store-creation"),
     path('product_addition_in_store/<int:pk>/',product_addition_in_store,name="product-addition-in-store"),
