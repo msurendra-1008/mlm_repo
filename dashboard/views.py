@@ -891,3 +891,8 @@ def product_all_list(request):
     qs = ProductInStore.objects.all()
     context = {'products':qs}
     return render(request,'dashboard/all_product_list.html',context)
+
+
+def store_product_sales_details(request):
+    context = {}
+    return render(request, 'dashboard/store_product_sales_details.html', context)

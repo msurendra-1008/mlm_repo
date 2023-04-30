@@ -9,6 +9,12 @@
             <h3 class="text-center m-5">Updated Products List</h3>
            
             <hr>
+            <form method="GET">
+                <div class="input-group mb-3">
+                  <input type="text" name="q" class="form-control" placeholder="Search for Row" aria-label="Search for products" aria-describedby="search-button" style="max-width: 250px;" value="{{request.GET.q}}">
+                  <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+                </div>
+              </form>
             <!-- <div class="row"> -->
                 <table class="table table-striped table-hover table-bordered align-middle mb-5">
                     <thead class="theme_nav">

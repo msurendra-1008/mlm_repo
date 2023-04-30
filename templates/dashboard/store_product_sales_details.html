@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        
+        <div class="col">
+            <h3 class="text-center m-5">Individuals Product Sale Details</h3>
+           <a href="{% url 'product-updated-list'%}" class="btn btn-outline-primary">Updated Product List</a> 
+           <a href="{% url 'product-all-list'%}" class="btn btn-outline-primary">All Product List</a> 
+           <hr>
+            <!-- <div class="row"> -->
+                <table class="table table-striped table-hover table-bordered align-middle mb-5">
+                    <thead class="theme_nav">
+                        <tr>
+                            <th>S.No</th>
+                            <th>Product Code</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Store Name</th>
+                            <th>View Yearly Sales</th>
+                            <th>View Monthly Sales</th>
+                            <th>View Daily Sales</th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                      
+                    <tr>
+                        <td>1</td>
+                        <td>Testing</td>
+                        <td>Testing</td>
+                        <td>Test</td>
+                        <td>XYZ</td>
+                        <td><a href="" class="btn btn-outline-success" title="Yearly Sales Details"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                        <td><a href="" class="btn btn-outline-success" title="Monthly Sales Details"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                        <td><a href="" class="btn btn-outline-success" title="Daily Sales Details"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                    </tr>
+                   
+                    </tbody>
+                </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+    
