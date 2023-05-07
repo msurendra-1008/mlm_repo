@@ -896,3 +896,16 @@ def product_all_list(request):
 def store_product_sales_details(request):
     context = {}
     return render(request, 'dashboard/store_product_sales_details.html', context)
+
+# to display all the location on which active/inactive store are running.
+def store_locations(request):
+    qs = StoreLocationDefinition.objects.all()
+    context = {'locations':qs}
+    return render(request, 'dashboard/store_locations.html',context)
+
+def store_locations_details(request, pk):
+    # want to check which store is linked with the particular location
+    location_name = StoreLocationDefinition.objects.get(pk=pk)
+    location_wise_store = StoreKeepingUnit.objects.filter(location__pk=pk)
+    context = {'locations':location_wise_store, 'location_name':location_name} #'location_name':location_wise_store.location.location_name
+    return render(request, 'dashboard/store_location_details.html', context)
