@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .card {
+        background-color: #d3d5fd;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .card-body {
+        color: #212529;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        
+        <div class="col">
+            <h3 class="text-center m-5">Location Name : {{location_name}}</h3>
+            <hr>
+            <div class="row">
+                {% for location in locations%}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">Store Name : <strong>{{location.store_name}}</strong></p>
+                            {% comment %} <p class="card-text">Address : This is the first card.</p> {% endcomment %}
+                            <a href="" class="btn btn-success mt-2">Location Details</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            <!-- <div class="row"> -->
+                
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+    

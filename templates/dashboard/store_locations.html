@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .card {
+        background-color: #d3d5fd;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .card-body {
+        color: #212529;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+</style>
+
+<div class="container-fluid">
+    {% comment %} <div class="row flex-nowrap"> {% endcomment %}
+    <h3 class="text-center m-5">All Location Collection</h3>
+    <hr>
+    {% comment %} <div class="container mt-5"> {% endcomment %}
+		<div class="row">
+            {% for location in locations%}
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<p class="card-title">Location Name : <strong>{{location.locatio_name}}</strong></p>
+						{% comment %} <p class="card-text">Address : This is the first card.</p> {% endcomment %}
+						<a href="{% url 'store-locations-details' location.pk%}" class="btn btn-success mt-2">Location Details</a>
+					</div>
+				</div>
+			</div>
+            {% endfor %}
+			{% comment %} <div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Card 2</h5>
+						<p class="card-text">This is the second card.</p>
+						<a href="#" class="btn btn-primary">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Card 3</h5>
+						<p class="card-text">This is the third card.</p>
+						<a href="#" class="btn btn-primary">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Card 4</h5>
+						<p class="card-text">This is the fourth card.</p>
+						<a href="#" class="btn btn-primary">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Card 5</h5>
+						<p class="card-text">This is the fifth card.</p>
+						<a href="#" class="btn btn-primary">Read More</a>
+					</div>
+				</div>
+			</div> {% endcomment %}
+        </div>
+    {% comment %} </div> {% endcomment %}
+</div>
+
+{% endblock content %}

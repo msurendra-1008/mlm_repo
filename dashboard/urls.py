@@ -72,5 +72,7 @@ urlpatterns = [
     path('product_updated_list/',product_updated_list,name="product-updated-list"),
     path('product_all_list/',product_all_list,name="product-all-list"),
     path('store_product_sales_details/',store_product_sales_details,name="store-product-sales-details"),
+    path('store_locations/',store_locations,name="store-locations"), # it will show the all the location name of active/inactive store 
+    path('store_locations_details/<int:pk>/',store_locations_details,name="store-locations-details"), 
 
 ]
