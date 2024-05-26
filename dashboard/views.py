@@ -316,7 +316,7 @@ def update_income_setting_for_women_old(request,pk):
     old_income = incomes.income
     form = IncomeSettingForWomenOldForm(instance=incomes)
     if request.method == "POST":
-        form = IncomeSettingForm(request.POST,instance=incomes)
+        form = IncomeSettingForWomenOldForm(request.POST,instance=incomes)
         if form.is_valid():
             qs = form.save(commit=False)
             qs.updated_by = request.user
@@ -852,7 +852,7 @@ def store_creation(request):
     return render(request,'dashboard/store_creation_form.html',context)
 
 def update_store_creation(request,pk):
-    page_name = "Update Store Creation Form"
+    page_name = "Update/Edit Store Creation Form"
     qss = StoreKeepingUnit.objects.get(pk=pk)
     form = StoreKeepingUnitForm(instance=qss)
     if request.method == "POST":
